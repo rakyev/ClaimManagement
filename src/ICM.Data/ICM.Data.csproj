@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A6C92AA-47AB-46D3-B20F-105EE97E410F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ICM.Data</RootNamespace>
+    <AssemblyName>ICM.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\lib\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\lib\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityBooking.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityBookingBookingType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityBookingType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivitySubType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Adjuster.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResource.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceAvailableTime.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceBookingType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceChargeOutRate.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceChargeOutType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceDayOff.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceNationalHoliday.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceResourceType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentResourceType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BenefitType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseActivity.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseBenefit.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseContact.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseContactRelationship.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseContactSpeciality.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseContactType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseInjury.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseManagement.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseMVA.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseNote.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseProvider.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaseType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientCase.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientContact.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientContactRelationship.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientContactSpeciality.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientContactType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyBranch.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DayofWeek.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoodAndService.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoodAndServiceType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ICMDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICMDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ICMDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ICMDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICMDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="InjuryCode.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InjuryCodeCategoryType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InjuryCodeSeriesType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceCompany.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceCompanyBranch.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Language.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaritalState.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Measure.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentType.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prefix.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceOrState.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSAuditActivity.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSAuditDataAction.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSAuditDataField.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSAuditEvent.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSPermission.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSPreference.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSProject.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSRestriction.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSRestrictionItem.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSRole.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSRolesXPermission.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSUser.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSUsersXPermission.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SFSUsersXRole.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkedulexMessage.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StandardInvoice.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StandardInvoiceLineItem.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StandardInvoicePayment.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserExtendedInformation.cs">
+      <DependentUpon>ICMDataModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ICMDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ICMDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ICMDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ICMDataModel.edmx</DependentUpon>
+      <LastGenOutput>ICMDataModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ICMDataModel.edmx.diagram">
+      <DependentUpon>ICMDataModel.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ICMDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ICMDataModel.edmx</DependentUpon>
+      <LastGenOutput>ICMDataModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

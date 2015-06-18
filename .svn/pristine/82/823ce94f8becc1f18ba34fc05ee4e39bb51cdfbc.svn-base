@@ -1,0 +1,249 @@
+﻿@model ICM.Web.Models.ClientModels
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <hr />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <b> Details</b>
+        </div>
+        <div class="panel-body">
+           <div class="list-group">
+               <dl class="dl-horizontal">
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.FirstName)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.FirstName)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.MiddleName)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.MiddleName)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.LastName)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.LastName)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.Suffix)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.Suffix)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.DateofBirth)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px; background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.DateofBirth)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.Address1)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.Address1)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.Address2)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.Address2)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.City)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.City)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.PostalCodeOrZipCode)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.PostalCodeOrZipCode)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.HomePhone)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.HomePhone)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.CellPhone)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px; background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.CellPhone)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.PersanalFax)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.PersanalFax)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.PersonalEmail)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.PersonalEmail)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.SocialInsuranceNumber)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.SocialInsuranceNumber)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.HealthCardNumber)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.HealthCardNumber)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.DriversLicenseNumber)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.DriversLicenseNumber)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.Weight)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.Weight)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.Height)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.Height)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.Occupation)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.Occupation)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.WorkPhone)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.WorkPhone)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.WorkPhoneExtension)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.WorkPhoneExtension)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.WorkFax)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.WorkFax)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.WorkEmail)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px; background-color:#f5f5f5;">
+                       @Html.DisplayFor(model => model.WorkEmail)
+                   </dd>
+
+                   @*<dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.Picture)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.Picture)
+                   </dd>*@
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.By)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.By)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.CreatedOrUpdated)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.CreatedOrUpdated)
+                   </dd>
+
+                   <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                       @Html.DisplayNameFor(model => model.Version)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                       @Html.DisplayFor(model => model.Version)
+                   </dd>
+
+                   <dt class="list-group-item">
+                       @Html.DisplayNameFor(model => model.Active)
+                   </dt>
+
+                   <dd class="list-group-item" style="height:43px;">
+                       @Html.DisplayFor(model => model.Active)
+                   </dd>
+
+               </dl>
+</div>
+        </div></div>
+       
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
+            @Html.ActionLink("Back", "Index")
+        </p>

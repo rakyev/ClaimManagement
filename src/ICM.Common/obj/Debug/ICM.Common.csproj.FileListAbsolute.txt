@@ -1,0 +1,10 @@
+E:\Insurance Final\src\ICM.Common\bin\Debug\ICM.Common.dll
+E:\Insurance Final\src\ICM.Common\bin\Debug\ICM.Common.pdb
+E:\Insurance Final\src\ICM.Common\obj\Debug\ICM.Common.dll
+E:\Insurance Final\src\ICM.Common\obj\Debug\ICM.Common.pdb
+E:\Insurance Final\src\ICM.Common\obj\Debug\ICM.Common.csprojResolveAssemblyReference.cache
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common\bin\Debug\ICM.Common.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common\bin\Debug\ICM.Common.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common\obj\Debug\ICM.Common.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common\obj\Debug\ICM.Common.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common\obj\Debug\ICM.Common.csprojResolveAssemblyReference.cache

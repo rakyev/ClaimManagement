@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<link href="~/Styles/ReportStyle.css" rel="stylesheet" />
+@if (ViewBag.Username != null)
+{
+    <div style="border:1px solid green">
+        <div><label>Username: </label>@ViewBag.Username </div>
+        <div><label>First Name: </label>@ViewBag.Firstname </div>
+        <div><label>Last Name: </label>@ViewBag.Lastname </div>
+    </div>
+}
+
+

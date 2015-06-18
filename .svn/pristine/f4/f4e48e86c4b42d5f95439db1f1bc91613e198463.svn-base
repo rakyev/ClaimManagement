@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace ICM.Web.Models
+{
+    public class GoodAndService
+    {
+        public GoodAndService()
+        {
+            this.ActivityBookings = new HashSet<ActivityBookingModels>();
+            this.CaseManagements = new HashSet<CaseManagement>();
+        }
+        [Key]
+        public long GoodAndServiceID { get; set; }
+        public long GoodAndServiceTypeID { get; set; }
+        public string Description { get; set; }
+        public string Code { get; set; }
+        public bool Fixed { get; set; }
+        public bool GSTHSTVAT { get; set; }
+        public bool PSTOther { get; set; }
+        public decimal Fee { get; set; }
+        public long MeasureID { get; set; }
+        public string By { get; set; }
+        public System.DateTime CreatedOrUpdated { get; set; }
+        public int Version { get; set; }
+        public bool Active { get; set; }
+
+        public virtual ICollection<ActivityBookingModels> ActivityBookings { get; set; }
+        public virtual ICollection<CaseManagement> CaseManagements { get; set; }
+        public virtual GoodAndServiceType GoodAndServiceType { get; set; }
+    }
+}

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<ICM.Web.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrandeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCodeOrZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneExtension)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HCAIFacilityRegistryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxRegistrationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOrUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Version)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrandeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostalCodeOrZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneExtension)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HCAIFacilityRegistryID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxRegistrationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOrUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Version)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompanyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompanyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyID })
+        </td>
+    </tr>
+}
+
+</table>

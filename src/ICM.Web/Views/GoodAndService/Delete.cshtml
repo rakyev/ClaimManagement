@@ -1,0 +1,121 @@
+﻿@model ICM.Web.Models.GoodAndService
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GoodAndService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GoodAndServiceType.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoodAndServiceType.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fixed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fixed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GSTHSTVAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GSTHSTVAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PSTOther)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PSTOther)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MeasureID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MeasureID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOrUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOrUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Version)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

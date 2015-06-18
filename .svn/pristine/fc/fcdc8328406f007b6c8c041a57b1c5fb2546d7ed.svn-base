@@ -1,0 +1,283 @@
+﻿@model ICM.Web.Models.ClientModels
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClientModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalState.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaritalState.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prefix.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prefix.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvinceOrState.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProvinceOrState.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suffix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Suffix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCodeOrZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCodeOrZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CellPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CellPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersanalFax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersanalFax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialInsuranceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialInsuranceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HealthCardNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HealthCardNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DriversLicenseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DriversLicenseNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Occupation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Occupation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkPhoneExtension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkPhoneExtension)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkFax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkFax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOrUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOrUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Version)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

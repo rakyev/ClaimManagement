@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using ICM.Data.Business.CountImplementation;
+using ICM.Data.Business.RepositoryImplementation;
+
+namespace ICM.Data.Business.BusinessObject
+{
+    public class AppointmentResourceBO : GenericRepository<AppointmentResource>
+    {
+        public List<AppointmentResourceBookingType> GetAppointmentResourceBookingTypeList()
+        {
+            var query = from appointmentResourceBookingType in Context.AppointmentResourceBookingTypes
+                        select appointmentResourceBookingType;
+
+            return query.ToList();
+        }
+        //todo--check where its being used
+        public List<AppointmentResourceBookingType> GetAppointmentResourceBookingTypes()
+        {
+            var result = from types in Context.AppointmentResourceBookingTypes
+                         select types;
+
+            return result.ToList();
+        }
+
+        public int CountDoctorsByDateCreated(DateTime dateTime)
+        {
+            var count = Context.AppointmentResources.Count(s => s.CreatedOrUpdated == dateTime);
+            return count;
+        }
+
+        public List<AppointmentResource> GetDoctorSearched(string des)
+        {
+            var query = from test in Context.AppointmentResources
+                        where test.FirstName.Contains(des) || test.LastName.Contains(des) || test.CellPhone.Contains(des)
+                        select test;
+
+            return query.ToList();
+        }
+
+        public override void Add(AppointmentResource entity)
+        {
+            base.Add(entity);
+            ClientCaseDoctorAppointmentCounts.DoctorCount++;
+
+        }
+
+        public override void Delete(AppointmentResource entity)
+        {
+            base.Delete(entity);
+            ClientCaseDoctorAppointmentCounts.DoctorCount--;
+
+        }
+
+    }
+
+
+}

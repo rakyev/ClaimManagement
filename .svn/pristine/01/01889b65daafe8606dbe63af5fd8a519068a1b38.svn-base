@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ICM.Web.DashboardBasics
+{
+    public class ForeignKeysModelProxy
+    {
+        private static ForeignKeysForClientModel _clientforeignKeys;
+        private static ForeignKeysForCaseModel _caseforeignKeys;
+        private static ForeignKeysForActivityBookingModel _activityBookingforeignKeys;
+        private static ForeignKeysForAppointmentResourceModel _appointmentForeignKeys;
+
+        private ForeignKeysModelProxy(){}
+
+        public static ForeignKeysForClientModel GetForeignKeysModelInstance()
+        {
+            return _clientforeignKeys ?? (_clientforeignKeys = new ForeignKeysForClientModel());
+        }
+        public static ForeignKeysForCaseModel GetClientCaseForeignKeysModelInstance()
+        {
+            return _caseforeignKeys ?? (_caseforeignKeys = new ForeignKeysForCaseModel());
+        }
+
+        public static ForeignKeysForActivityBookingModel GetActivityBookingsForeignKeysInstance()
+        {
+            return _activityBookingforeignKeys ?? (_activityBookingforeignKeys = new ForeignKeysForActivityBookingModel());
+        }
+
+        public static ForeignKeysForAppointmentResourceModel GetAppointmentResourceForeignKeysInstance()
+        {
+            return _appointmentForeignKeys ?? (_appointmentForeignKeys = new ForeignKeysForAppointmentResourceModel());
+        }
+    }
+}

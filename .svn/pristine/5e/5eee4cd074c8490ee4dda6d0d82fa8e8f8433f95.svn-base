@@ -1,0 +1,12 @@
+﻿using ICM.Data.Business.RepositoryImplementation;
+
+namespace ICM.Data.Business.BusinessObject
+{
+  /// <summary>
+  /// This class provides with Adjuster information
+  /// </summary>
+    public class AdjusterBO : GenericRepository<Adjuster>
+    {
+        
+    }
+}

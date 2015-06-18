@@ -1,0 +1,547 @@
+﻿@model ICM.Web.Models.ClientCaseModels
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>
+    Update Case Details-
+    @foreach (ICM.Web.Models.ProjectionClient client in ViewBag.Client)
+    {
+        TempData["clientId"] = client.ClientId;
+        @Html.DisplayFor(model => client.FirstName, new { htmlAttributes = new { @class = "control-label col-md-2" } })
+@Html.Raw(" ")
+        @Html.DisplayFor(model => client.LastName, new { htmlAttributes = new { @class = "control-label col-md-2" } })
+    }
+</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="panel panel-default">
+            <br />
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CaseID)
+
+
+
+            <ul class="nav nav-tabs" role="tablist" id="myTab">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                <li role="presentation"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Activity</a></li>
+                <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contacts</a></li>
+                <li role="presentation"><a href="#provider" aria-controls="provider" role="tab" data-toggle="tab">Providers</a></li>
+                <li role="presentation"><a href="#benefits" aria-controls="benefits" role="tab" data-toggle="tab">Benefits</a></li>
+                <li role="presentation"><a href="#injury" aria-controls="injury" role="tab" data-toggle="tab">Injury</a></li>
+                <li role="presentation"><a href="#caseMVA" aria-controls="caseMVA" role="tab" data-toggle="tab">Case MVA</a></li>
+                <li role="presentation"><a href="#management" aria-controls="management" role="tab" data-toggle="tab">Management</a></li>
+                <li role="presentation"><a href="#note" aria-controls="note" role="tab" data-toggle="tab">Notes</a></li>
+
+            </ul>
+            <div class="tab-content">
+                @* Default Home Tab*@
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    @using (Html.BeginForm("Edit", "ClientCase"))
+                    {
+
+                        <br />
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CaseTypeID, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("CaseTypeID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CaseTypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.ClientID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ClientID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ReferralDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ReferralDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                @Html.ValidationMessageFor(model => model.ReferralDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CoordinatorUserID, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("CoordinatorUserID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CoordinatorUserID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.Active, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.HiddenFor(model => model.CreatedOrUpdated, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CreatedOrUpdated, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" id="Edit" class="btn btn-default" />
+                                    <input type="button" value="Back" class="btn btn-default" onclick="location.href='@Url.Action("Search","ClientCase")'" />
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.By, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.By, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.Version, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.Version, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                @* Case Contact Tab*@
+                <div role="tabpanel" class="tab-pane" id="contact">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="@Url.Action("Create", "Contact")">Create</a>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th></th>
+
+                                <th>
+                                    @Html.DisplayName("FirstName")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("LastName")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Address1")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("City")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Active")
+                                </th>
+                            </tr>
+                            @foreach (ICM.Web.Models.CaseContact con in ViewBag.CaseContact)
+                            {
+
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseContact", "Contact", new { id = con.CaseContactID })">Edit</a> |
+                                        <a href="@Url.Action("ContactDetails", "Contact", new { id = con.CaseContactID })">Details</a>
+
+                                    </td>
+
+                                    <td>
+                                        @con.FirstName
+                                    </td>
+                                    <td>
+                                        @con.Address1
+                                    </td>
+                                    <td>
+                                        @con.LastName
+                                    </td>
+                                    <td>
+                                        @con.City
+                                    </td>
+                                    <td>
+                                        @con.Active
+                                    </td>
+
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                @* Case Injury Tab*@
+                <div role="tabpanel" class="tab-pane" id="injury">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="@Url.Action("Create", "Injury")">Create</a>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th></th>
+
+
+                                <th>
+                                    @Html.DisplayName("Description")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Code")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Active")
+                                </th>
+                            </tr>
+                            @foreach (ICM.Web.Models.CaseInjury ci in ViewBag.CaseInjury)
+                            {
+
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseInjury", "Injury", new { id = ci.CaseInjuryID })">Edit</a> |
+                                        <a href="@Url.Action("InjuryDetails", "Injury", new { id = ci.CaseInjuryID })">Details</a>
+                                    </td>
+
+                                    <td>
+                                        @ci.Description
+                                    </td>
+                                    <td>
+                                        @ci.Code
+                                    </td>
+                                    <td>
+                                        @ci.Active
+                                    </td>
+                                </tr>
+
+                            }
+                        </table>
+
+                    </div>
+                </div>
+                @* Case Activity Tab*@
+                <div role="tabpanel" class="tab-pane" id="activity">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="@Url.Action("Create", "Activity")">Create</a>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th></th>
+
+                                <th>
+                                    @Html.DisplayName("Description")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("CreatedOrUpdated")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Active")
+                                </th>
+                            </tr>
+                            @foreach (ICM.Web.Models.CaseActivityModels act in ViewBag.CaseActivity)
+                            {
+
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseActivity", "Activity", new { id = act.CaseActivityID })">Edit</a> |
+                                        <a href="@Url.Action("ActivityDetails", "Activity", new { id = act.CaseActivityID })">Details</a>
+
+                                    </td>
+
+                                    <td>
+                                        @act.Description
+                                    </td>
+                                    <td>
+                                        @act.CreatedOrUpdated
+                                    </td>
+                                    <td>
+                                        @act.Active
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+
+                </div>
+                @* Case Provider Tab*@
+                <div role="tabpanel" class="tab-pane" id="provider">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="@Url.Action("Create", "Provider")">Create</a>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th></th>
+
+                                <th>
+                                    @Html.DisplayName("AppointmentResourceID")
+                                </th>
+
+                            </tr>
+                            @foreach (ICM.Web.Models.CaseProvider provider in ViewBag.CaseProvider)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseProvider", "Provider", new { id = provider.CaseProviderID })">Edit</a> |
+                                        <a href="@Url.Action("ProviderDetails", "Provider", new { id = provider.CaseProviderID })">Details</a>
+
+                                    </td>
+
+                                    <td>
+                                        @provider.AppointmentResourceID
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+                @* Case Note Tab*@
+                <div role="tabpanel" class="tab-pane" id="note">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <a href="@Url.Action("Create", "Notes")">Create</a>
+                        </div>
+
+                        <table class="table">
+                            <tr>
+                                <th></th>
+
+                                <th>
+                                    @Html.DisplayName("Subject")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Note")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("CompletedBy")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("RemiderDate")
+                                </th>
+                            </tr>
+                            @foreach (ICM.Web.Models.CaseNote note in ViewBag.CaseNote)
+                            {
+
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseNote", "Notes", new { id = note.CaseNoteID })">Edit</a> |
+                                        <a href="@Url.Action("NoteDetails", "Notes", new { id = note.CaseNoteID })">Details</a>
+
+                                    </td>
+
+                                    <td>
+                                        @note.Subject
+                                    </td>
+                                    <td>
+                                        @note.Note
+                                    </td>
+                                    <td>
+                                        @note.CompletedBy
+                                    </td>
+                                    <td>
+                                        @note.RemiderDate
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+
+                </div>
+                @* Case Benefits Tab*@
+                <div role="tabpanel" class="tab-pane" id="benefits">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="@Url.Action("Create", "Benefits")">Create</a>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th></th>
+                                <th>
+                                    @Html.DisplayName("Description")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Active")
+                                </th>
+
+                            </tr>
+
+                            @foreach (ICM.Web.Models.CaseBenefit cb in ViewBag.CaseBenefit)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseBenefit", "Benefits", new { id = cb.CaseBenefitID })">Edit</a> |
+                                        <a href="@Url.Action("BenefitDetails", "Benefits", new { id = cb.CaseBenefitID })">Details</a>
+                                    </td>
+
+                                    <td>
+                                        @cb.Description
+                                    </td>
+
+                                    <td>
+                                        @cb.Active
+                                    </td>
+                                </tr>
+
+                            }
+                        </table>
+                    </div>
+                </div>
+                @* Case MVA Tab*@
+                <div role="tabpanel" class="tab-pane" id="caseMVA">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="@Url.Action("Create", "MVA")">Create</a>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th></th>
+
+                                <th>
+                                    @Html.DisplayName("ClaimNumber")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("DateofAccident")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("PolicyNumber")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("PolicyHolderFirstName")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("PolicyHolderLastName")
+                                </th>
+
+
+
+                            </tr>
+
+                            @foreach (ICM.Web.Models.CaseMVA mva in ViewBag.CaseMVA)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseMVA", "MVA", new { id = mva.CaseMVAID })">Edit</a> |
+                                        <a href="@Url.Action("MVADetails", "MVA", new { id = mva.CaseMVAID })">Details</a>
+                                    </td>
+                                    <td>
+                                        @mva.ClaimNumber
+                                    </td>
+
+                                    <td>
+                                        @mva.DateofAccident
+                                    </td>
+                                    <td>
+                                        @mva.PolicyNumber
+                                    </td>
+                                    <td>
+                                        @mva.PolicyHolderFirstName
+                                    </td>
+                                    <td>
+                                        @mva.PolicyHolderLastName
+                                    </td>
+
+
+                                </tr>
+
+                            }
+                        </table>
+
+                    </div>
+                </div>
+                @* Case Management Tab*@
+                <div role="tabpanel" class="tab-pane" id="management">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="@Url.Action("Create", "Management")">Create</a>
+                        </div>
+
+                        <table class="table">
+                            <tr>
+                                <th></th>
+                                <th>
+
+                                    @Html.DisplayName("HCAI Status")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Good&Service")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Good&Service Desc")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Quantity")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("InvoiceNumber")
+                                </th>
+                            </tr>
+                            @foreach (ICM.Web.Models.CaseManagement manage in ViewBag.CaseManagement)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("ModifyCaseManagement", "Management", new { id = manage.CaseManagementID })">Edit</a> |
+                                        <a href="@Url.Action("ManagementDetails", "Management", new { id = manage.CaseManagementID })">Details</a>
+
+                                    </td>
+
+                                    <td>
+                                        @manage.HCAIStatus
+                                    </td>
+                                    <td>
+                                        @manage.GoodAndServiceAtt
+                                    </td>
+                                    <td>
+                                        @manage.GoodAndServiceDesc
+                                    </td>
+                                    <td>
+                                        @manage.Quantity
+                                    </td>
+                                    <td>
+                                        @manage.InvoiceNumber
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <script>
+            $(function () {
+                $('#myTab a:first').tab('show');
+            })
+        </script>
+    </div>
+
+
+
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

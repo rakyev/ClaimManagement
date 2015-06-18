@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ICM.Web.Models.ClientCaseClientModels>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <br />
+    @using (Html.BeginForm("Search", "ClientCase"))
+    {
+
+        <div class="col-lg-3">
+            <input class="form-clientsearch" name="description" id="description" placeholder="Search..." />
+        </div>
+        <div class="col-lg-6">
+            <input type="submit" id="search" class="btn btn-warning" value="Search" />
+            
+        </div>
+        <br />
+        <br />
+    }
+    <br />
+
+
+ @if(Model != null)
+        {
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseTypeID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateofBirth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostalCodeOrZipCode)
+                </th>
+              
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CaseID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CaseID })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CaseTypeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateofBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostalCodeOrZipCode)
+                </td>
+              
+            </tr>
+        }
+
+        </table>
+        }
+</div>

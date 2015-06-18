@@ -1,0 +1,14 @@
+E:\Insurance Final\src\ICM.Common.Test\bin\Debug\ICM.Common.Test.dll
+E:\Insurance Final\src\ICM.Common.Test\bin\Debug\ICM.Common.Test.pdb
+E:\Insurance Final\src\ICM.Common.Test\bin\Debug\nunit.framework.dll
+E:\Insurance Final\src\ICM.Common.Test\bin\Debug\nunit.framework.xml
+E:\Insurance Final\src\ICM.Common.Test\obj\Debug\ICM.Common.Test.dll
+E:\Insurance Final\src\ICM.Common.Test\obj\Debug\ICM.Common.Test.pdb
+E:\Insurance Final\src\ICM.Common.Test\obj\Debug\ICM.Common.Test.csprojResolveAssemblyReference.cache
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common.Test\bin\Debug\ICM.Common.Test.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common.Test\bin\Debug\ICM.Common.Test.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common.Test\bin\Debug\nunit.framework.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common.Test\bin\Debug\nunit.framework.xml
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common.Test\obj\Debug\ICM.Common.Test.csprojResolveAssemblyReference.cache
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common.Test\obj\Debug\ICM.Common.Test.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Common.Test\obj\Debug\ICM.Common.Test.pdb

@@ -1,0 +1,119 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using  System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+
+namespace ICM.Web.Models
+{
+    public class Adjuster
+    {
+         public Adjuster()
+        {
+            this.CaseMVAs = new HashSet<CaseMVA>();
+        }
+
+         // Required – Indicates that the property is a required field
+         //DisplayName – Defines the text we want used on form fields and validation messages
+         //StringLength – Defines a maximum length for a string field
+         //Range – Gives a maximum and minimum value for a numeric field
+         //Bind – Lists fields to exclude or include when binding parameter or form values to model properties
+         //ScaffoldColumn – Allows hiding fields from editor forms
+         //        namespace MvcMusicStore.Models
+         //{
+         //    [Bind(Exclude = "AlbumId")]
+         //    public class Album
+         //    {
+         //        [ScaffoldColumn(false)]
+         //        public int      AlbumId    { get; set; }
+         //        [DisplayName("Genre")]
+         //        public int      GenreId    { get; set; }
+         //        [DisplayName("Artist")]
+         //        public int      ArtistId   { get; set; }
+         //        [Required(ErrorMessage = "An Album Title is required")]
+         //        [StringLength(160)]
+         //        public string   Title      { get; set; }
+         //        [Required(ErrorMessage = "Price is required")]
+         //        [Range(0.01, 100.00,
+         //            ErrorMessage = "Price must be between 0.01 and 100.00")]
+         //        public decimal Price       { get; set; }
+         //        [DisplayName("Album Art URL")]
+         //        [StringLength(1024)]
+         //        public string AlbumArtUrl { get; set; }
+         //        public virtual Genre  Genre    { get; set; }
+         //        public virtual Artist Artist   { get; set; }
+         //    }
+         //}
+
+
+
+    
+        [Key]
+        public long AdjusterID { get; set; }
+
+        [ScaffoldColumn(false)]
+        public long InsuranceCompanyBranchID { get; set; }
+
+        [DisplayName("First Name")]
+        [Required(ErrorMessage = "First Name is Required")]
+        [StringLength(50,ErrorMessage = "Takes maximum 50 characters")]
+        public string FirstName { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public string MiddleName { get; set; }
+
+        [Required(ErrorMessage = "Last Name Required")]
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
+
+
+        [DisplayName("Home Number")]
+        public string Phone { get; set; }
+
+        [DisplayName("Ext")]
+        public string PhoneExtension { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public string CellPhone { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string OtherPhone { get; set; }
+
+
+        [DisplayName("Email Address")]
+        public string Email { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public string Fax { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public string Code { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public string By { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public System.DateTime CreatedOrUpdated { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public int Version { get; set; }
+
+        [DisplayName("IsActive")]
+        public bool Active { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        public virtual InsuranceCompanyBranch InsuranceCompanyBranch { get; set; }
+
+        [ScaffoldColumn(false)]
+        public virtual ICollection<CaseMVA> CaseMVAs { get; set; }
+    }
+}

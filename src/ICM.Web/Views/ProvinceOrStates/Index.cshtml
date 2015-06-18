@@ -1,0 +1,47 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<ICM.Web.Models.ProvinceOrState>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AjaxOptions options = new AjaxOptions
+    {
+        UpdateTargetId = "searchResult",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "divLoading"
+    };
+}
+
+<h2>Provinces List</h2>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <br/>
+        @using (Ajax.BeginForm("SearchProvinces", options))
+        {
+            <div class="col-lg-3">
+                <input class="form-clientsearch" name="keyword" id="description" value="@ViewBag.Keyword" placeholder="Search..."/>
+            </div>
+            <div class="col-lg-6">
+                <button type="submit" class="btn btn-warning">Search</button>
+                <button type="button" class="btn btn-primary" onclick="location.href = '@Url.Action("Create", "ProvinceOrStates")' ">Create New</button>
+            </div>
+            <br/>
+            <br/>
+        }
+
+        <br/>
+        
+    </div>
+
+    <div class="panel panel-body"id="searchResult">
+        @Html.Action("SearchProvinces", new { keyword = "" })
+    </div>
+   
+    <p>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+    </p>
+  
+</div>

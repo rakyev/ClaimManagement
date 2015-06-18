@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="abe4a93a50ea43c8ad5663d8352dc9a8" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="ICMModel.ActivityBooking" Width="1.5" PointX="11.25" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ActivityBookingBookingType" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ActivityBookingType" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ActivitySubType" Width="1.5" PointX="15" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ActivityType" Width="1.5" PointX="17.25" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Adjuster" Width="1.5" PointX="23.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResource" Width="1.5" PointX="3" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceAvailableTime" Width="1.5" PointX="8.25" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceBookingType" Width="1.5" PointX="0.75" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceChargeOutRate" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceChargeOutType" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceDayOff" Width="1.5" PointX="5.25" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceNationalHoliday" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceResourceType" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.AppointmentResourceType" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.BenefitType" Width="1.5" PointX="20.25" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseActivity" Width="1.5" PointX="19.5" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseBenefit" Width="1.5" PointX="22.5" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseContact" Width="1.5" PointX="6" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseContactRelationship" Width="1.5" PointX="3.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseContactSpeciality" Width="1.5" PointX="3.75" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseContactType" Width="1.5" PointX="3.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseInjury" Width="1.5" PointX="22.5" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseManagement" Width="1.5" PointX="14.25" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseMVA" Width="1.5" PointX="25.5" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseNote" Width="1.5" PointX="19.5" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseProvider" Width="1.5" PointX="8.25" PointY="50.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CaseType" Width="1.5" PointX="15" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Client" Width="1.5" PointX="9" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ClientCase" Width="1.5" PointX="17.25" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ClientContact" Width="1.5" PointX="17.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ClientContactRelationship" Width="1.5" PointX="15" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ClientContactSpeciality" Width="1.5" PointX="15" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ClientContactType" Width="1.5" PointX="15" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Company" Width="1.5" PointX="6" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.CompanyBranch" Width="1.5" PointX="11.25" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Country" Width="1.5" PointX="0.75" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.DayofWeek" Width="1.5" PointX="6" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.DocumentType" Width="1.5" PointX="12" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Gender" Width="1.5" PointX="6.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.GoodAndService" Width="1.5" PointX="12" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.GoodAndServiceType" Width="1.5" PointX="9.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.InjuryCode" Width="1.5" PointX="20.25" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.InjuryCodeCategoryType" Width="1.5" PointX="18" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.InjuryCodeSeriesType" Width="1.5" PointX="15.75" PointY="57.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.InsuranceCompany" Width="1.5" PointX="18.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.InsuranceCompanyBranch" Width="1.5" PointX="21" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Language" Width="1.5" PointX="23.25" PointY="47.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.MaritalState" Width="1.5" PointX="6.75" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Measure" Width="1.5" PointX="12" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.PaymentType" Width="1.5" PointX="22.5" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.Prefix" Width="1.5" PointX="6.75" PointY="59.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.ProvinceOrState" Width="1.5" PointX="3.75" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSAuditDataAction" Width="1.5" PointX="8.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSAuditDataField" Width="1.5" PointX="11" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSAuditEvent" Width="1.5" PointX="13.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSPermission" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSPreference" Width="1.5" PointX="7.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSProject" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSRestrictionItem" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSRestriction" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSRole" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSRolesXPermission" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSUser" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSUsersXPermission" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSUsersXRole" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SkedulexMessage" Width="1.5" PointX="11.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.StandardInvoice" Width="1.5" PointX="19.5" PointY="64.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.StandardInvoiceLineItem" Width="1.5" PointX="21.75" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.StandardInvoicePayment" Width="1.5" PointX="24.75" PointY="65.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.UserExtendedInformation" Width="1.5" PointX="15" PointY="50.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICMModel.SFSAuditActivity" Width="1.5" PointX="13.75" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="ICMModel.FK_ActivityBooking_AppointmentResource" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ActivityBooking_CaseActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ActivityBooking_GoodAndService" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ActivityType_ActivitySubType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseActivity_ActivityType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Adjuster_InsuranceCompanyBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseMVA_Adjuster" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_AppointmentResource_AppointmentResourceBookingType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_AppointmentResource_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_AppointmentResource_ProvinceOrState" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_AppointmentResourceAvailableTime_AppointmentResource" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_AppointmentResourceDayOff_AppointmentResource" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseManagement_AppointmentResource" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseProvider_AppointmentResource" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_AppointmentResourceAvailableTime_DayofWeek" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseBenefit_BenefitType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseActivity_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseManagement_CaseActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseBenefit_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseContact_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseContact_CaseContactRelationship" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseContact_CaseContactSpeciality" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseContact_CaseContactType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseContact_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseContact_Prefix" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseContact_ProvinceOrState" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseInjury_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseInjury_InjuryCode" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseManagement_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseManagement_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseManagement_GoodAndService" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseManagement_Measure" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseMVA_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseMVA_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseNote_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CaseProvider_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Case_CaseType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_DocumentType_CaseType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Case_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Client_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Client_MaritalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Client_Prefix" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Client_ProvinceOrState" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ClientContact_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Case_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_StandardInvoice_Case" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ClientContact_ClientContactRelationship" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ClientContact_ClientContactSpeciality" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ClientContact_ClientContactType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ClientContact_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ClientContact_Prefix" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_ClientContact_ProvinceOrState" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Company_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_Company_ProvinceOrState" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CompanyBranch_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CompanyBranch_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_CompanyBranch_ProvinceOrState" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_GoodAndService_GoodAndServiceType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_InjuryCode_InjuryCodeCategoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_InjuryCodeCategoryType_InjuryCodeSeriesType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_InsuranceCompanyBranch_InsuranceCompany" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_StandardInvoicePayment_PaymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSAuditDataActions_SFSAuditDataFields" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSPermissions_SFSRolesXPermissions" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSPermissions_SFSUsersXPermissions" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSRestrictions_SFSRestrictionItems" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSRoles_SFSRolesXPermissions" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSRoles_SFSUsersXRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSUsers_SFSUsersXPermissions" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_SFSUsers_SFSUsersXRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_StandardInvoiceLineItem_StandardInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="ICMModel.FK_StandardInvoicePayment_StandardInvoice" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

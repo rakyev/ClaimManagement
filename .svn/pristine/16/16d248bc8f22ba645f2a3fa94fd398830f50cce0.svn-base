@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+@using ICM.Data.Business.CountImplementation
+@using ICM.Web.Models
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Baylaan Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div id="wrapper">
+        @{
+            
+            ClientCaseDoctorAppointmentCounts temp = null;
+            ClientCaseDoctorAppointmentCounts temp2 = null;
+            if (TempData["count"] == null)
+            {
+                temp = new ClientCaseDoctorAppointmentCounts();
+                TempData.Add("count", temp);
+                temp2 = (ClientCaseDoctorAppointmentCounts)TempData["count"];
+            }
+            else
+            {
+                temp2 = (ClientCaseDoctorAppointmentCounts)TempData["count"];
+            }
+        }
+
+
+
+
+
+
+        <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><b>Insurance Claim Management</b></a>
+    </div>
+    <!-- /.navbar-header -->
+    @* <ul class="nav navbar-top-links navbar-right">
+                @* <li class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                     </a>
+                     <ul class="dropdown-menu dropdown-messages">
+                         <li>
+                             <a href="#">
+                                 <div>
+                                     <strong>John Smith</strong>
+                                     <span class="pull-right text-muted">
+                                         <em>Yesterday</em>
+                                     </span>
+                                 </div>
+                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                             </a>
+                         </li>
+                         <li class="divider"></li>
+                         <li>
+                             <a href="#">
+                                 <div>
+                                     <strong>John Smith</strong>
+                                     <span class="pull-right text-muted">
+                                         <em>Yesterday</em>
+                                     </span>
+                                 </div>
+                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                             </a>
+                         </li>
+                         <li class="divider"></li>
+                         <li>
+                             <a href="#">
+                                 <div>
+                                     <strong>John Smith</strong>
+                                     <span class="pull-right text-muted">
+                                         <em>Yesterday</em>
+                                     </span>
+                                 </div>
+                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                             </a>
+                         </li>
+                         <li class="divider"></li>
+                         <li>
+                             <a class="text-center" href="#">
+                                 <strong>Read All Messages</strong>
+                                 <i class="fa fa-angle-right"></i>
+                             </a>
+                         </li>
+                     </ul>
+                     <!-- /.dropdown-messages -->
+                 </li>*@
+    <!-- /.dropdown -->
+    @*<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>*@
+    <!-- /.dropdown -->
+    @*<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-comment fa-fw"></i> New Comment
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-tasks fa-fw"></i> New Task
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-alerts -->
+                    </li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>*@
+    <!-- /.navbar-top-links -->
+    @Html.Partial("_LoginPartial")
+    @*@if (Request.IsAuthenticated)
+    {*@
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav in" id="side-menu">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-umbrella"></i> Care<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="@Url.Action("Search", "ClientModelTest1")"> Clients</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Search", "ClientCase")"> Cases</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Search", "AppointmentResources")"> Doctors</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Search", "ActivityBooking")"> Appointments</a>
+                            </li>
+                        </ul>
+
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Reports<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="@Url.Action("Index", "Client")">Clients</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Case")">Cases</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","AppointmentReport")">Appointments</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","ActivityBookingType")">Appointment Summary</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-envelope-o fa-fw"></i>Communications<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="" onclick=" ShowPopup(); "><i class=" fa fa-edit fa-fw"></i>Chat</a>
+                                <script type="text/javascript">
+
+                                    ShowPopup = function() {
+                                        var width = 400;
+                                        var height = 400;
+                                        var left = screen.width - 400;
+                                        var top = 0;
+                                        var params = 'width=' + width + ', height=' + height;
+                                        params += ', top=' + top + ', left=' + left;
+                                        params += ', directories=no';
+                                        params += ', location=no';
+                                        params += ', menubar=no';
+                                        params += ', resizable=no';
+                                        params += ', scrollbars=no';
+                                        params += ', status=no';
+                                        params += ', toolbar=no';
+                                        window.open('/ActivityBookingType/OpenPopup', "PopupWindow", params);
+                                    }
+
+                                </script>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench"></i> Maintenance<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="@Url.Action("Search", "ClientModelTest1")"> Activity Bookingtype</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Search", "ClientCase")"> Activity Subtype</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Search", "AppointmentResources")"> Doctors</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Search", "ActivityBooking")"> Appointments</a>
+                            </li>
+                        </ul>
+
+                        <!-- /.nav-second-level -->
+                    </li>
+
+
+                        <!-- /.nav-second-level -->
+                    </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    @*}*@
+    </nav>
+
+    <div id="page-wrapper" @*@if (!Request.IsAuthenticated)
+                           {<text>style="margin: 0 0 0 0"</text>}*@>
+       
+                
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1></h1>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                    @*@if (Request.IsAuthenticated)
+            {*@
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-users fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">
+                                                    @ClientCaseDoctorAppointmentCounts.ClientCount
+                                                </div>
+                                                <div>Clients</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="@Url.Action("Index", "ClientModelTest1")">
+
+
+
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-folder-open fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">@ClientCaseDoctorAppointmentCounts.CaseCount</div>
+                                                <div>Cases</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("Index", "ClientCase")">
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-yellow">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-user-md fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">@ClientCaseDoctorAppointmentCounts.DoctorCount</div>
+                                                <div>Doctors</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("Index", "AppointmentResources")">
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-red">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-calendar fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">@ClientCaseDoctorAppointmentCounts.AppointmentCount</div>
+                                                <div>Appointments</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("Index", "ActivityBooking")">
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+            @*}*@
+
+
+                    @RenderBody()
+                    <hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - Baylaan Technologies Inc</p>
+                    </footer>
+
+                    @RenderSection("scripts", required: false)
+                </div>
+
+            </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@using ReportViewerForMvc;
+<link href="~/Styles/ReportStyle.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "ClientReportView";
+}
+
+
+<!--<div class="search-bar">-->
+@using (Html.BeginForm("Index", "Client"))
+{<br />
+    <h2>Client Report</h2>
+    <p>First Name: @Html.TextBox("firstname")</p>
+    <p>Last Name: @Html.TextBox("lastname")</p>
+    <p><input class="search-button1" type="submit" value="Search" /></p>
+}
+<!--</div>-->
+<div class="reportviewer">
+@if (ViewBag.ReportViewer != null)
+{
+    @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+}
+</div>

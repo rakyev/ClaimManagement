@@ -1,0 +1,171 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<ICM.Web.Models.ClientModels>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Client Records</h2>
+<div class="panel panel-default">
+     <div class="panel-heading">
+             @Html.ActionLink("Create New", "Create")
+     </div>
+ 
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().LastName)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.First().DateofBirth)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Address1)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.First().Address2)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.First().City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().PostalCodeOrZipCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().HomePhone)
+                </th>
+                @*<th>
+                                @Html.DisplayNameFor(model => model.First().CellPhone)
+                            </th>
+                            <th>
+                        @Html.DisplayNameFor(model => model.First().PersanalFax)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.First().PersonalEmail)
+                </th>
+                @*<th>
+                                @Html.DisplayNameFor(model => model.First().SocialInsuranceNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().HealthCardNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().DriversLicenseNumber)
+                            </th>
+                            <th>
+                        @Html.DisplayNameFor(model => model.First().Weight)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().Height)
+                    </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Occupation)
+                            </th>
+                            <th>
+                        @Html.DisplayNameFor(model => model.First().WorkPhone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().WorkPhoneExtension)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().WorkFax)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().WorkEmail)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Active)
+                </th>
+                
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
+                        @Html.ActionLink("New Case", "CaseCreate", new { id = item.ClientID })
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.DateofBirth)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address1)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Address2)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostalCodeOrZipCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HomePhone)
+                    </td>
+                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.CellPhone)
+                                    </td>
+                                    <td>
+                            @Html.DisplayFor(modelItem => item.PersanalFax)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PersonalEmail)
+                    </td>
+                    @* <td>
+                                        @Html.DisplayFor(modelItem => item.SocialInsuranceNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.HealthCardNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DriversLicenseNumber)
+                                    </td>
+                                    <td>
+                            @Html.DisplayFor(modelItem => item.Weight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Height)
+                        </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Occupation)
+                                    </td>
+                                    <td>
+                            @Html.DisplayFor(modelItem => item.WorkPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkPhoneExtension)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkFax)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkEmail)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                 
+                </tr>
+            }
+
+        </table>
+     <p>
+         @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+     </p>
+    </div>

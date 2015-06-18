@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ICM.Web.Models.Language>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Languages List</h2>
+<div class="panel panel-default">
+    <div class="panel panel-heading">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+    <div class="panel panel-body">
+
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.By)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedOrUpdated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Version)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+               
+            </tr>
+
+            @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.LanguageID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.LanguageID }) 
+                   
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.By)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOrUpdated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+
+            </tr>
+        }
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+
+namespace ICM.Web.Models
+{
+    public class ClientModels
+    {
+        public ClientModels()
+        {
+            this.ClientCases = new HashSet<ClientCaseModels>();
+            this.ClientContacts = new HashSet<ClientContact>();
+        }
+        [Key]
+        public long ClientID { get; set; }
+        
+        [Display(Name="Title")]
+        [Required]
+        public long PrefixID { get; set; }
+              
+        [Display(Name = "First Name")]
+        [Required]
+        [StringLength(60)]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Letters only")]
+        public string FirstName { get; set; }
+
+        [StringLength(60)]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Letters only")]
+        [Display(Name = "Middle Name")]
+        public string MiddleName { get; set; }
+        
+        [Display(Name = "Last Name")]
+        [Required]
+        [StringLength(60)]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Letters only")]
+        public string LastName { get; set; }
+
+        [StringLength(20)]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Letters only")]
+        public string Suffix { get; set; }
+       
+        [Display(Name="Gender")]
+        [Required]
+        public long GenderID { get; set; }
+       
+        [Display(Name="DOB")]
+        [Required]
+        [DataType(DataType.Date)]
+        public System.DateTime DateofBirth { get; set; }
+        
+        [Display(Name="Address 1")]
+        [Required]
+        [StringLength(150)]
+        [RegularExpression(@"^[a-zA-Z0-9 ]+$", ErrorMessage = "Letters and numbers only")]
+        public string Address1 { get; set; }
+       
+        [Display(Name="Address 2")]
+        [StringLength(50)]
+        [RegularExpression(@"^[a-zA-Z0-9 ]+$", ErrorMessage = "Letters and numbers only")]
+        public string Address2 { get; set; }
+        
+        [Required]
+        [StringLength(60)]
+        [RegularExpression(@"^[a-zA-Z\s]+$",ErrorMessage = "Letters only")] 
+        public string City { get; set; }
+       
+        [Display(Name = "Province/State")]
+        [Required]
+        public long ProvinceOrStateID { get; set; }
+        
+        [Display(Name = "Zip Code")]       
+        [StringLength(10)]
+        public string PostalCodeOrZipCode { get; set; }
+        
+        [Display(Name="Country")]
+        [Required]
+        public long CountryID { get; set; }
+        
+        [Display(Name="Home Phone")]
+        [StringLength(15)]
+        [RegularExpression(@"[0-9 ]+", ErrorMessage = "Numbers only")]
+        public string HomePhone { get; set; }
+
+        [Display(Name = "Cell Phone")]
+        [StringLength(15)]
+        [RegularExpression(@"[0-9 ]+", ErrorMessage = "Numbers only")]
+        public string CellPhone { get; set; }
+       
+        [Display(Name = "Personal Fax")]
+        [StringLength(15)]
+        [RegularExpression(@"[0-9 ]+", ErrorMessage = "Numbers only")]
+        public string PersanalFax { get; set; }
+        
+        [Display(Name="Personal Email")]
+        [StringLength(50)]
+        [EmailAddress]
+        public string PersonalEmail { get; set; }
+        
+        [Display(Name="Maritial Status")]
+        [Required]
+        public long MaritalStatusID { get; set; }
+        
+        [Display(Name = "SIN #")]
+        [StringLength(10)]
+        [RegularExpression(@"[0-9 ]+", ErrorMessage = "Numbers only")]
+        public string SocialInsuranceNumber { get; set; }
+        
+        [Display(Name = "HealthCard#")]
+        [StringLength(50)]
+        [RegularExpression(@"^[0-9]+(-[0-9]+)+$", ErrorMessage = "Incorrect format")]
+        public string HealthCardNumber { get; set; }
+       
+        [Display(Name = "Driver License #")]
+        [StringLength(50)]
+        [RegularExpression(@"([A-Za-z0-9_-]+)", ErrorMessage = "Incorrect format")]
+        public string DriversLicenseNumber { get; set; }
+
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Numbers only")]
+        public Nullable<int> Weight { get; set; }
+
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Numbers only")]
+        public Nullable<int> Height { get; set; }
+        
+        [StringLength(50)]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Letters only")]
+        public string Occupation { get; set; }
+        
+        [Display(Name="Work Phone")]
+        [StringLength(15)]
+        [RegularExpression(@"[0-9 ]+", ErrorMessage = "Numbers only")]
+        public string WorkPhone { get; set; }
+        
+        [Display(Name = "Work Phone Ext.")]
+        [StringLength(10)]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Numbers only")]
+        public string WorkPhoneExtension { get; set; }
+        
+        [Display(Name="Work Fax")]
+        [StringLength(15)]
+        [RegularExpression(@"[0-9 ]+", ErrorMessage = "Numbers only")]
+        public string WorkFax { get; set; }
+        
+        [Display(Name="Work Email")]
+        [StringLength(100)]
+        [EmailAddress]
+        public string WorkEmail { get; set; }
+        
+        public byte[] Picture { get; set; }
+        
+        [Display(Name="By")]
+        [Required]
+        [StringLength(50)]
+        public string By { get; set; }
+        
+        
+        [Display(Name = "Updated")]
+        [Required]
+        [DataType(DataType.Date)]
+        public System.DateTime CreatedOrUpdated { get; set; }
+        
+        [Required]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Numbers only")]
+        public int Version { get; set; }
+        
+        public bool Active { get; set; }
+
+        public virtual ICollection<ClientCaseModels> ClientCases { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual Gender Gender { get; set; }
+        public virtual MaritalState MaritalState { get; set; }
+        public virtual Prefix Prefix { get; set; }
+        
+        public virtual ProvinceOrState ProvinceOrState { get; set; }
+        public virtual ICollection<ClientContact> ClientContacts { get; set; }
+    }
+}

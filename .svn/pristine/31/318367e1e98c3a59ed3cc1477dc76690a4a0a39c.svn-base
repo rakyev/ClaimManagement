@@ -1,0 +1,45 @@
+﻿#formlabels label{
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+    padding-right:2px;
+    width: 127px;
+  }
+
+#formlabels span {
+    padding-left: 25px;
+
+}
+
+#formlabels #formbuttons {
+    padding-left: 20px;
+}
+
+
+#forbuttons {
+    padding-left: 70px;
+}
+
+#formlabels #check {
+    margin-left: 70px;
+}
+
+ #check2 {
+    margin-left: 70px;
+}
+
+ #newMakeforFile {
+     padding-left: 70px;
+ }
+
+ #linkforFile, #linkforFile2 {
+     padding-left: 74px;
+ }
+
+ #check3, #check4, #check5, #check6 {
+     padding-left: 70px;
+ }
+
+ #myerrors {
+     padding-left: 50px;
+ }

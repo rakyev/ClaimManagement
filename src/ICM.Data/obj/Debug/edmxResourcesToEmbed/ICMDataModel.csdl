@@ -1,0 +1,2561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ICMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActivityBooking">
+    <Key>
+      <PropertyRef Name="ActivityBookingID" />
+    </Key>
+    <Property Name="ActivityBookingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseActivityID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" />
+    <Property Name="ActivityID" Type="Int64" Nullable="false" />
+    <Property Name="OutlookEntryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RelatedEntryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GoodAndServiceID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="AppointmentResource" Relationship="Self.FK_ActivityBooking_AppointmentResource" FromRole="ActivityBooking" ToRole="AppointmentResource" />
+    <NavigationProperty Name="CaseActivity" Relationship="Self.FK_ActivityBooking_CaseActivity" FromRole="ActivityBooking" ToRole="CaseActivity" />
+    <NavigationProperty Name="GoodAndService" Relationship="Self.FK_ActivityBooking_GoodAndService" FromRole="ActivityBooking" ToRole="GoodAndService" />
+  </EntityType>
+  <EntityType Name="ActivityBookingBookingType">
+    <Key>
+      <PropertyRef Name="ActivityBookingBookingTypeID" />
+    </Key>
+    <Property Name="ActivityBookingBookingTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityBookingID" Type="Int64" Nullable="false" />
+    <Property Name="ActivityBookingTypeID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityBookingType">
+    <Key>
+      <PropertyRef Name="ActivityBookingTypeID" />
+    </Key>
+    <Property Name="ActivityBookingTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivitySubType">
+    <Key>
+      <PropertyRef Name="ActivitySubTypeID" />
+    </Key>
+    <Property Name="ActivitySubTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ActivityTypes" Relationship="Self.FK_ActivityType_ActivitySubType" FromRole="ActivitySubType" ToRole="ActivityType" />
+  </EntityType>
+  <EntityType Name="ActivityType">
+    <Key>
+      <PropertyRef Name="ActivityTypeID" />
+    </Key>
+    <Property Name="ActivityTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivitySubTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GoodAndServiceID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ActivitySubType" Relationship="Self.FK_ActivityType_ActivitySubType" FromRole="ActivityType" ToRole="ActivitySubType" />
+    <NavigationProperty Name="CaseActivities" Relationship="Self.FK_CaseActivity_ActivityType" FromRole="ActivityType" ToRole="CaseActivity" />
+  </EntityType>
+  <EntityType Name="Adjuster">
+    <Key>
+      <PropertyRef Name="AdjusterID" />
+    </Key>
+    <Property Name="AdjusterID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InsuranceCompanyBranchID" Type="Int64" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="InsuranceCompanyBranch" Relationship="Self.FK_Adjuster_InsuranceCompanyBranch" FromRole="Adjuster" ToRole="InsuranceCompanyBranch" />
+    <NavigationProperty Name="CaseMVAs" Relationship="Self.FK_CaseMVA_Adjuster" FromRole="Adjuster" ToRole="CaseMVA" />
+  </EntityType>
+  <EntityType Name="AppointmentResource">
+    <Key>
+      <PropertyRef Name="AppointmentResourceID" />
+    </Key>
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentResourceBookingTypeID" Type="Int64" Nullable="false" />
+    <Property Name="CompanyBranchID" Type="Int64" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HCAIProviderRegistryID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CollegeRegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WebAccessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DoubleBookingAllowed" Type="Boolean" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address3" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int64" Nullable="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkPhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkFax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdditionalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Credentials" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ResumeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ActivityBookings" Relationship="Self.FK_ActivityBooking_AppointmentResource" FromRole="AppointmentResource" ToRole="ActivityBooking" />
+    <NavigationProperty Name="AppointmentResourceBookingType" Relationship="Self.FK_AppointmentResource_AppointmentResourceBookingType" FromRole="AppointmentResource" ToRole="AppointmentResourceBookingType" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_AppointmentResource_Country" FromRole="AppointmentResource" ToRole="Country" />
+    <NavigationProperty Name="ProvinceOrState" Relationship="Self.FK_AppointmentResource_ProvinceOrState" FromRole="AppointmentResource" ToRole="ProvinceOrState" />
+    <NavigationProperty Name="AppointmentResourceAvailableTimes" Relationship="Self.FK_AppointmentResourceAvailableTime_AppointmentResource" FromRole="AppointmentResource" ToRole="AppointmentResourceAvailableTime" />
+    <NavigationProperty Name="AppointmentResourceDayOffs" Relationship="Self.FK_AppointmentResourceDayOff_AppointmentResource" FromRole="AppointmentResource" ToRole="AppointmentResourceDayOff" />
+    <NavigationProperty Name="CaseManagements" Relationship="Self.FK_CaseManagement_AppointmentResource" FromRole="AppointmentResource" ToRole="CaseManagement" />
+    <NavigationProperty Name="CaseProviders" Relationship="Self.FK_CaseProvider_AppointmentResource" FromRole="AppointmentResource" ToRole="CaseProvider" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceAvailableTime">
+    <Key>
+      <PropertyRef Name="AppointmentResourceAvailableTimeID" />
+    </Key>
+    <Property Name="AppointmentResourceAvailableTimeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentResourceID" Type="Int64" />
+    <Property Name="DayofWeekID" Type="Int64" Nullable="false" />
+    <Property Name="AvailableFrom" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="AvailableTo" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResource" Relationship="Self.FK_AppointmentResourceAvailableTime_AppointmentResource" FromRole="AppointmentResourceAvailableTime" ToRole="AppointmentResource" />
+    <NavigationProperty Name="DayofWeek" Relationship="Self.FK_AppointmentResourceAvailableTime_DayofWeek" FromRole="AppointmentResourceAvailableTime" ToRole="DayofWeek" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceBookingType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceBookingTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceBookingTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResources" Relationship="Self.FK_AppointmentResource_AppointmentResourceBookingType" FromRole="AppointmentResourceBookingType" ToRole="AppointmentResource" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceChargeOutRate">
+    <Key>
+      <PropertyRef Name="AppointmentResourceChargeOutRateID" />
+    </Key>
+    <Property Name="AppointmentResourceChargeOutRateID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" />
+    <Property Name="AppointmentResourceChargeOutTypeID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceChargeOutType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceChargeOutTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceChargeOutTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceDayOff">
+    <Key>
+      <PropertyRef Name="AppointmentResourceDayOffID" />
+    </Key>
+    <Property Name="AppointmentResourceDayOffID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" />
+    <Property Name="DayOffDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DayOffFrom" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="DayOffTo" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResource" Relationship="Self.FK_AppointmentResourceDayOff_AppointmentResource" FromRole="AppointmentResourceDayOff" ToRole="AppointmentResource" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceNationalHoliday">
+    <Key>
+      <PropertyRef Name="AppointmentResourceNationalHolidayID" />
+    </Key>
+    <Property Name="AppointmentResourceNationalHolidayID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HolidayDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceResourceType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceResourceTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceResourceTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" />
+    <Property Name="AppointmentResourceTypeID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OccupationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BenefitType">
+    <Key>
+      <PropertyRef Name="BenefitTypeID" />
+    </Key>
+    <Property Name="BenefitTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseBenefits" Relationship="Self.FK_CaseBenefit_BenefitType" FromRole="BenefitType" ToRole="CaseBenefit" />
+  </EntityType>
+  <EntityType Name="CaseActivity">
+    <Key>
+      <PropertyRef Name="CaseActivityID" />
+    </Key>
+    <Property Name="CaseActivityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityTypeID" Type="Int64" Nullable="false" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Completed" Type="Boolean" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ActivityBookings" Relationship="Self.FK_ActivityBooking_CaseActivity" FromRole="CaseActivity" ToRole="ActivityBooking" />
+    <NavigationProperty Name="ActivityType" Relationship="Self.FK_CaseActivity_ActivityType" FromRole="CaseActivity" ToRole="ActivityType" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseActivity_Case" FromRole="CaseActivity" ToRole="ClientCase" />
+    <NavigationProperty Name="CaseManagements" Relationship="Self.FK_CaseManagement_CaseActivity" FromRole="CaseActivity" ToRole="CaseManagement" />
+  </EntityType>
+  <EntityType Name="CaseBenefit">
+    <Key>
+      <PropertyRef Name="CaseBenefitID" />
+    </Key>
+    <Property Name="CaseBenefitID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="BenefitTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BenefitType" Relationship="Self.FK_CaseBenefit_BenefitType" FromRole="CaseBenefit" ToRole="BenefitType" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseBenefit_Case" FromRole="CaseBenefit" ToRole="ClientCase" />
+  </EntityType>
+  <EntityType Name="CaseContact">
+    <Key>
+      <PropertyRef Name="CaseContactID" />
+    </Key>
+    <Property Name="CaseContactID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseContactTypeID" Type="Int64" Nullable="false" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="PrefixID" Type="Int64" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int64" Nullable="false" />
+    <Property Name="HomePhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonalEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkPhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkFax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaseContactRelationshipID" Type="Int64" Nullable="false" />
+    <Property Name="CaseContactSpecialityID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseContact_Case" FromRole="CaseContact" ToRole="ClientCase" />
+    <NavigationProperty Name="CaseContactRelationship" Relationship="Self.FK_CaseContact_CaseContactRelationship" FromRole="CaseContact" ToRole="CaseContactRelationship" />
+    <NavigationProperty Name="CaseContactSpeciality" Relationship="Self.FK_CaseContact_CaseContactSpeciality" FromRole="CaseContact" ToRole="CaseContactSpeciality" />
+    <NavigationProperty Name="CaseContactType" Relationship="Self.FK_CaseContact_CaseContactType" FromRole="CaseContact" ToRole="CaseContactType" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_CaseContact_Country" FromRole="CaseContact" ToRole="Country" />
+    <NavigationProperty Name="Prefix" Relationship="Self.FK_CaseContact_Prefix" FromRole="CaseContact" ToRole="Prefix" />
+    <NavigationProperty Name="ProvinceOrState" Relationship="Self.FK_CaseContact_ProvinceOrState" FromRole="CaseContact" ToRole="ProvinceOrState" />
+  </EntityType>
+  <EntityType Name="CaseContactRelationship">
+    <Key>
+      <PropertyRef Name="CaseContactRelationshipID" />
+    </Key>
+    <Property Name="CaseContactRelationshipID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseContacts" Relationship="Self.FK_CaseContact_CaseContactRelationship" FromRole="CaseContactRelationship" ToRole="CaseContact" />
+  </EntityType>
+  <EntityType Name="CaseContactSpeciality">
+    <Key>
+      <PropertyRef Name="CaseContactSpecialityID" />
+    </Key>
+    <Property Name="CaseContactSpecialityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseContacts" Relationship="Self.FK_CaseContact_CaseContactSpeciality" FromRole="CaseContactSpeciality" ToRole="CaseContact" />
+  </EntityType>
+  <EntityType Name="CaseContactType">
+    <Key>
+      <PropertyRef Name="CaseContactTypeID" />
+    </Key>
+    <Property Name="CaseContactTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseContacts" Relationship="Self.FK_CaseContact_CaseContactType" FromRole="CaseContactType" ToRole="CaseContact" />
+  </EntityType>
+  <EntityType Name="CaseInjury">
+    <Key>
+      <PropertyRef Name="CaseInjuryID" />
+    </Key>
+    <Property Name="CaseInjuryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="InjuryCodeID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseInjury_Case" FromRole="CaseInjury" ToRole="ClientCase" />
+    <NavigationProperty Name="InjuryCode" Relationship="Self.FK_CaseInjury_InjuryCode" FromRole="CaseInjury" ToRole="InjuryCode" />
+  </EntityType>
+  <EntityType Name="CaseManagement">
+    <Key>
+      <PropertyRef Name="CaseManagementID" />
+    </Key>
+    <Property Name="CaseManagementID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="DocumentTypeID" Type="Int64" />
+    <Property Name="FileName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NewFileName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaseActivityID" Type="Int64" />
+    <Property Name="HCAIStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateOfService" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GoodAndServiceID" Type="Int64" Nullable="false" />
+    <Property Name="GoodAndServiceAtt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GoodAndServiceDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="MeasureID" Type="Int64" Nullable="false" />
+    <Property Name="GSTHSTVAT" Type="Boolean" Nullable="false" />
+    <Property Name="LineCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Billed" Type="Boolean" Nullable="false" />
+    <Property Name="PSTOther" Type="Boolean" Nullable="false" />
+    <Property Name="PlanNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PaymentAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="BilledAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ApprovedAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Visible" Type="Boolean" Nullable="false" />
+    <Property Name="WIPAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResource" Relationship="Self.FK_CaseManagement_AppointmentResource" FromRole="CaseManagement" ToRole="AppointmentResource" />
+    <NavigationProperty Name="CaseActivity" Relationship="Self.FK_CaseManagement_CaseActivity" FromRole="CaseManagement" ToRole="CaseActivity" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseManagement_Case" FromRole="CaseManagement" ToRole="ClientCase" />
+    <NavigationProperty Name="DocumentType" Relationship="Self.FK_CaseManagement_DocumentType" FromRole="CaseManagement" ToRole="DocumentType" />
+    <NavigationProperty Name="GoodAndService" Relationship="Self.FK_CaseManagement_GoodAndService" FromRole="CaseManagement" ToRole="GoodAndService" />
+    <NavigationProperty Name="Measure" Relationship="Self.FK_CaseManagement_Measure" FromRole="CaseManagement" ToRole="Measure" />
+  </EntityType>
+  <EntityType Name="CaseMVA">
+    <Key>
+      <PropertyRef Name="CaseMVAID" />
+    </Key>
+    <Property Name="CaseMVAID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="DateofAccident" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClaimNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PolicyNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdjusterID" Type="Int64" Nullable="false" />
+    <Property Name="CAT" Type="Boolean" Nullable="false" />
+    <Property Name="TransportationRequired" Type="Boolean" Nullable="false" />
+    <Property Name="InterpreterRequired" Type="Boolean" Nullable="false" />
+    <Property Name="LanguageID" Type="Int64" Nullable="false" />
+    <Property Name="PolicyHolderSameAsApplicant" Type="Boolean" Nullable="false" />
+    <Property Name="PolicyHolderFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PolicyHolderLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsThereOtherInsuranceCoverage" Type="Boolean" Nullable="false" />
+    <Property Name="Closed" Type="Boolean" Nullable="false" />
+    <Property Name="ClosedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OtherInsurer1Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer1Plan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer1PolicyNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer1NameofThePlanMember" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer1Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer2Plan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer2PolicyNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer2NameofThePlanMember" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherInsurer2Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Adjuster" Relationship="Self.FK_CaseMVA_Adjuster" FromRole="CaseMVA" ToRole="Adjuster" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseMVA_Case" FromRole="CaseMVA" ToRole="ClientCase" />
+    <NavigationProperty Name="Language" Relationship="Self.FK_CaseMVA_Language" FromRole="CaseMVA" ToRole="Language" />
+  </EntityType>
+  <EntityType Name="CaseNote">
+    <Key>
+      <PropertyRef Name="CaseNoteID" />
+    </Key>
+    <Property Name="CaseNoteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="ClientID" Type="Int64" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedorUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RemiderDate" Type="DateTime" Precision="3" />
+    <Property Name="Private" Type="Boolean" />
+    <Property Name="RemindUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseNote_Case" FromRole="CaseNote" ToRole="ClientCase" />
+  </EntityType>
+  <EntityType Name="CaseProvider">
+    <Key>
+      <PropertyRef Name="CaseProviderID" />
+    </Key>
+    <Property Name="CaseProviderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResource" Relationship="Self.FK_CaseProvider_AppointmentResource" FromRole="CaseProvider" ToRole="AppointmentResource" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_CaseProvider_Case" FromRole="CaseProvider" ToRole="ClientCase" />
+  </EntityType>
+  <EntityType Name="CaseType">
+    <Key>
+      <PropertyRef Name="CaseTypeID" />
+    </Key>
+    <Property Name="CaseTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientCases" Relationship="Self.FK_Case_CaseType" FromRole="CaseType" ToRole="ClientCase" />
+    <NavigationProperty Name="DocumentTypes" Relationship="Self.FK_DocumentType_CaseType" FromRole="CaseType" ToRole="DocumentType" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrefixID" Type="Int64" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Suffix" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GenderID" Type="Int64" Nullable="false" />
+    <Property Name="DateofBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="Int64" Nullable="false" />
+    <Property Name="HomePhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PersanalFax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PersonalEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalStatusID" Type="Int64" Nullable="false" />
+    <Property Name="SocialInsuranceNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="HealthCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DriversLicenseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WorkPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="WorkPhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="WorkFax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="WorkEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientCases" Relationship="Self.FK_Case_Client" FromRole="Client" ToRole="ClientCase" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Client_Country" FromRole="Client" ToRole="Country" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
+    <NavigationProperty Name="MaritalState" Relationship="Self.FK_Client_MaritalStatus" FromRole="Client" ToRole="MaritalState" />
+    <NavigationProperty Name="Prefix" Relationship="Self.FK_Client_Prefix" FromRole="Client" ToRole="Prefix" />
+    <NavigationProperty Name="ProvinceOrState" Relationship="Self.FK_Client_ProvinceOrState" FromRole="Client" ToRole="ProvinceOrState" />
+    <NavigationProperty Name="ClientContacts" Relationship="Self.FK_ClientContact_Client" FromRole="Client" ToRole="ClientContact" />
+  </EntityType>
+  <EntityType Name="ClientCase">
+    <Key>
+      <PropertyRef Name="CaseID" />
+    </Key>
+    <Property Name="CaseID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int64" Nullable="false" />
+    <Property Name="CaseTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReferralDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CoordinatorUserID" Type="Int64" Nullable="false" />
+    <Property Name="ClosedDate" Type="DateTime" Precision="0" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseActivities" Relationship="Self.FK_CaseActivity_Case" FromRole="ClientCase" ToRole="CaseActivity" />
+    <NavigationProperty Name="CaseBenefits" Relationship="Self.FK_CaseBenefit_Case" FromRole="ClientCase" ToRole="CaseBenefit" />
+    <NavigationProperty Name="CaseContacts" Relationship="Self.FK_CaseContact_Case" FromRole="ClientCase" ToRole="CaseContact" />
+    <NavigationProperty Name="CaseInjuries" Relationship="Self.FK_CaseInjury_Case" FromRole="ClientCase" ToRole="CaseInjury" />
+    <NavigationProperty Name="CaseManagements" Relationship="Self.FK_CaseManagement_Case" FromRole="ClientCase" ToRole="CaseManagement" />
+    <NavigationProperty Name="CaseMVAs" Relationship="Self.FK_CaseMVA_Case" FromRole="ClientCase" ToRole="CaseMVA" />
+    <NavigationProperty Name="CaseNotes" Relationship="Self.FK_CaseNote_Case" FromRole="ClientCase" ToRole="CaseNote" />
+    <NavigationProperty Name="CaseProviders" Relationship="Self.FK_CaseProvider_Case" FromRole="ClientCase" ToRole="CaseProvider" />
+    <NavigationProperty Name="CaseType" Relationship="Self.FK_Case_CaseType" FromRole="ClientCase" ToRole="CaseType" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Case_Client" FromRole="ClientCase" ToRole="Client" />
+    <NavigationProperty Name="UserExtendedInformation" Relationship="Self.FK_Case_User" FromRole="ClientCase" ToRole="UserExtendedInformation" />
+    <NavigationProperty Name="StandardInvoices" Relationship="Self.FK_StandardInvoice_Case" FromRole="ClientCase" ToRole="StandardInvoice" />
+  </EntityType>
+  <EntityType Name="ClientContact">
+    <Key>
+      <PropertyRef Name="ClientContactID" />
+    </Key>
+    <Property Name="ClientContactID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientContactTypeID" Type="Int64" Nullable="false" />
+    <Property Name="ClientID" Type="Int64" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrefixID" Type="Int64" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int64" Nullable="false" />
+    <Property Name="HomePhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonalEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkPhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkFax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClientContactRelationshipID" Type="Int64" Nullable="false" />
+    <Property Name="ClientContactSpecialityID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_ClientContact_Client" FromRole="ClientContact" ToRole="Client" />
+    <NavigationProperty Name="ClientContactRelationship" Relationship="Self.FK_ClientContact_ClientContactRelationship" FromRole="ClientContact" ToRole="ClientContactRelationship" />
+    <NavigationProperty Name="ClientContactSpeciality" Relationship="Self.FK_ClientContact_ClientContactSpeciality" FromRole="ClientContact" ToRole="ClientContactSpeciality" />
+    <NavigationProperty Name="ClientContactType" Relationship="Self.FK_ClientContact_ClientContactType" FromRole="ClientContact" ToRole="ClientContactType" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_ClientContact_Country" FromRole="ClientContact" ToRole="Country" />
+    <NavigationProperty Name="Prefix" Relationship="Self.FK_ClientContact_Prefix" FromRole="ClientContact" ToRole="Prefix" />
+    <NavigationProperty Name="ProvinceOrState" Relationship="Self.FK_ClientContact_ProvinceOrState" FromRole="ClientContact" ToRole="ProvinceOrState" />
+  </EntityType>
+  <EntityType Name="ClientContactRelationship">
+    <Key>
+      <PropertyRef Name="ClientContactRelationshipID" />
+    </Key>
+    <Property Name="ClientContactRelationshipID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientContacts" Relationship="Self.FK_ClientContact_ClientContactRelationship" FromRole="ClientContactRelationship" ToRole="ClientContact" />
+  </EntityType>
+  <EntityType Name="ClientContactSpeciality">
+    <Key>
+      <PropertyRef Name="ClientContactSpecialityID" />
+    </Key>
+    <Property Name="ClientContactSpecialityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientContacts" Relationship="Self.FK_ClientContact_ClientContactSpeciality" FromRole="ClientContactSpeciality" ToRole="ClientContact" />
+  </EntityType>
+  <EntityType Name="ClientContactType">
+    <Key>
+      <PropertyRef Name="ClientContactTypeID" />
+    </Key>
+    <Property Name="ClientContactTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientContacts" Relationship="Self.FK_ClientContact_ClientContactType" FromRole="ClientContactType" ToRole="ClientContact" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrandeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int64" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HCAIFacilityRegistryID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TaxRegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Company_Country" FromRole="Company" ToRole="Country" />
+    <NavigationProperty Name="ProvinceOrState" Relationship="Self.FK_Company_ProvinceOrState" FromRole="Company" ToRole="ProvinceOrState" />
+    <NavigationProperty Name="CompanyBranches" Relationship="Self.FK_CompanyBranch_Company" FromRole="Company" ToRole="CompanyBranch" />
+  </EntityType>
+  <EntityType Name="CompanyBranch">
+    <Key>
+      <PropertyRef Name="CompanyBranchID" />
+    </Key>
+    <Property Name="CompanyBranchID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int64" Nullable="false" />
+    <Property Name="TrandeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int64" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HCAIFacilityRegistryID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TaxRegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_CompanyBranch_Company" FromRole="CompanyBranch" ToRole="Company" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_CompanyBranch_Country" FromRole="CompanyBranch" ToRole="Country" />
+    <NavigationProperty Name="ProvinceOrState" Relationship="Self.FK_CompanyBranch_ProvinceOrState" FromRole="CompanyBranch" ToRole="ProvinceOrState" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResources" Relationship="Self.FK_AppointmentResource_Country" FromRole="Country" ToRole="AppointmentResource" />
+    <NavigationProperty Name="CaseContacts" Relationship="Self.FK_CaseContact_Country" FromRole="Country" ToRole="CaseContact" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Country" FromRole="Country" ToRole="Client" />
+    <NavigationProperty Name="ClientContacts" Relationship="Self.FK_ClientContact_Country" FromRole="Country" ToRole="ClientContact" />
+    <NavigationProperty Name="Companies" Relationship="Self.FK_Company_Country" FromRole="Country" ToRole="Company" />
+    <NavigationProperty Name="CompanyBranches" Relationship="Self.FK_CompanyBranch_Country" FromRole="Country" ToRole="CompanyBranch" />
+  </EntityType>
+  <EntityType Name="DayofWeek">
+    <Key>
+      <PropertyRef Name="DayofWeekID" />
+    </Key>
+    <Property Name="DayofWeekID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResourceAvailableTimes" Relationship="Self.FK_AppointmentResourceAvailableTime_DayofWeek" FromRole="DayofWeek" ToRole="AppointmentResourceAvailableTime" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeID" />
+    </Key>
+    <Property Name="DocumentTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CaseTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Editable" Type="Boolean" Nullable="false" />
+    <Property Name="Uploadable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseManagements" Relationship="Self.FK_CaseManagement_DocumentType" FromRole="DocumentType" ToRole="CaseManagement" />
+    <NavigationProperty Name="CaseType" Relationship="Self.FK_DocumentType_CaseType" FromRole="DocumentType" ToRole="CaseType" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="GoodAndService">
+    <Key>
+      <PropertyRef Name="GoodAndServiceID" />
+    </Key>
+    <Property Name="GoodAndServiceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GoodAndServiceTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fixed" Type="Boolean" Nullable="false" />
+    <Property Name="GSTHSTVAT" Type="Boolean" Nullable="false" />
+    <Property Name="PSTOther" Type="Boolean" Nullable="false" />
+    <Property Name="Fee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="MeasureID" Type="Int64" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ActivityBookings" Relationship="Self.FK_ActivityBooking_GoodAndService" FromRole="GoodAndService" ToRole="ActivityBooking" />
+    <NavigationProperty Name="CaseManagements" Relationship="Self.FK_CaseManagement_GoodAndService" FromRole="GoodAndService" ToRole="CaseManagement" />
+    <NavigationProperty Name="GoodAndServiceType" Relationship="Self.FK_GoodAndService_GoodAndServiceType" FromRole="GoodAndService" ToRole="GoodAndServiceType" />
+  </EntityType>
+  <EntityType Name="GoodAndServiceType">
+    <Key>
+      <PropertyRef Name="GoodAndServiceTypeID" />
+    </Key>
+    <Property Name="GoodAndServiceTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="GoodAndServices" Relationship="Self.FK_GoodAndService_GoodAndServiceType" FromRole="GoodAndServiceType" ToRole="GoodAndService" />
+  </EntityType>
+  <EntityType Name="InjuryCode">
+    <Key>
+      <PropertyRef Name="InjuryCodeID" />
+    </Key>
+    <Property Name="InjuryCodeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InjuryCodeCategoryTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseInjuries" Relationship="Self.FK_CaseInjury_InjuryCode" FromRole="InjuryCode" ToRole="CaseInjury" />
+    <NavigationProperty Name="InjuryCodeCategoryType" Relationship="Self.FK_InjuryCode_InjuryCodeCategoryType" FromRole="InjuryCode" ToRole="InjuryCodeCategoryType" />
+  </EntityType>
+  <EntityType Name="InjuryCodeCategoryType">
+    <Key>
+      <PropertyRef Name="InjuryCodeCategoryTypeID" />
+    </Key>
+    <Property Name="InjuryCodeCategoryTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InjuryCodeSeriesTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="InjuryCodes" Relationship="Self.FK_InjuryCode_InjuryCodeCategoryType" FromRole="InjuryCodeCategoryType" ToRole="InjuryCode" />
+    <NavigationProperty Name="InjuryCodeSeriesType" Relationship="Self.FK_InjuryCodeCategoryType_InjuryCodeSeriesType" FromRole="InjuryCodeCategoryType" ToRole="InjuryCodeSeriesType" />
+  </EntityType>
+  <EntityType Name="InjuryCodeSeriesType">
+    <Key>
+      <PropertyRef Name="InjuryCodeSeriesTypeID" />
+    </Key>
+    <Property Name="InjuryCodeSeriesTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="InjuryCodeCategoryTypes" Relationship="Self.FK_InjuryCodeCategoryType_InjuryCodeSeriesType" FromRole="InjuryCodeSeriesType" ToRole="InjuryCodeCategoryType" />
+  </EntityType>
+  <EntityType Name="InsuranceCompany">
+    <Key>
+      <PropertyRef Name="InsuranceCompanyID" />
+    </Key>
+    <Property Name="InsuranceCompanyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IBCInsurerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="InsuranceCompanyBranches" Relationship="Self.FK_InsuranceCompanyBranch_InsuranceCompany" FromRole="InsuranceCompany" ToRole="InsuranceCompanyBranch" />
+  </EntityType>
+  <EntityType Name="InsuranceCompanyBranch">
+    <Key>
+      <PropertyRef Name="InsuranceCompanyBranchID" />
+    </Key>
+    <Property Name="InsuranceCompanyBranchID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InsuranceCompanyID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="IBCBranchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int64" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Adjusters" Relationship="Self.FK_Adjuster_InsuranceCompanyBranch" FromRole="InsuranceCompanyBranch" ToRole="Adjuster" />
+    <NavigationProperty Name="InsuranceCompany" Relationship="Self.FK_InsuranceCompanyBranch_InsuranceCompany" FromRole="InsuranceCompanyBranch" ToRole="InsuranceCompany" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageID" />
+    </Key>
+    <Property Name="LanguageID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseMVAs" Relationship="Self.FK_CaseMVA_Language" FromRole="Language" ToRole="CaseMVA" />
+  </EntityType>
+  <EntityType Name="MaritalState">
+    <Key>
+      <PropertyRef Name="MaritalStatusID" />
+    </Key>
+    <Property Name="MaritalStatusID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Client_MaritalStatus" FromRole="MaritalState" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Measure">
+    <Key>
+      <PropertyRef Name="MeasureID" />
+    </Key>
+    <Property Name="MeasureID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseManagements" Relationship="Self.FK_CaseManagement_Measure" FromRole="Measure" ToRole="CaseManagement" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeID" />
+    </Key>
+    <Property Name="PaymentTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="StandardInvoicePayments" Relationship="Self.FK_StandardInvoicePayment_PaymentType" FromRole="PaymentType" ToRole="StandardInvoicePayment" />
+  </EntityType>
+  <EntityType Name="Prefix">
+    <Key>
+      <PropertyRef Name="PrefixID" />
+    </Key>
+    <Property Name="PrefixID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CaseContacts" Relationship="Self.FK_CaseContact_Prefix" FromRole="Prefix" ToRole="CaseContact" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Prefix" FromRole="Prefix" ToRole="Client" />
+    <NavigationProperty Name="ClientContacts" Relationship="Self.FK_ClientContact_Prefix" FromRole="Prefix" ToRole="ClientContact" />
+  </EntityType>
+  <EntityType Name="ProvinceOrState">
+    <Key>
+      <PropertyRef Name="ProvinceOrStateID" />
+    </Key>
+    <Property Name="ProvinceOrStateID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppointmentResources" Relationship="Self.FK_AppointmentResource_ProvinceOrState" FromRole="ProvinceOrState" ToRole="AppointmentResource" />
+    <NavigationProperty Name="CaseContacts" Relationship="Self.FK_CaseContact_ProvinceOrState" FromRole="ProvinceOrState" ToRole="CaseContact" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Client_ProvinceOrState" FromRole="ProvinceOrState" ToRole="Client" />
+    <NavigationProperty Name="ClientContacts" Relationship="Self.FK_ClientContact_ProvinceOrState" FromRole="ProvinceOrState" ToRole="ClientContact" />
+    <NavigationProperty Name="Companies" Relationship="Self.FK_Company_ProvinceOrState" FromRole="ProvinceOrState" ToRole="Company" />
+    <NavigationProperty Name="CompanyBranches" Relationship="Self.FK_CompanyBranch_ProvinceOrState" FromRole="ProvinceOrState" ToRole="CompanyBranch" />
+  </EntityType>
+  <EntityType Name="SFSAuditDataAction">
+    <Key>
+      <PropertyRef Name="ada_pk" />
+    </Key>
+    <Property Name="ada_pk" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ada_us_pk" Type="Int32" Nullable="false" />
+    <Property Name="ada_TableName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ada_Action" Type="Byte" Nullable="false" />
+    <Property Name="ada_Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SFSAuditDataFields" Relationship="Self.FK_SFSAuditDataActions_SFSAuditDataFields" FromRole="SFSAuditDataActions" ToRole="SFSAuditDataFields" />
+  </EntityType>
+  <EntityType Name="SFSAuditDataField">
+    <Key>
+      <PropertyRef Name="adf_pk" />
+    </Key>
+    <Property Name="adf_pk" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adf_ada_pk" Type="Int64" Nullable="false" />
+    <Property Name="adf_FieldName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adf_DataType" Type="Int32" Nullable="false" />
+    <Property Name="adf_OldValue" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="adf_NewValue" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="SFSAuditDataAction" Relationship="Self.FK_SFSAuditDataActions_SFSAuditDataFields" FromRole="SFSAuditDataFields" ToRole="SFSAuditDataActions" />
+  </EntityType>
+  <EntityType Name="SFSAuditEvent">
+    <Key>
+      <PropertyRef Name="ae_pk" />
+    </Key>
+    <Property Name="ae_pk" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ae_us_pk" Type="Int32" Nullable="false" />
+    <Property Name="ae_EventKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ae_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ae_Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ae_Data" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSPermission">
+    <Key>
+      <PropertyRef Name="pm_pk" />
+    </Key>
+    <Property Name="pm_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pm_sproj_pk" Type="Int32" Nullable="false" />
+    <Property Name="pm_Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pm_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pm_Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pm_DontAllowReadOnly" Type="Boolean" Nullable="false" />
+    <Property Name="pm_BlockedAction" Type="Int32" Nullable="false" />
+    <Property Name="pm_BlockedMsgOrKey" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pm_AlwaysAuditApp" Type="Boolean" Nullable="false" />
+    <Property Name="pm_AlwaysAuditData" Type="Boolean" Nullable="false" />
+    <Property Name="pm_Version" Type="Int32" Nullable="false" />
+    <Property Name="pm_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="pm_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SFSRolesXPermissions" Relationship="Self.FK_SFSPermissions_SFSRolesXPermissions" FromRole="SFSPermissions" ToRole="SFSRolesXPermissions" />
+    <NavigationProperty Name="SFSUsersXPermissions" Relationship="Self.FK_SFSPermissions_SFSUsersXPermissions" FromRole="SFSPermissions" ToRole="SFSUsersXPermissions" />
+  </EntityType>
+  <EntityType Name="SFSPreference">
+    <Key>
+      <PropertyRef Name="sp_pk" />
+    </Key>
+    <Property Name="sp_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sp_sproj_pk" Type="Int32" Nullable="false" />
+    <Property Name="sp_WaitTimeAfterLoginFailure" Type="Int64" Nullable="false" />
+    <Property Name="sp_MaxInvalidLoginAttempts" Type="Int32" Nullable="false" />
+    <Property Name="sp_MaxInvalidLoginAttemptsTime" Type="Int64" Nullable="false" />
+    <Property Name="sp_PwMinAge" Type="Int64" Nullable="false" />
+    <Property Name="sp_PwMaxAge" Type="Int64" Nullable="false" />
+    <Property Name="sp_PwMaxLength" Type="Int32" Nullable="false" />
+    <Property Name="sp_PwMinLength" Type="Int32" Nullable="false" />
+    <Property Name="sp_PwAreComplex" Type="Boolean" Nullable="false" />
+    <Property Name="sp_PwBeforeRepeat" Type="Int32" Nullable="false" />
+    <Property Name="sp_SessionTimeout" Type="Int64" Nullable="false" />
+    <Property Name="sp_AllowWindowsAuth" Type="Boolean" Nullable="false" />
+    <Property Name="sp_Version" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSProject">
+    <Key>
+      <PropertyRef Name="sproj_pk" />
+    </Key>
+    <Property Name="sproj_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sproj_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sproj_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sproj_SecurityKey" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sproj_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="sproj_Version" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSRestrictionItem">
+    <Key>
+      <PropertyRef Name="ri_pk" />
+    </Key>
+    <Property Name="ri_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ri_rs_pk" Type="Int32" Nullable="false" />
+    <Property Name="ri_Action" Type="Int32" Nullable="false" />
+    <Property Name="ri_DaysOfWeek" Type="Int32" Nullable="false" />
+    <Property Name="ri_StartTime" Type="Int32" Nullable="false" />
+    <Property Name="ri_EndTime" Type="Int32" Nullable="false" />
+    <Property Name="ri_Workstation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ri_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ri_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ri_Version" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SFSRestriction" Relationship="Self.FK_SFSRestrictions_SFSRestrictionItems" FromRole="SFSRestrictionItems" ToRole="SFSRestrictions" />
+  </EntityType>
+  <EntityType Name="SFSRestriction">
+    <Key>
+      <PropertyRef Name="rs_pk" />
+    </Key>
+    <Property Name="rs_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rs_sproj_pk" Type="Int32" Nullable="false" />
+    <Property Name="rs_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rs_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rs_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="rs_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="rs_Version" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SFSRestrictionItems" Relationship="Self.FK_SFSRestrictions_SFSRestrictionItems" FromRole="SFSRestrictions" ToRole="SFSRestrictionItems" />
+  </EntityType>
+  <EntityType Name="SFSRole">
+    <Key>
+      <PropertyRef Name="rl_pk" />
+    </Key>
+    <Property Name="rl_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rl_sproj_pk" Type="Int32" Nullable="false" />
+    <Property Name="rl_Role" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rl_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rl_Version" Type="Int32" Nullable="false" />
+    <Property Name="rl_AlwaysAuditApp" Type="Boolean" Nullable="false" />
+    <Property Name="rl_AlwaysAuditData" Type="Boolean" Nullable="false" />
+    <Property Name="rl_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="rl_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SFSRolesXPermissions" Relationship="Self.FK_SFSRoles_SFSRolesXPermissions" FromRole="SFSRoles" ToRole="SFSRolesXPermissions" />
+    <NavigationProperty Name="SFSUsersXRoles" Relationship="Self.FK_SFSRoles_SFSUsersXRoles" FromRole="SFSRoles" ToRole="SFSUsersXRoles" />
+  </EntityType>
+  <EntityType Name="SFSRolesXPermission">
+    <Key>
+      <PropertyRef Name="rp_pk" />
+    </Key>
+    <Property Name="rp_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rp_rl_pk" Type="Int32" Nullable="false" />
+    <Property Name="rp_pm_pk" Type="Int32" Nullable="false" />
+    <Property Name="rp_Action" Type="Int32" Nullable="false" />
+    <Property Name="rp_Restriction" Type="Int32" Nullable="false" />
+    <Property Name="rp_AlwaysAuditApp" Type="Boolean" Nullable="false" />
+    <Property Name="rp_AlwaysAuditData" Type="Boolean" Nullable="false" />
+    <Property Name="rp_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="rp_CreatedBy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SFSPermission" Relationship="Self.FK_SFSPermissions_SFSRolesXPermissions" FromRole="SFSRolesXPermissions" ToRole="SFSPermissions" />
+    <NavigationProperty Name="SFSRole" Relationship="Self.FK_SFSRoles_SFSRolesXPermissions" FromRole="SFSRolesXPermissions" ToRole="SFSRoles" />
+  </EntityType>
+  <EntityType Name="SFSUser">
+    <Key>
+      <PropertyRef Name="us_pk" />
+    </Key>
+    <Property Name="us_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="us_sproj_pk" Type="Int32" Nullable="false" />
+    <Property Name="us_Username" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="us_Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="us_FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="us_MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="us_LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="us_DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="us_Version" Type="Int32" Nullable="false" />
+    <Property Name="us_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="us_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SFSUsersXPermissions" Relationship="Self.FK_SFSUsers_SFSUsersXPermissions" FromRole="SFSUsers" ToRole="SFSUsersXPermissions" />
+    <NavigationProperty Name="SFSUsersXRoles" Relationship="Self.FK_SFSUsers_SFSUsersXRoles" FromRole="SFSUsers" ToRole="SFSUsersXRoles" />
+  </EntityType>
+  <EntityType Name="SFSUsersXPermission">
+    <Key>
+      <PropertyRef Name="up_pk" />
+    </Key>
+    <Property Name="up_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="up_us_pk" Type="Int32" Nullable="false" />
+    <Property Name="up_pm_pk" Type="Int32" Nullable="false" />
+    <Property Name="up_Action" Type="Int32" Nullable="false" />
+    <Property Name="up_Restriction" Type="Int32" Nullable="false" />
+    <Property Name="up_AlwaysAuditApp" Type="Boolean" Nullable="false" />
+    <Property Name="up_AlwaysAuditData" Type="Boolean" Nullable="false" />
+    <Property Name="up_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="up_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SFSPermission" Relationship="Self.FK_SFSPermissions_SFSUsersXPermissions" FromRole="SFSUsersXPermissions" ToRole="SFSPermissions" />
+    <NavigationProperty Name="SFSUser" Relationship="Self.FK_SFSUsers_SFSUsersXPermissions" FromRole="SFSUsersXPermissions" ToRole="SFSUsers" />
+  </EntityType>
+  <EntityType Name="SFSUsersXRole">
+    <Key>
+      <PropertyRef Name="ur_pk" />
+    </Key>
+    <Property Name="ur_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ur_us_pk" Type="Int32" Nullable="false" />
+    <Property Name="ur_rl_pk" Type="Int32" Nullable="false" />
+    <Property Name="ur_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ur_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SFSRole" Relationship="Self.FK_SFSRoles_SFSUsersXRoles" FromRole="SFSUsersXRoles" ToRole="SFSRoles" />
+    <NavigationProperty Name="SFSUser" Relationship="Self.FK_SFSUsers_SFSUsersXRoles" FromRole="SFSUsersXRoles" ToRole="SFSUsers" />
+  </EntityType>
+  <EntityType Name="SkedulexMessage">
+    <Key>
+      <PropertyRef Name="sm_pk" />
+    </Key>
+    <Property Name="sm_pk" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sm_cust_pk" Type="Int64" Nullable="false" />
+    <Property Name="sm_Subject" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sm_Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sm_IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="sm_CreatedorUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="sm_Version" Type="Int64" Nullable="false" />
+    <Property Name="sm_CreatedByorUpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="sm_Remind_us_pk" Type="Int32" Nullable="false" />
+    <Property Name="sm_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="sm_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="sm_cl_pk" Type="Int64" Nullable="false" />
+    <Property Name="sm_IsPriority" Type="Boolean" Nullable="false" />
+    <Property Name="sm_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sm_Related_pk" Type="Int64" Nullable="false" />
+    <Property Name="sm_IsRead" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StandardInvoice">
+    <Key>
+      <PropertyRef Name="StandardInvoiceID" />
+    </Key>
+    <Property Name="StandardInvoiceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CaseID" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubTotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="GSTHSTVAT" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PSTOther" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="InterestProposed" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="MOH" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="OtherInsurer" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AdditionalComments" Type="String" MaxLength="3500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SyncToQB" Type="Boolean" Nullable="false" />
+    <Property Name="Void" Type="Boolean" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientCase" Relationship="Self.FK_StandardInvoice_Case" FromRole="StandardInvoice" ToRole="ClientCase" />
+    <NavigationProperty Name="StandardInvoiceLineItems" Relationship="Self.FK_StandardInvoiceLineItem_StandardInvoice" FromRole="StandardInvoice" ToRole="StandardInvoiceLineItem" />
+    <NavigationProperty Name="StandardInvoicePayments" Relationship="Self.FK_StandardInvoicePayment_StandardInvoice" FromRole="StandardInvoice" ToRole="StandardInvoicePayment" />
+  </EntityType>
+  <EntityType Name="StandardInvoiceLineItem">
+    <Key>
+      <PropertyRef Name="StandardInvoiceLineItemID" />
+    </Key>
+    <Property Name="StandardInvoiceLineItemID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GoodAndServiceID" Type="Int64" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="Int64" Nullable="false" />
+    <Property Name="Attribute" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="MeasureID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateOfService" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GSTHSTVAT" Type="Boolean" Nullable="false" />
+    <Property Name="PSTOther" Type="Boolean" Nullable="false" />
+    <Property Name="LineCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Void" Type="Boolean" Nullable="false" />
+    <Property Name="StandardInvoiceID" Type="Int64" Nullable="false" />
+    <Property Name="CaseManagementID" Type="Int64" Nullable="false" />
+    <Property Name="ActivityBookingID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="StandardInvoice" Relationship="Self.FK_StandardInvoiceLineItem_StandardInvoice" FromRole="StandardInvoiceLineItem" ToRole="StandardInvoice" />
+  </EntityType>
+  <EntityType Name="StandardInvoicePayment">
+    <Key>
+      <PropertyRef Name="StandardInvoicePaymentID" />
+    </Key>
+    <Property Name="StandardInvoicePaymentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StandardInvoiceID" Type="Int64" Nullable="false" />
+    <Property Name="PaymentTypeID" Type="Int64" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Void" Type="Boolean" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PaymentType" Relationship="Self.FK_StandardInvoicePayment_PaymentType" FromRole="StandardInvoicePayment" ToRole="PaymentType" />
+    <NavigationProperty Name="StandardInvoice" Relationship="Self.FK_StandardInvoicePayment_StandardInvoice" FromRole="StandardInvoicePayment" ToRole="StandardInvoice" />
+  </EntityType>
+  <EntityType Name="UserExtendedInformation">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ext" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OtherPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PreferredTheme" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ClientCases" Relationship="Self.FK_Case_User" FromRole="UserExtendedInformation" ToRole="ClientCase" />
+  </EntityType>
+  <EntityType Name="SFSAuditActivity">
+    <Key>
+      <PropertyRef Name="sa_pk" />
+      <PropertyRef Name="sa_us_pk" />
+      <PropertyRef Name="sa_InternalIP" />
+      <PropertyRef Name="sa_ExternalIP" />
+      <PropertyRef Name="sa_FormName" />
+      <PropertyRef Name="sa_Action" />
+      <PropertyRef Name="sa_cust_pk" />
+      <PropertyRef Name="sa_cl_pk" />
+      <PropertyRef Name="sa_Created" />
+      <PropertyRef Name="sa_CreatedBy" />
+      <PropertyRef Name="sa_CreatedorUpdated" />
+      <PropertyRef Name="sa_Version" />
+      <PropertyRef Name="sa_CreatedByorUpdatedBy" />
+    </Key>
+    <Property Name="sa_pk" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sa_us_pk" Type="Int32" Nullable="false" />
+    <Property Name="sa_InternalIP" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sa_ExternalIP" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sa_FormName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sa_Action" Type="Byte" Nullable="false" />
+    <Property Name="sa_cust_pk" Type="Int64" Nullable="false" />
+    <Property Name="sa_cl_pk" Type="Int64" Nullable="false" />
+    <Property Name="sa_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="sa_CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="sa_CreatedorUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="sa_Version" Type="Int64" Nullable="false" />
+    <Property Name="sa_CreatedByorUpdatedBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ActivityBooking_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="ActivityBooking" Type="Self.ActivityBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="ActivityBooking">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityBooking_CaseActivity">
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="1" />
+    <End Role="ActivityBooking" Type="Self.ActivityBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseActivity">
+        <PropertyRef Name="CaseActivityID" />
+      </Principal>
+      <Dependent Role="ActivityBooking">
+        <PropertyRef Name="CaseActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityBooking_GoodAndService">
+    <End Role="GoodAndService" Type="Self.GoodAndService" Multiplicity="1" />
+    <End Role="ActivityBooking" Type="Self.ActivityBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodAndService">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Principal>
+      <Dependent Role="ActivityBooking">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityType_ActivitySubType">
+    <End Role="ActivitySubType" Type="Self.ActivitySubType" Multiplicity="1" />
+    <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivitySubType">
+        <PropertyRef Name="ActivitySubTypeID" />
+      </Principal>
+      <Dependent Role="ActivityType">
+        <PropertyRef Name="ActivitySubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseActivity_ActivityType">
+    <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1" />
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityType">
+        <PropertyRef Name="ActivityTypeID" />
+      </Principal>
+      <Dependent Role="CaseActivity">
+        <PropertyRef Name="ActivityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adjuster_InsuranceCompanyBranch">
+    <End Role="InsuranceCompanyBranch" Type="Self.InsuranceCompanyBranch" Multiplicity="1" />
+    <End Role="Adjuster" Type="Self.Adjuster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuranceCompanyBranch">
+        <PropertyRef Name="InsuranceCompanyBranchID" />
+      </Principal>
+      <Dependent Role="Adjuster">
+        <PropertyRef Name="InsuranceCompanyBranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseMVA_Adjuster">
+    <End Role="Adjuster" Type="Self.Adjuster" Multiplicity="1" />
+    <End Role="CaseMVA" Type="Self.CaseMVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adjuster">
+        <PropertyRef Name="AdjusterID" />
+      </Principal>
+      <Dependent Role="CaseMVA">
+        <PropertyRef Name="AdjusterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResource_AppointmentResourceBookingType">
+    <End Role="AppointmentResourceBookingType" Type="Self.AppointmentResourceBookingType" Multiplicity="1" />
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResourceBookingType">
+        <PropertyRef Name="AppointmentResourceBookingTypeID" />
+      </Principal>
+      <Dependent Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceBookingTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResource_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="AppointmentResource">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResource_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="AppointmentResource">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResourceAvailableTime_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="0..1" />
+    <End Role="AppointmentResourceAvailableTime" Type="Self.AppointmentResourceAvailableTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="AppointmentResourceAvailableTime">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResourceDayOff_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="AppointmentResourceDayOff" Type="Self.AppointmentResourceDayOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="AppointmentResourceDayOff">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseProvider_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="CaseProvider" Type="Self.CaseProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="CaseProvider">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResourceAvailableTime_DayofWeek">
+    <End Role="DayofWeek" Type="Self.DayofWeek" Multiplicity="1" />
+    <End Role="AppointmentResourceAvailableTime" Type="Self.AppointmentResourceAvailableTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DayofWeek">
+        <PropertyRef Name="DayofWeekID" />
+      </Principal>
+      <Dependent Role="AppointmentResourceAvailableTime">
+        <PropertyRef Name="DayofWeekID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseBenefit_BenefitType">
+    <End Role="BenefitType" Type="Self.BenefitType" Multiplicity="1" />
+    <End Role="CaseBenefit" Type="Self.CaseBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BenefitType">
+        <PropertyRef Name="BenefitTypeID" />
+      </Principal>
+      <Dependent Role="CaseBenefit">
+        <PropertyRef Name="BenefitTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseActivity_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseActivity">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_CaseActivity">
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="0..1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseActivity">
+        <PropertyRef Name="CaseActivityID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="CaseActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseBenefit_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseBenefit" Type="Self.CaseBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseBenefit">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_CaseContactRelationship">
+    <End Role="CaseContactRelationship" Type="Self.CaseContactRelationship" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseContactRelationship">
+        <PropertyRef Name="CaseContactRelationshipID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseContactRelationshipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_CaseContactSpeciality">
+    <End Role="CaseContactSpeciality" Type="Self.CaseContactSpeciality" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseContactSpeciality">
+        <PropertyRef Name="CaseContactSpecialityID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseContactSpecialityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_CaseContactType">
+    <End Role="CaseContactType" Type="Self.CaseContactType" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseContactType">
+        <PropertyRef Name="CaseContactTypeID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_Prefix">
+    <End Role="Prefix" Type="Self.Prefix" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prefix">
+        <PropertyRef Name="PrefixID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="PrefixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseInjury_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseInjury" Type="Self.CaseInjury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseInjury">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseInjury_InjuryCode">
+    <End Role="InjuryCode" Type="Self.InjuryCode" Multiplicity="1" />
+    <End Role="CaseInjury" Type="Self.CaseInjury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InjuryCode">
+        <PropertyRef Name="InjuryCodeID" />
+      </Principal>
+      <Dependent Role="CaseInjury">
+        <PropertyRef Name="InjuryCodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="DocumentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_GoodAndService">
+    <End Role="GoodAndService" Type="Self.GoodAndService" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodAndService">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_Measure">
+    <End Role="Measure" Type="Self.Measure" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Measure">
+        <PropertyRef Name="MeasureID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="MeasureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseMVA_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseMVA" Type="Self.CaseMVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseMVA">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseMVA_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="CaseMVA" Type="Self.CaseMVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="CaseMVA">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseNote_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseNote" Type="Self.CaseNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseNote">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseProvider_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseProvider" Type="Self.CaseProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseProvider">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Case_CaseType">
+    <End Role="CaseType" Type="Self.CaseType" Multiplicity="1" />
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseType">
+        <PropertyRef Name="CaseTypeID" />
+      </Principal>
+      <Dependent Role="ClientCase">
+        <PropertyRef Name="CaseTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentType_CaseType">
+    <End Role="CaseType" Type="Self.CaseType" Multiplicity="1" />
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseType">
+        <PropertyRef Name="CaseTypeID" />
+      </Principal>
+      <Dependent Role="DocumentType">
+        <PropertyRef Name="CaseTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Case_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="ClientCase">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_MaritalStatus">
+    <End Role="MaritalState" Type="Self.MaritalState" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalState">
+        <PropertyRef Name="MaritalStatusID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Prefix">
+    <End Role="Prefix" Type="Self.Prefix" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prefix">
+        <PropertyRef Name="PrefixID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="PrefixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Case_User">
+    <End Role="UserExtendedInformation" Type="Self.UserExtendedInformation" Multiplicity="1" />
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserExtendedInformation">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ClientCase">
+        <PropertyRef Name="CoordinatorUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoice_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="StandardInvoice" Type="Self.StandardInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="StandardInvoice">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ClientContactRelationship">
+    <End Role="ClientContactRelationship" Type="Self.ClientContactRelationship" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientContactRelationship">
+        <PropertyRef Name="ClientContactRelationshipID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientContactRelationshipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ClientContactSpeciality">
+    <End Role="ClientContactSpeciality" Type="Self.ClientContactSpeciality" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientContactSpeciality">
+        <PropertyRef Name="ClientContactSpecialityID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientContactSpecialityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ClientContactType">
+    <End Role="ClientContactType" Type="Self.ClientContactType" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientContactType">
+        <PropertyRef Name="ClientContactTypeID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_Prefix">
+    <End Role="Prefix" Type="Self.Prefix" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prefix">
+        <PropertyRef Name="PrefixID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="PrefixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBranch_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="CompanyBranch" Type="Self.CompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="CompanyBranch">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBranch_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="CompanyBranch" Type="Self.CompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="CompanyBranch">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBranch_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="CompanyBranch" Type="Self.CompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="CompanyBranch">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GoodAndService_GoodAndServiceType">
+    <End Role="GoodAndServiceType" Type="Self.GoodAndServiceType" Multiplicity="1" />
+    <End Role="GoodAndService" Type="Self.GoodAndService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodAndServiceType">
+        <PropertyRef Name="GoodAndServiceTypeID" />
+      </Principal>
+      <Dependent Role="GoodAndService">
+        <PropertyRef Name="GoodAndServiceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InjuryCode_InjuryCodeCategoryType">
+    <End Role="InjuryCodeCategoryType" Type="Self.InjuryCodeCategoryType" Multiplicity="1" />
+    <End Role="InjuryCode" Type="Self.InjuryCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InjuryCodeCategoryType">
+        <PropertyRef Name="InjuryCodeCategoryTypeID" />
+      </Principal>
+      <Dependent Role="InjuryCode">
+        <PropertyRef Name="InjuryCodeCategoryTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InjuryCodeCategoryType_InjuryCodeSeriesType">
+    <End Role="InjuryCodeSeriesType" Type="Self.InjuryCodeSeriesType" Multiplicity="1" />
+    <End Role="InjuryCodeCategoryType" Type="Self.InjuryCodeCategoryType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InjuryCodeSeriesType">
+        <PropertyRef Name="InjuryCodeSeriesTypeID" />
+      </Principal>
+      <Dependent Role="InjuryCodeCategoryType">
+        <PropertyRef Name="InjuryCodeSeriesTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InsuranceCompanyBranch_InsuranceCompany">
+    <End Role="InsuranceCompany" Type="Self.InsuranceCompany" Multiplicity="1" />
+    <End Role="InsuranceCompanyBranch" Type="Self.InsuranceCompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuranceCompany">
+        <PropertyRef Name="InsuranceCompanyID" />
+      </Principal>
+      <Dependent Role="InsuranceCompanyBranch">
+        <PropertyRef Name="InsuranceCompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoicePayment_PaymentType">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+    <End Role="StandardInvoicePayment" Type="Self.StandardInvoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="StandardInvoicePayment">
+        <PropertyRef Name="PaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSAuditDataActions_SFSAuditDataFields">
+    <End Role="SFSAuditDataActions" Type="Self.SFSAuditDataAction" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSAuditDataFields" Type="Self.SFSAuditDataField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSAuditDataActions">
+        <PropertyRef Name="ada_pk" />
+      </Principal>
+      <Dependent Role="SFSAuditDataFields">
+        <PropertyRef Name="adf_ada_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSPermissions_SFSRolesXPermissions">
+    <End Role="SFSPermissions" Type="Self.SFSPermission" Multiplicity="1" />
+    <End Role="SFSRolesXPermissions" Type="Self.SFSRolesXPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSPermissions">
+        <PropertyRef Name="pm_pk" />
+      </Principal>
+      <Dependent Role="SFSRolesXPermissions">
+        <PropertyRef Name="rp_pm_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSPermissions_SFSUsersXPermissions">
+    <End Role="SFSPermissions" Type="Self.SFSPermission" Multiplicity="1" />
+    <End Role="SFSUsersXPermissions" Type="Self.SFSUsersXPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSPermissions">
+        <PropertyRef Name="pm_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXPermissions">
+        <PropertyRef Name="up_pm_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSRestrictions_SFSRestrictionItems">
+    <End Role="SFSRestrictions" Type="Self.SFSRestriction" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSRestrictionItems" Type="Self.SFSRestrictionItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSRestrictions">
+        <PropertyRef Name="rs_pk" />
+      </Principal>
+      <Dependent Role="SFSRestrictionItems">
+        <PropertyRef Name="ri_rs_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSRoles_SFSRolesXPermissions">
+    <End Role="SFSRoles" Type="Self.SFSRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSRolesXPermissions" Type="Self.SFSRolesXPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSRoles">
+        <PropertyRef Name="rl_pk" />
+      </Principal>
+      <Dependent Role="SFSRolesXPermissions">
+        <PropertyRef Name="rp_rl_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSRoles_SFSUsersXRoles">
+    <End Role="SFSRoles" Type="Self.SFSRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSUsersXRoles" Type="Self.SFSUsersXRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSRoles">
+        <PropertyRef Name="rl_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXRoles">
+        <PropertyRef Name="ur_rl_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSUsers_SFSUsersXPermissions">
+    <End Role="SFSUsers" Type="Self.SFSUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSUsersXPermissions" Type="Self.SFSUsersXPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSUsers">
+        <PropertyRef Name="us_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXPermissions">
+        <PropertyRef Name="up_us_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSUsers_SFSUsersXRoles">
+    <End Role="SFSUsers" Type="Self.SFSUser" Multiplicity="1" />
+    <End Role="SFSUsersXRoles" Type="Self.SFSUsersXRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSUsers">
+        <PropertyRef Name="us_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXRoles">
+        <PropertyRef Name="ur_us_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoiceLineItem_StandardInvoice">
+    <End Role="StandardInvoice" Type="Self.StandardInvoice" Multiplicity="1" />
+    <End Role="StandardInvoiceLineItem" Type="Self.StandardInvoiceLineItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardInvoice">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Principal>
+      <Dependent Role="StandardInvoiceLineItem">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoicePayment_StandardInvoice">
+    <End Role="StandardInvoice" Type="Self.StandardInvoice" Multiplicity="1" />
+    <End Role="StandardInvoicePayment" Type="Self.StandardInvoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardInvoice">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Principal>
+      <Dependent Role="StandardInvoicePayment">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ICMDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityBookings" EntityType="Self.ActivityBooking" />
+    <EntitySet Name="ActivityBookingBookingTypes" EntityType="Self.ActivityBookingBookingType" />
+    <EntitySet Name="ActivityBookingTypes" EntityType="Self.ActivityBookingType" />
+    <EntitySet Name="ActivitySubTypes" EntityType="Self.ActivitySubType" />
+    <EntitySet Name="ActivityTypes" EntityType="Self.ActivityType" />
+    <EntitySet Name="Adjusters" EntityType="Self.Adjuster" />
+    <EntitySet Name="AppointmentResources" EntityType="Self.AppointmentResource" />
+    <EntitySet Name="AppointmentResourceAvailableTimes" EntityType="Self.AppointmentResourceAvailableTime" />
+    <EntitySet Name="AppointmentResourceBookingTypes" EntityType="Self.AppointmentResourceBookingType" />
+    <EntitySet Name="AppointmentResourceChargeOutRates" EntityType="Self.AppointmentResourceChargeOutRate" />
+    <EntitySet Name="AppointmentResourceChargeOutTypes" EntityType="Self.AppointmentResourceChargeOutType" />
+    <EntitySet Name="AppointmentResourceDayOffs" EntityType="Self.AppointmentResourceDayOff" />
+    <EntitySet Name="AppointmentResourceNationalHolidays" EntityType="Self.AppointmentResourceNationalHoliday" />
+    <EntitySet Name="AppointmentResourceResourceTypes" EntityType="Self.AppointmentResourceResourceType" />
+    <EntitySet Name="AppointmentResourceTypes" EntityType="Self.AppointmentResourceType" />
+    <EntitySet Name="BenefitTypes" EntityType="Self.BenefitType" />
+    <EntitySet Name="CaseActivities" EntityType="Self.CaseActivity" />
+    <EntitySet Name="CaseBenefits" EntityType="Self.CaseBenefit" />
+    <EntitySet Name="CaseContacts" EntityType="Self.CaseContact" />
+    <EntitySet Name="CaseContactRelationships" EntityType="Self.CaseContactRelationship" />
+    <EntitySet Name="CaseContactSpecialities" EntityType="Self.CaseContactSpeciality" />
+    <EntitySet Name="CaseContactTypes" EntityType="Self.CaseContactType" />
+    <EntitySet Name="CaseInjuries" EntityType="Self.CaseInjury" />
+    <EntitySet Name="CaseManagements" EntityType="Self.CaseManagement" />
+    <EntitySet Name="CaseMVAs" EntityType="Self.CaseMVA" />
+    <EntitySet Name="CaseNotes" EntityType="Self.CaseNote" />
+    <EntitySet Name="CaseProviders" EntityType="Self.CaseProvider" />
+    <EntitySet Name="CaseTypes" EntityType="Self.CaseType" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="ClientCases" EntityType="Self.ClientCase" />
+    <EntitySet Name="ClientContacts" EntityType="Self.ClientContact" />
+    <EntitySet Name="ClientContactRelationships" EntityType="Self.ClientContactRelationship" />
+    <EntitySet Name="ClientContactSpecialities" EntityType="Self.ClientContactSpeciality" />
+    <EntitySet Name="ClientContactTypes" EntityType="Self.ClientContactType" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="CompanyBranches" EntityType="Self.CompanyBranch" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="DayofWeeks" EntityType="Self.DayofWeek" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="GoodAndServices" EntityType="Self.GoodAndService" />
+    <EntitySet Name="GoodAndServiceTypes" EntityType="Self.GoodAndServiceType" />
+    <EntitySet Name="InjuryCodes" EntityType="Self.InjuryCode" />
+    <EntitySet Name="InjuryCodeCategoryTypes" EntityType="Self.InjuryCodeCategoryType" />
+    <EntitySet Name="InjuryCodeSeriesTypes" EntityType="Self.InjuryCodeSeriesType" />
+    <EntitySet Name="InsuranceCompanies" EntityType="Self.InsuranceCompany" />
+    <EntitySet Name="InsuranceCompanyBranches" EntityType="Self.InsuranceCompanyBranch" />
+    <EntitySet Name="Languages" EntityType="Self.Language" />
+    <EntitySet Name="MaritalStates" EntityType="Self.MaritalState" />
+    <EntitySet Name="Measures" EntityType="Self.Measure" />
+    <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+    <EntitySet Name="Prefixes" EntityType="Self.Prefix" />
+    <EntitySet Name="ProvinceOrStates" EntityType="Self.ProvinceOrState" />
+    <EntitySet Name="SFSAuditDataActions" EntityType="Self.SFSAuditDataAction" />
+    <EntitySet Name="SFSAuditDataFields" EntityType="Self.SFSAuditDataField" />
+    <EntitySet Name="SFSAuditEvents" EntityType="Self.SFSAuditEvent" />
+    <EntitySet Name="SFSPermissions" EntityType="Self.SFSPermission" />
+    <EntitySet Name="SFSPreferences" EntityType="Self.SFSPreference" />
+    <EntitySet Name="SFSProjects" EntityType="Self.SFSProject" />
+    <EntitySet Name="SFSRestrictionItems" EntityType="Self.SFSRestrictionItem" />
+    <EntitySet Name="SFSRestrictions" EntityType="Self.SFSRestriction" />
+    <EntitySet Name="SFSRoles" EntityType="Self.SFSRole" />
+    <EntitySet Name="SFSRolesXPermissions" EntityType="Self.SFSRolesXPermission" />
+    <EntitySet Name="SFSUsers" EntityType="Self.SFSUser" />
+    <EntitySet Name="SFSUsersXPermissions" EntityType="Self.SFSUsersXPermission" />
+    <EntitySet Name="SFSUsersXRoles" EntityType="Self.SFSUsersXRole" />
+    <EntitySet Name="SkedulexMessages" EntityType="Self.SkedulexMessage" />
+    <EntitySet Name="StandardInvoices" EntityType="Self.StandardInvoice" />
+    <EntitySet Name="StandardInvoiceLineItems" EntityType="Self.StandardInvoiceLineItem" />
+    <EntitySet Name="StandardInvoicePayments" EntityType="Self.StandardInvoicePayment" />
+    <EntitySet Name="UserExtendedInformations" EntityType="Self.UserExtendedInformation" />
+    <EntitySet Name="SFSAuditActivities" EntityType="Self.SFSAuditActivity" />
+    <AssociationSet Name="FK_ActivityBooking_AppointmentResource" Association="Self.FK_ActivityBooking_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+      <End Role="ActivityBooking" EntitySet="ActivityBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityBooking_CaseActivity" Association="Self.FK_ActivityBooking_CaseActivity">
+      <End Role="CaseActivity" EntitySet="CaseActivities" />
+      <End Role="ActivityBooking" EntitySet="ActivityBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityBooking_GoodAndService" Association="Self.FK_ActivityBooking_GoodAndService">
+      <End Role="GoodAndService" EntitySet="GoodAndServices" />
+      <End Role="ActivityBooking" EntitySet="ActivityBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityType_ActivitySubType" Association="Self.FK_ActivityType_ActivitySubType">
+      <End Role="ActivitySubType" EntitySet="ActivitySubTypes" />
+      <End Role="ActivityType" EntitySet="ActivityTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseActivity_ActivityType" Association="Self.FK_CaseActivity_ActivityType">
+      <End Role="ActivityType" EntitySet="ActivityTypes" />
+      <End Role="CaseActivity" EntitySet="CaseActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adjuster_InsuranceCompanyBranch" Association="Self.FK_Adjuster_InsuranceCompanyBranch">
+      <End Role="InsuranceCompanyBranch" EntitySet="InsuranceCompanyBranches" />
+      <End Role="Adjuster" EntitySet="Adjusters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseMVA_Adjuster" Association="Self.FK_CaseMVA_Adjuster">
+      <End Role="Adjuster" EntitySet="Adjusters" />
+      <End Role="CaseMVA" EntitySet="CaseMVAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResource_AppointmentResourceBookingType" Association="Self.FK_AppointmentResource_AppointmentResourceBookingType">
+      <End Role="AppointmentResourceBookingType" EntitySet="AppointmentResourceBookingTypes" />
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResource_Country" Association="Self.FK_AppointmentResource_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResource_ProvinceOrState" Association="Self.FK_AppointmentResource_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrStates" />
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResourceAvailableTime_AppointmentResource" Association="Self.FK_AppointmentResourceAvailableTime_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+      <End Role="AppointmentResourceAvailableTime" EntitySet="AppointmentResourceAvailableTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResourceDayOff_AppointmentResource" Association="Self.FK_AppointmentResourceDayOff_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+      <End Role="AppointmentResourceDayOff" EntitySet="AppointmentResourceDayOffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_AppointmentResource" Association="Self.FK_CaseManagement_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+      <End Role="CaseManagement" EntitySet="CaseManagements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseProvider_AppointmentResource" Association="Self.FK_CaseProvider_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResources" />
+      <End Role="CaseProvider" EntitySet="CaseProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResourceAvailableTime_DayofWeek" Association="Self.FK_AppointmentResourceAvailableTime_DayofWeek">
+      <End Role="DayofWeek" EntitySet="DayofWeeks" />
+      <End Role="AppointmentResourceAvailableTime" EntitySet="AppointmentResourceAvailableTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseBenefit_BenefitType" Association="Self.FK_CaseBenefit_BenefitType">
+      <End Role="BenefitType" EntitySet="BenefitTypes" />
+      <End Role="CaseBenefit" EntitySet="CaseBenefits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseActivity_Case" Association="Self.FK_CaseActivity_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseActivity" EntitySet="CaseActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_CaseActivity" Association="Self.FK_CaseManagement_CaseActivity">
+      <End Role="CaseActivity" EntitySet="CaseActivities" />
+      <End Role="CaseManagement" EntitySet="CaseManagements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseBenefit_Case" Association="Self.FK_CaseBenefit_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseBenefit" EntitySet="CaseBenefits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_Case" Association="Self.FK_CaseContact_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseContact" EntitySet="CaseContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_CaseContactRelationship" Association="Self.FK_CaseContact_CaseContactRelationship">
+      <End Role="CaseContactRelationship" EntitySet="CaseContactRelationships" />
+      <End Role="CaseContact" EntitySet="CaseContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_CaseContactSpeciality" Association="Self.FK_CaseContact_CaseContactSpeciality">
+      <End Role="CaseContactSpeciality" EntitySet="CaseContactSpecialities" />
+      <End Role="CaseContact" EntitySet="CaseContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_CaseContactType" Association="Self.FK_CaseContact_CaseContactType">
+      <End Role="CaseContactType" EntitySet="CaseContactTypes" />
+      <End Role="CaseContact" EntitySet="CaseContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_Country" Association="Self.FK_CaseContact_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="CaseContact" EntitySet="CaseContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_Prefix" Association="Self.FK_CaseContact_Prefix">
+      <End Role="Prefix" EntitySet="Prefixes" />
+      <End Role="CaseContact" EntitySet="CaseContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_ProvinceOrState" Association="Self.FK_CaseContact_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrStates" />
+      <End Role="CaseContact" EntitySet="CaseContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseInjury_Case" Association="Self.FK_CaseInjury_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseInjury" EntitySet="CaseInjuries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseInjury_InjuryCode" Association="Self.FK_CaseInjury_InjuryCode">
+      <End Role="InjuryCode" EntitySet="InjuryCodes" />
+      <End Role="CaseInjury" EntitySet="CaseInjuries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_Case" Association="Self.FK_CaseManagement_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseManagement" EntitySet="CaseManagements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_DocumentType" Association="Self.FK_CaseManagement_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+      <End Role="CaseManagement" EntitySet="CaseManagements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_GoodAndService" Association="Self.FK_CaseManagement_GoodAndService">
+      <End Role="GoodAndService" EntitySet="GoodAndServices" />
+      <End Role="CaseManagement" EntitySet="CaseManagements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_Measure" Association="Self.FK_CaseManagement_Measure">
+      <End Role="Measure" EntitySet="Measures" />
+      <End Role="CaseManagement" EntitySet="CaseManagements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseMVA_Case" Association="Self.FK_CaseMVA_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseMVA" EntitySet="CaseMVAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseMVA_Language" Association="Self.FK_CaseMVA_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="CaseMVA" EntitySet="CaseMVAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseNote_Case" Association="Self.FK_CaseNote_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseNote" EntitySet="CaseNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseProvider_Case" Association="Self.FK_CaseProvider_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="CaseProvider" EntitySet="CaseProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Case_CaseType" Association="Self.FK_Case_CaseType">
+      <End Role="CaseType" EntitySet="CaseTypes" />
+      <End Role="ClientCase" EntitySet="ClientCases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentType_CaseType" Association="Self.FK_DocumentType_CaseType">
+      <End Role="CaseType" EntitySet="CaseTypes" />
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Case_Client" Association="Self.FK_Case_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="ClientCase" EntitySet="ClientCases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Country" Association="Self.FK_Client_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_MaritalStatus" Association="Self.FK_Client_MaritalStatus">
+      <End Role="MaritalState" EntitySet="MaritalStates" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Prefix" Association="Self.FK_Client_Prefix">
+      <End Role="Prefix" EntitySet="Prefixes" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_ProvinceOrState" Association="Self.FK_Client_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrStates" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_Client" Association="Self.FK_ClientContact_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="ClientContact" EntitySet="ClientContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
+      <End Role="UserExtendedInformation" EntitySet="UserExtendedInformations" />
+      <End Role="ClientCase" EntitySet="ClientCases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoice_Case" Association="Self.FK_StandardInvoice_Case">
+      <End Role="ClientCase" EntitySet="ClientCases" />
+      <End Role="StandardInvoice" EntitySet="StandardInvoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ClientContactRelationship" Association="Self.FK_ClientContact_ClientContactRelationship">
+      <End Role="ClientContactRelationship" EntitySet="ClientContactRelationships" />
+      <End Role="ClientContact" EntitySet="ClientContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ClientContactSpeciality" Association="Self.FK_ClientContact_ClientContactSpeciality">
+      <End Role="ClientContactSpeciality" EntitySet="ClientContactSpecialities" />
+      <End Role="ClientContact" EntitySet="ClientContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ClientContactType" Association="Self.FK_ClientContact_ClientContactType">
+      <End Role="ClientContactType" EntitySet="ClientContactTypes" />
+      <End Role="ClientContact" EntitySet="ClientContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_Country" Association="Self.FK_ClientContact_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="ClientContact" EntitySet="ClientContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_Prefix" Association="Self.FK_ClientContact_Prefix">
+      <End Role="Prefix" EntitySet="Prefixes" />
+      <End Role="ClientContact" EntitySet="ClientContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ProvinceOrState" Association="Self.FK_ClientContact_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrStates" />
+      <End Role="ClientContact" EntitySet="ClientContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_Country" Association="Self.FK_Company_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_ProvinceOrState" Association="Self.FK_Company_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrStates" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBranch_Company" Association="Self.FK_CompanyBranch_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="CompanyBranch" EntitySet="CompanyBranches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBranch_Country" Association="Self.FK_CompanyBranch_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="CompanyBranch" EntitySet="CompanyBranches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBranch_ProvinceOrState" Association="Self.FK_CompanyBranch_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrStates" />
+      <End Role="CompanyBranch" EntitySet="CompanyBranches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GoodAndService_GoodAndServiceType" Association="Self.FK_GoodAndService_GoodAndServiceType">
+      <End Role="GoodAndServiceType" EntitySet="GoodAndServiceTypes" />
+      <End Role="GoodAndService" EntitySet="GoodAndServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InjuryCode_InjuryCodeCategoryType" Association="Self.FK_InjuryCode_InjuryCodeCategoryType">
+      <End Role="InjuryCodeCategoryType" EntitySet="InjuryCodeCategoryTypes" />
+      <End Role="InjuryCode" EntitySet="InjuryCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InjuryCodeCategoryType_InjuryCodeSeriesType" Association="Self.FK_InjuryCodeCategoryType_InjuryCodeSeriesType">
+      <End Role="InjuryCodeSeriesType" EntitySet="InjuryCodeSeriesTypes" />
+      <End Role="InjuryCodeCategoryType" EntitySet="InjuryCodeCategoryTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InsuranceCompanyBranch_InsuranceCompany" Association="Self.FK_InsuranceCompanyBranch_InsuranceCompany">
+      <End Role="InsuranceCompany" EntitySet="InsuranceCompanies" />
+      <End Role="InsuranceCompanyBranch" EntitySet="InsuranceCompanyBranches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoicePayment_PaymentType" Association="Self.FK_StandardInvoicePayment_PaymentType">
+      <End Role="PaymentType" EntitySet="PaymentTypes" />
+      <End Role="StandardInvoicePayment" EntitySet="StandardInvoicePayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSAuditDataActions_SFSAuditDataFields" Association="Self.FK_SFSAuditDataActions_SFSAuditDataFields">
+      <End Role="SFSAuditDataActions" EntitySet="SFSAuditDataActions" />
+      <End Role="SFSAuditDataFields" EntitySet="SFSAuditDataFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSPermissions_SFSRolesXPermissions" Association="Self.FK_SFSPermissions_SFSRolesXPermissions">
+      <End Role="SFSPermissions" EntitySet="SFSPermissions" />
+      <End Role="SFSRolesXPermissions" EntitySet="SFSRolesXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSPermissions_SFSUsersXPermissions" Association="Self.FK_SFSPermissions_SFSUsersXPermissions">
+      <End Role="SFSPermissions" EntitySet="SFSPermissions" />
+      <End Role="SFSUsersXPermissions" EntitySet="SFSUsersXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSRestrictions_SFSRestrictionItems" Association="Self.FK_SFSRestrictions_SFSRestrictionItems">
+      <End Role="SFSRestrictions" EntitySet="SFSRestrictions" />
+      <End Role="SFSRestrictionItems" EntitySet="SFSRestrictionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSRoles_SFSRolesXPermissions" Association="Self.FK_SFSRoles_SFSRolesXPermissions">
+      <End Role="SFSRoles" EntitySet="SFSRoles" />
+      <End Role="SFSRolesXPermissions" EntitySet="SFSRolesXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSRoles_SFSUsersXRoles" Association="Self.FK_SFSRoles_SFSUsersXRoles">
+      <End Role="SFSRoles" EntitySet="SFSRoles" />
+      <End Role="SFSUsersXRoles" EntitySet="SFSUsersXRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSUsers_SFSUsersXPermissions" Association="Self.FK_SFSUsers_SFSUsersXPermissions">
+      <End Role="SFSUsers" EntitySet="SFSUsers" />
+      <End Role="SFSUsersXPermissions" EntitySet="SFSUsersXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSUsers_SFSUsersXRoles" Association="Self.FK_SFSUsers_SFSUsersXRoles">
+      <End Role="SFSUsers" EntitySet="SFSUsers" />
+      <End Role="SFSUsersXRoles" EntitySet="SFSUsersXRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoiceLineItem_StandardInvoice" Association="Self.FK_StandardInvoiceLineItem_StandardInvoice">
+      <End Role="StandardInvoice" EntitySet="StandardInvoices" />
+      <End Role="StandardInvoiceLineItem" EntitySet="StandardInvoiceLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoicePayment_StandardInvoice" Association="Self.FK_StandardInvoicePayment_StandardInvoice">
+      <End Role="StandardInvoice" EntitySet="StandardInvoices" />
+      <End Role="StandardInvoicePayment" EntitySet="StandardInvoicePayments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

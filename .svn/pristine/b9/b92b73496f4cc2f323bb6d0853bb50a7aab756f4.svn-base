@@ -1,0 +1,46 @@
+﻿@model ICM.Web.Models.UserLog
+
+@{
+    Layout = "";
+}
+<link href="@Url.Content("~/Styles/style.css")" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Login";
+}
+<body>
+    <div class="container">
+        <div class="login">
+            <h2>Welcome. Please Log In</h2>
+
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+            {
+                //this  is for create form tag
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                if (@ViewBag.Message != null)
+                {
+                    <h4 style="color:#4C0000">
+                        @ViewBag.Message
+                    </h4>
+                }
+                <p>
+                    <h4>
+                        @Html.LabelFor(a => a.Username)
+                        @Html.TextBoxFor(a => a.Username, new { @placeholder = "Username" })
+                    </h4>
+                    <h4 style="color:#4C0000">@Html.ValidationMessageFor(a => a.Username)</h4>
+                </p>
+                <p>
+                    <h4>
+                        @Html.LabelFor(a => a.Password)
+                        @Html.PasswordFor(a => a.Password, new { @placeholder = "Password" })
+                    </h4>
+                    <h4 style="color:#4C0000">@Html.ValidationMessageFor(a => a.Password)</h4>
+                </p>
+                <p class="submit">
+                    <input type="submit" value="Login" />
+                </p>
+            }
+        </div>
+    </div>
+</body>

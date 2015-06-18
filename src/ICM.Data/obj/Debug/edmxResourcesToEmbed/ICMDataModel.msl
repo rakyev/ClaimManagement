@@ -1,0 +1,1225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ICMModelStoreContainer" CdmEntityContainer="ICMDBContext">
+    <EntitySetMapping Name="ActivityBookings">
+      <EntityTypeMapping TypeName="ICMModel.ActivityBooking">
+        <MappingFragment StoreEntitySet="ActivityBooking">
+          <ScalarProperty Name="ActivityBookingID" ColumnName="ActivityBookingID" />
+          <ScalarProperty Name="CaseActivityID" ColumnName="CaseActivityID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+          <ScalarProperty Name="OutlookEntryId" ColumnName="OutlookEntryId" />
+          <ScalarProperty Name="RelatedEntryId" ColumnName="RelatedEntryId" />
+          <ScalarProperty Name="GoodAndServiceID" ColumnName="GoodAndServiceID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityBookingBookingTypes">
+      <EntityTypeMapping TypeName="ICMModel.ActivityBookingBookingType">
+        <MappingFragment StoreEntitySet="ActivityBookingBookingType">
+          <ScalarProperty Name="ActivityBookingBookingTypeID" ColumnName="ActivityBookingBookingTypeID" />
+          <ScalarProperty Name="ActivityBookingID" ColumnName="ActivityBookingID" />
+          <ScalarProperty Name="ActivityBookingTypeID" ColumnName="ActivityBookingTypeID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityBookingTypes">
+      <EntityTypeMapping TypeName="ICMModel.ActivityBookingType">
+        <MappingFragment StoreEntitySet="ActivityBookingType">
+          <ScalarProperty Name="ActivityBookingTypeID" ColumnName="ActivityBookingTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivitySubTypes">
+      <EntityTypeMapping TypeName="ICMModel.ActivitySubType">
+        <MappingFragment StoreEntitySet="ActivitySubType">
+          <ScalarProperty Name="ActivitySubTypeID" ColumnName="ActivitySubTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityTypes">
+      <EntityTypeMapping TypeName="ICMModel.ActivityType">
+        <MappingFragment StoreEntitySet="ActivityType">
+          <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+          <ScalarProperty Name="ActivitySubTypeID" ColumnName="ActivitySubTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="GoodAndServiceID" ColumnName="GoodAndServiceID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adjusters">
+      <EntityTypeMapping TypeName="ICMModel.Adjuster">
+        <MappingFragment StoreEntitySet="Adjuster">
+          <ScalarProperty Name="AdjusterID" ColumnName="AdjusterID" />
+          <ScalarProperty Name="InsuranceCompanyBranchID" ColumnName="InsuranceCompanyBranchID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneExtension" ColumnName="PhoneExtension" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="OtherPhone" ColumnName="OtherPhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResources">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResource">
+        <MappingFragment StoreEntitySet="AppointmentResource">
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="AppointmentResourceBookingTypeID" ColumnName="AppointmentResourceBookingTypeID" />
+          <ScalarProperty Name="CompanyBranchID" ColumnName="CompanyBranchID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="HCAIProviderRegistryID" ColumnName="HCAIProviderRegistryID" />
+          <ScalarProperty Name="CollegeRegistrationNumber" ColumnName="CollegeRegistrationNumber" />
+          <ScalarProperty Name="WebAccessCode" ColumnName="WebAccessCode" />
+          <ScalarProperty Name="DoubleBookingAllowed" ColumnName="DoubleBookingAllowed" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="PostalCodeOrZipCode" ColumnName="PostalCodeOrZipCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="WorkPhoneExtension" ColumnName="WorkPhoneExtension" />
+          <ScalarProperty Name="WorkFax" ColumnName="WorkFax" />
+          <ScalarProperty Name="OtherPhone" ColumnName="OtherPhone" />
+          <ScalarProperty Name="WorkEmail" ColumnName="WorkEmail" />
+          <ScalarProperty Name="AdditionalEmail" ColumnName="AdditionalEmail" />
+          <ScalarProperty Name="Credentials" ColumnName="Credentials" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ResumeName" ColumnName="ResumeName" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceAvailableTimes">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceAvailableTime">
+        <MappingFragment StoreEntitySet="AppointmentResourceAvailableTime">
+          <ScalarProperty Name="AppointmentResourceAvailableTimeID" ColumnName="AppointmentResourceAvailableTimeID" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="DayofWeekID" ColumnName="DayofWeekID" />
+          <ScalarProperty Name="AvailableFrom" ColumnName="AvailableFrom" />
+          <ScalarProperty Name="AvailableTo" ColumnName="AvailableTo" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceBookingTypes">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceBookingType">
+        <MappingFragment StoreEntitySet="AppointmentResourceBookingType">
+          <ScalarProperty Name="AppointmentResourceBookingTypeID" ColumnName="AppointmentResourceBookingTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceChargeOutRates">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceChargeOutRate">
+        <MappingFragment StoreEntitySet="AppointmentResourceChargeOutRate">
+          <ScalarProperty Name="AppointmentResourceChargeOutRateID" ColumnName="AppointmentResourceChargeOutRateID" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="AppointmentResourceChargeOutTypeID" ColumnName="AppointmentResourceChargeOutTypeID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceChargeOutTypes">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceChargeOutType">
+        <MappingFragment StoreEntitySet="AppointmentResourceChargeOutType">
+          <ScalarProperty Name="AppointmentResourceChargeOutTypeID" ColumnName="AppointmentResourceChargeOutTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceDayOffs">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceDayOff">
+        <MappingFragment StoreEntitySet="AppointmentResourceDayOff">
+          <ScalarProperty Name="AppointmentResourceDayOffID" ColumnName="AppointmentResourceDayOffID" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="DayOffDate" ColumnName="DayOffDate" />
+          <ScalarProperty Name="DayOffFrom" ColumnName="DayOffFrom" />
+          <ScalarProperty Name="DayOffTo" ColumnName="DayOffTo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceNationalHolidays">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceNationalHoliday">
+        <MappingFragment StoreEntitySet="AppointmentResourceNationalHoliday">
+          <ScalarProperty Name="AppointmentResourceNationalHolidayID" ColumnName="AppointmentResourceNationalHolidayID" />
+          <ScalarProperty Name="HolidayDate" ColumnName="HolidayDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceResourceTypes">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceResourceType">
+        <MappingFragment StoreEntitySet="AppointmentResourceResourceType">
+          <ScalarProperty Name="AppointmentResourceResourceTypeID" ColumnName="AppointmentResourceResourceTypeID" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="AppointmentResourceTypeID" ColumnName="AppointmentResourceTypeID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentResourceTypes">
+      <EntityTypeMapping TypeName="ICMModel.AppointmentResourceType">
+        <MappingFragment StoreEntitySet="AppointmentResourceType">
+          <ScalarProperty Name="AppointmentResourceTypeID" ColumnName="AppointmentResourceTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="OccupationCode" ColumnName="OccupationCode" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenefitTypes">
+      <EntityTypeMapping TypeName="ICMModel.BenefitType">
+        <MappingFragment StoreEntitySet="BenefitType">
+          <ScalarProperty Name="BenefitTypeID" ColumnName="BenefitTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseActivities">
+      <EntityTypeMapping TypeName="ICMModel.CaseActivity">
+        <MappingFragment StoreEntitySet="CaseActivity">
+          <ScalarProperty Name="CaseActivityID" ColumnName="CaseActivityID" />
+          <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseBenefits">
+      <EntityTypeMapping TypeName="ICMModel.CaseBenefit">
+        <MappingFragment StoreEntitySet="CaseBenefit">
+          <ScalarProperty Name="CaseBenefitID" ColumnName="CaseBenefitID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="BenefitTypeID" ColumnName="BenefitTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseContacts">
+      <EntityTypeMapping TypeName="ICMModel.CaseContact">
+        <MappingFragment StoreEntitySet="CaseContact">
+          <ScalarProperty Name="CaseContactID" ColumnName="CaseContactID" />
+          <ScalarProperty Name="CaseContactTypeID" ColumnName="CaseContactTypeID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="PrefixID" ColumnName="PrefixID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="PostalCodeOrZipCode" ColumnName="PostalCodeOrZipCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="WorkPhoneExtension" ColumnName="WorkPhoneExtension" />
+          <ScalarProperty Name="WorkFax" ColumnName="WorkFax" />
+          <ScalarProperty Name="WorkEmail" ColumnName="WorkEmail" />
+          <ScalarProperty Name="CaseContactRelationshipID" ColumnName="CaseContactRelationshipID" />
+          <ScalarProperty Name="CaseContactSpecialityID" ColumnName="CaseContactSpecialityID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseContactRelationships">
+      <EntityTypeMapping TypeName="ICMModel.CaseContactRelationship">
+        <MappingFragment StoreEntitySet="CaseContactRelationship">
+          <ScalarProperty Name="CaseContactRelationshipID" ColumnName="CaseContactRelationshipID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseContactSpecialities">
+      <EntityTypeMapping TypeName="ICMModel.CaseContactSpeciality">
+        <MappingFragment StoreEntitySet="CaseContactSpeciality">
+          <ScalarProperty Name="CaseContactSpecialityID" ColumnName="CaseContactSpecialityID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseContactTypes">
+      <EntityTypeMapping TypeName="ICMModel.CaseContactType">
+        <MappingFragment StoreEntitySet="CaseContactType">
+          <ScalarProperty Name="CaseContactTypeID" ColumnName="CaseContactTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseInjuries">
+      <EntityTypeMapping TypeName="ICMModel.CaseInjury">
+        <MappingFragment StoreEntitySet="CaseInjury">
+          <ScalarProperty Name="CaseInjuryID" ColumnName="CaseInjuryID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="InjuryCodeID" ColumnName="InjuryCodeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseManagements">
+      <EntityTypeMapping TypeName="ICMModel.CaseManagement">
+        <MappingFragment StoreEntitySet="CaseManagement">
+          <ScalarProperty Name="CaseManagementID" ColumnName="CaseManagementID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="NewFileName" ColumnName="NewFileName" />
+          <ScalarProperty Name="CaseActivityID" ColumnName="CaseActivityID" />
+          <ScalarProperty Name="HCAIStatus" ColumnName="HCAIStatus" />
+          <ScalarProperty Name="DateOfService" ColumnName="DateOfService" />
+          <ScalarProperty Name="GoodAndServiceID" ColumnName="GoodAndServiceID" />
+          <ScalarProperty Name="GoodAndServiceAtt" ColumnName="GoodAndServiceAtt" />
+          <ScalarProperty Name="GoodAndServiceDesc" ColumnName="GoodAndServiceDesc" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+          <ScalarProperty Name="GSTHSTVAT" ColumnName="GSTHSTVAT" />
+          <ScalarProperty Name="LineCost" ColumnName="LineCost" />
+          <ScalarProperty Name="Billed" ColumnName="Billed" />
+          <ScalarProperty Name="PSTOther" ColumnName="PSTOther" />
+          <ScalarProperty Name="PlanNumber" ColumnName="PlanNumber" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="BilledAmount" ColumnName="BilledAmount" />
+          <ScalarProperty Name="ApprovedAmount" ColumnName="ApprovedAmount" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="WIPAmount" ColumnName="WIPAmount" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseMVAs">
+      <EntityTypeMapping TypeName="ICMModel.CaseMVA">
+        <MappingFragment StoreEntitySet="CaseMVA">
+          <ScalarProperty Name="CaseMVAID" ColumnName="CaseMVAID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="DateofAccident" ColumnName="DateofAccident" />
+          <ScalarProperty Name="ClaimNumber" ColumnName="ClaimNumber" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="AdjusterID" ColumnName="AdjusterID" />
+          <ScalarProperty Name="CAT" ColumnName="CAT" />
+          <ScalarProperty Name="TransportationRequired" ColumnName="TransportationRequired" />
+          <ScalarProperty Name="InterpreterRequired" ColumnName="InterpreterRequired" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="PolicyHolderSameAsApplicant" ColumnName="PolicyHolderSameAsApplicant" />
+          <ScalarProperty Name="PolicyHolderFirstName" ColumnName="PolicyHolderFirstName" />
+          <ScalarProperty Name="PolicyHolderLastName" ColumnName="PolicyHolderLastName" />
+          <ScalarProperty Name="IsThereOtherInsuranceCoverage" ColumnName="IsThereOtherInsuranceCoverage" />
+          <ScalarProperty Name="Closed" ColumnName="Closed" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="OtherInsurer1Name" ColumnName="OtherInsurer1Name" />
+          <ScalarProperty Name="OtherInsurer1Plan" ColumnName="OtherInsurer1Plan" />
+          <ScalarProperty Name="OtherInsurer1PolicyNumber" ColumnName="OtherInsurer1PolicyNumber" />
+          <ScalarProperty Name="OtherInsurer1NameofThePlanMember" ColumnName="OtherInsurer1NameofThePlanMember" />
+          <ScalarProperty Name="OtherInsurer1Identifier" ColumnName="OtherInsurer1Identifier" />
+          <ScalarProperty Name="OtherInsurer2Name" ColumnName="OtherInsurer2Name" />
+          <ScalarProperty Name="OtherInsurer2Plan" ColumnName="OtherInsurer2Plan" />
+          <ScalarProperty Name="OtherInsurer2PolicyNumber" ColumnName="OtherInsurer2PolicyNumber" />
+          <ScalarProperty Name="OtherInsurer2NameofThePlanMember" ColumnName="OtherInsurer2NameofThePlanMember" />
+          <ScalarProperty Name="OtherInsurer2Identifier" ColumnName="OtherInsurer2Identifier" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseNotes">
+      <EntityTypeMapping TypeName="ICMModel.CaseNote">
+        <MappingFragment StoreEntitySet="CaseNote">
+          <ScalarProperty Name="CaseNoteID" ColumnName="CaseNoteID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedorUpdated" ColumnName="CreatedorUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CompletedBy" ColumnName="CompletedBy" />
+          <ScalarProperty Name="RemiderDate" ColumnName="RemiderDate" />
+          <ScalarProperty Name="Private" ColumnName="Private" />
+          <ScalarProperty Name="RemindUserID" ColumnName="RemindUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseProviders">
+      <EntityTypeMapping TypeName="ICMModel.CaseProvider">
+        <MappingFragment StoreEntitySet="CaseProvider">
+          <ScalarProperty Name="CaseProviderID" ColumnName="CaseProviderID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaseTypes">
+      <EntityTypeMapping TypeName="ICMModel.CaseType">
+        <MappingFragment StoreEntitySet="CaseType">
+          <ScalarProperty Name="CaseTypeID" ColumnName="CaseTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="ICMModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="PrefixID" ColumnName="PrefixID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="PostalCodeOrZipCode" ColumnName="PostalCodeOrZipCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="PersanalFax" ColumnName="PersanalFax" />
+          <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+          <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
+          <ScalarProperty Name="SocialInsuranceNumber" ColumnName="SocialInsuranceNumber" />
+          <ScalarProperty Name="HealthCardNumber" ColumnName="HealthCardNumber" />
+          <ScalarProperty Name="DriversLicenseNumber" ColumnName="DriversLicenseNumber" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="WorkPhoneExtension" ColumnName="WorkPhoneExtension" />
+          <ScalarProperty Name="WorkFax" ColumnName="WorkFax" />
+          <ScalarProperty Name="WorkEmail" ColumnName="WorkEmail" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientCases">
+      <EntityTypeMapping TypeName="ICMModel.ClientCase">
+        <MappingFragment StoreEntitySet="ClientCase">
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="CaseTypeID" ColumnName="CaseTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ReferralDate" ColumnName="ReferralDate" />
+          <ScalarProperty Name="CoordinatorUserID" ColumnName="CoordinatorUserID" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientContacts">
+      <EntityTypeMapping TypeName="ICMModel.ClientContact">
+        <MappingFragment StoreEntitySet="ClientContact">
+          <ScalarProperty Name="ClientContactID" ColumnName="ClientContactID" />
+          <ScalarProperty Name="ClientContactTypeID" ColumnName="ClientContactTypeID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="PrefixID" ColumnName="PrefixID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="PostalCodeOrZipCode" ColumnName="PostalCodeOrZipCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="WorkPhoneExtension" ColumnName="WorkPhoneExtension" />
+          <ScalarProperty Name="WorkFax" ColumnName="WorkFax" />
+          <ScalarProperty Name="WorkEmail" ColumnName="WorkEmail" />
+          <ScalarProperty Name="ClientContactRelationshipID" ColumnName="ClientContactRelationshipID" />
+          <ScalarProperty Name="ClientContactSpecialityID" ColumnName="ClientContactSpecialityID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientContactRelationships">
+      <EntityTypeMapping TypeName="ICMModel.ClientContactRelationship">
+        <MappingFragment StoreEntitySet="ClientContactRelationship">
+          <ScalarProperty Name="ClientContactRelationshipID" ColumnName="ClientContactRelationshipID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientContactSpecialities">
+      <EntityTypeMapping TypeName="ICMModel.ClientContactSpeciality">
+        <MappingFragment StoreEntitySet="ClientContactSpeciality">
+          <ScalarProperty Name="ClientContactSpecialityID" ColumnName="ClientContactSpecialityID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientContactTypes">
+      <EntityTypeMapping TypeName="ICMModel.ClientContactType">
+        <MappingFragment StoreEntitySet="ClientContactType">
+          <ScalarProperty Name="ClientContactTypeID" ColumnName="ClientContactTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="ICMModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="TrandeName" ColumnName="TrandeName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="PostalCodeOrZipCode" ColumnName="PostalCodeOrZipCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneExtension" ColumnName="PhoneExtension" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HCAIFacilityRegistryID" ColumnName="HCAIFacilityRegistryID" />
+          <ScalarProperty Name="TaxRegistrationNumber" ColumnName="TaxRegistrationNumber" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyBranches">
+      <EntityTypeMapping TypeName="ICMModel.CompanyBranch">
+        <MappingFragment StoreEntitySet="CompanyBranch">
+          <ScalarProperty Name="CompanyBranchID" ColumnName="CompanyBranchID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="TrandeName" ColumnName="TrandeName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="PostalCodeOrZipCode" ColumnName="PostalCodeOrZipCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneExtension" ColumnName="PhoneExtension" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HCAIFacilityRegistryID" ColumnName="HCAIFacilityRegistryID" />
+          <ScalarProperty Name="TaxRegistrationNumber" ColumnName="TaxRegistrationNumber" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ICMModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DayofWeeks">
+      <EntityTypeMapping TypeName="ICMModel.DayofWeek">
+        <MappingFragment StoreEntitySet="DayofWeek">
+          <ScalarProperty Name="DayofWeekID" ColumnName="DayofWeekID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="ICMModel.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentType">
+          <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CaseTypeID" ColumnName="CaseTypeID" />
+          <ScalarProperty Name="Editable" ColumnName="Editable" />
+          <ScalarProperty Name="Uploadable" ColumnName="Uploadable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="ICMModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodAndServices">
+      <EntityTypeMapping TypeName="ICMModel.GoodAndService">
+        <MappingFragment StoreEntitySet="GoodAndService">
+          <ScalarProperty Name="GoodAndServiceID" ColumnName="GoodAndServiceID" />
+          <ScalarProperty Name="GoodAndServiceTypeID" ColumnName="GoodAndServiceTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Fixed" ColumnName="Fixed" />
+          <ScalarProperty Name="GSTHSTVAT" ColumnName="GSTHSTVAT" />
+          <ScalarProperty Name="PSTOther" ColumnName="PSTOther" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodAndServiceTypes">
+      <EntityTypeMapping TypeName="ICMModel.GoodAndServiceType">
+        <MappingFragment StoreEntitySet="GoodAndServiceType">
+          <ScalarProperty Name="GoodAndServiceTypeID" ColumnName="GoodAndServiceTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InjuryCodes">
+      <EntityTypeMapping TypeName="ICMModel.InjuryCode">
+        <MappingFragment StoreEntitySet="InjuryCode">
+          <ScalarProperty Name="InjuryCodeID" ColumnName="InjuryCodeID" />
+          <ScalarProperty Name="InjuryCodeCategoryTypeID" ColumnName="InjuryCodeCategoryTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InjuryCodeCategoryTypes">
+      <EntityTypeMapping TypeName="ICMModel.InjuryCodeCategoryType">
+        <MappingFragment StoreEntitySet="InjuryCodeCategoryType">
+          <ScalarProperty Name="InjuryCodeCategoryTypeID" ColumnName="InjuryCodeCategoryTypeID" />
+          <ScalarProperty Name="InjuryCodeSeriesTypeID" ColumnName="InjuryCodeSeriesTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InjuryCodeSeriesTypes">
+      <EntityTypeMapping TypeName="ICMModel.InjuryCodeSeriesType">
+        <MappingFragment StoreEntitySet="InjuryCodeSeriesType">
+          <ScalarProperty Name="InjuryCodeSeriesTypeID" ColumnName="InjuryCodeSeriesTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsuranceCompanies">
+      <EntityTypeMapping TypeName="ICMModel.InsuranceCompany">
+        <MappingFragment StoreEntitySet="InsuranceCompany">
+          <ScalarProperty Name="InsuranceCompanyID" ColumnName="InsuranceCompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="IBCInsurerID" ColumnName="IBCInsurerID" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsuranceCompanyBranches">
+      <EntityTypeMapping TypeName="ICMModel.InsuranceCompanyBranch">
+        <MappingFragment StoreEntitySet="InsuranceCompanyBranch">
+          <ScalarProperty Name="InsuranceCompanyBranchID" ColumnName="InsuranceCompanyBranchID" />
+          <ScalarProperty Name="InsuranceCompanyID" ColumnName="InsuranceCompanyID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IBCBranchID" ColumnName="IBCBranchID" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="PostalCodeOrZipCode" ColumnName="PostalCodeOrZipCode" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneExtension" ColumnName="PhoneExtension" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="ICMModel.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaritalStates">
+      <EntityTypeMapping TypeName="ICMModel.MaritalState">
+        <MappingFragment StoreEntitySet="MaritalState">
+          <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Measures">
+      <EntityTypeMapping TypeName="ICMModel.Measure">
+        <MappingFragment StoreEntitySet="Measure">
+          <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="ICMModel.PaymentType">
+        <MappingFragment StoreEntitySet="PaymentType">
+          <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prefixes">
+      <EntityTypeMapping TypeName="ICMModel.Prefix">
+        <MappingFragment StoreEntitySet="Prefix">
+          <ScalarProperty Name="PrefixID" ColumnName="PrefixID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProvinceOrStates">
+      <EntityTypeMapping TypeName="ICMModel.ProvinceOrState">
+        <MappingFragment StoreEntitySet="ProvinceOrState">
+          <ScalarProperty Name="ProvinceOrStateID" ColumnName="ProvinceOrStateID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSAuditDataActions">
+      <EntityTypeMapping TypeName="ICMModel.SFSAuditDataAction">
+        <MappingFragment StoreEntitySet="SFSAuditDataActions">
+          <ScalarProperty Name="ada_pk" ColumnName="ada_pk" />
+          <ScalarProperty Name="ada_us_pk" ColumnName="ada_us_pk" />
+          <ScalarProperty Name="ada_TableName" ColumnName="ada_TableName" />
+          <ScalarProperty Name="ada_Action" ColumnName="ada_Action" />
+          <ScalarProperty Name="ada_Timestamp" ColumnName="ada_Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSAuditDataFields">
+      <EntityTypeMapping TypeName="ICMModel.SFSAuditDataField">
+        <MappingFragment StoreEntitySet="SFSAuditDataFields">
+          <ScalarProperty Name="adf_pk" ColumnName="adf_pk" />
+          <ScalarProperty Name="adf_ada_pk" ColumnName="adf_ada_pk" />
+          <ScalarProperty Name="adf_FieldName" ColumnName="adf_FieldName" />
+          <ScalarProperty Name="adf_DataType" ColumnName="adf_DataType" />
+          <ScalarProperty Name="adf_OldValue" ColumnName="adf_OldValue" />
+          <ScalarProperty Name="adf_NewValue" ColumnName="adf_NewValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSAuditEvents">
+      <EntityTypeMapping TypeName="ICMModel.SFSAuditEvent">
+        <MappingFragment StoreEntitySet="SFSAuditEvents">
+          <ScalarProperty Name="ae_pk" ColumnName="ae_pk" />
+          <ScalarProperty Name="ae_us_pk" ColumnName="ae_us_pk" />
+          <ScalarProperty Name="ae_EventKey" ColumnName="ae_EventKey" />
+          <ScalarProperty Name="ae_Description" ColumnName="ae_Description" />
+          <ScalarProperty Name="ae_Timestamp" ColumnName="ae_Timestamp" />
+          <ScalarProperty Name="ae_Data" ColumnName="ae_Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSPermissions">
+      <EntityTypeMapping TypeName="ICMModel.SFSPermission">
+        <MappingFragment StoreEntitySet="SFSPermissions">
+          <ScalarProperty Name="pm_pk" ColumnName="pm_pk" />
+          <ScalarProperty Name="pm_sproj_pk" ColumnName="pm_sproj_pk" />
+          <ScalarProperty Name="pm_Key" ColumnName="pm_Key" />
+          <ScalarProperty Name="pm_Description" ColumnName="pm_Description" />
+          <ScalarProperty Name="pm_Category" ColumnName="pm_Category" />
+          <ScalarProperty Name="pm_DontAllowReadOnly" ColumnName="pm_DontAllowReadOnly" />
+          <ScalarProperty Name="pm_BlockedAction" ColumnName="pm_BlockedAction" />
+          <ScalarProperty Name="pm_BlockedMsgOrKey" ColumnName="pm_BlockedMsgOrKey" />
+          <ScalarProperty Name="pm_AlwaysAuditApp" ColumnName="pm_AlwaysAuditApp" />
+          <ScalarProperty Name="pm_AlwaysAuditData" ColumnName="pm_AlwaysAuditData" />
+          <ScalarProperty Name="pm_Version" ColumnName="pm_Version" />
+          <ScalarProperty Name="pm_CreatedBy" ColumnName="pm_CreatedBy" />
+          <ScalarProperty Name="pm_CreatedAt" ColumnName="pm_CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSPreferences">
+      <EntityTypeMapping TypeName="ICMModel.SFSPreference">
+        <MappingFragment StoreEntitySet="SFSPreferences">
+          <ScalarProperty Name="sp_pk" ColumnName="sp_pk" />
+          <ScalarProperty Name="sp_sproj_pk" ColumnName="sp_sproj_pk" />
+          <ScalarProperty Name="sp_WaitTimeAfterLoginFailure" ColumnName="sp_WaitTimeAfterLoginFailure" />
+          <ScalarProperty Name="sp_MaxInvalidLoginAttempts" ColumnName="sp_MaxInvalidLoginAttempts" />
+          <ScalarProperty Name="sp_MaxInvalidLoginAttemptsTime" ColumnName="sp_MaxInvalidLoginAttemptsTime" />
+          <ScalarProperty Name="sp_PwMinAge" ColumnName="sp_PwMinAge" />
+          <ScalarProperty Name="sp_PwMaxAge" ColumnName="sp_PwMaxAge" />
+          <ScalarProperty Name="sp_PwMaxLength" ColumnName="sp_PwMaxLength" />
+          <ScalarProperty Name="sp_PwMinLength" ColumnName="sp_PwMinLength" />
+          <ScalarProperty Name="sp_PwAreComplex" ColumnName="sp_PwAreComplex" />
+          <ScalarProperty Name="sp_PwBeforeRepeat" ColumnName="sp_PwBeforeRepeat" />
+          <ScalarProperty Name="sp_SessionTimeout" ColumnName="sp_SessionTimeout" />
+          <ScalarProperty Name="sp_AllowWindowsAuth" ColumnName="sp_AllowWindowsAuth" />
+          <ScalarProperty Name="sp_Version" ColumnName="sp_Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSProjects">
+      <EntityTypeMapping TypeName="ICMModel.SFSProject">
+        <MappingFragment StoreEntitySet="SFSProjects">
+          <ScalarProperty Name="sproj_pk" ColumnName="sproj_pk" />
+          <ScalarProperty Name="sproj_Name" ColumnName="sproj_Name" />
+          <ScalarProperty Name="sproj_Description" ColumnName="sproj_Description" />
+          <ScalarProperty Name="sproj_SecurityKey" ColumnName="sproj_SecurityKey" />
+          <ScalarProperty Name="sproj_CreatedAt" ColumnName="sproj_CreatedAt" />
+          <ScalarProperty Name="sproj_Version" ColumnName="sproj_Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSRestrictionItems">
+      <EntityTypeMapping TypeName="ICMModel.SFSRestrictionItem">
+        <MappingFragment StoreEntitySet="SFSRestrictionItems">
+          <ScalarProperty Name="ri_pk" ColumnName="ri_pk" />
+          <ScalarProperty Name="ri_rs_pk" ColumnName="ri_rs_pk" />
+          <ScalarProperty Name="ri_Action" ColumnName="ri_Action" />
+          <ScalarProperty Name="ri_DaysOfWeek" ColumnName="ri_DaysOfWeek" />
+          <ScalarProperty Name="ri_StartTime" ColumnName="ri_StartTime" />
+          <ScalarProperty Name="ri_EndTime" ColumnName="ri_EndTime" />
+          <ScalarProperty Name="ri_Workstation" ColumnName="ri_Workstation" />
+          <ScalarProperty Name="ri_CreatedBy" ColumnName="ri_CreatedBy" />
+          <ScalarProperty Name="ri_CreatedAt" ColumnName="ri_CreatedAt" />
+          <ScalarProperty Name="ri_Version" ColumnName="ri_Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSRestrictions">
+      <EntityTypeMapping TypeName="ICMModel.SFSRestriction">
+        <MappingFragment StoreEntitySet="SFSRestrictions">
+          <ScalarProperty Name="rs_pk" ColumnName="rs_pk" />
+          <ScalarProperty Name="rs_sproj_pk" ColumnName="rs_sproj_pk" />
+          <ScalarProperty Name="rs_Name" ColumnName="rs_Name" />
+          <ScalarProperty Name="rs_Description" ColumnName="rs_Description" />
+          <ScalarProperty Name="rs_CreatedBy" ColumnName="rs_CreatedBy" />
+          <ScalarProperty Name="rs_CreatedAt" ColumnName="rs_CreatedAt" />
+          <ScalarProperty Name="rs_Version" ColumnName="rs_Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSRoles">
+      <EntityTypeMapping TypeName="ICMModel.SFSRole">
+        <MappingFragment StoreEntitySet="SFSRoles">
+          <ScalarProperty Name="rl_pk" ColumnName="rl_pk" />
+          <ScalarProperty Name="rl_sproj_pk" ColumnName="rl_sproj_pk" />
+          <ScalarProperty Name="rl_Role" ColumnName="rl_Role" />
+          <ScalarProperty Name="rl_Description" ColumnName="rl_Description" />
+          <ScalarProperty Name="rl_Version" ColumnName="rl_Version" />
+          <ScalarProperty Name="rl_AlwaysAuditApp" ColumnName="rl_AlwaysAuditApp" />
+          <ScalarProperty Name="rl_AlwaysAuditData" ColumnName="rl_AlwaysAuditData" />
+          <ScalarProperty Name="rl_CreatedBy" ColumnName="rl_CreatedBy" />
+          <ScalarProperty Name="rl_CreatedAt" ColumnName="rl_CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSRolesXPermissions">
+      <EntityTypeMapping TypeName="ICMModel.SFSRolesXPermission">
+        <MappingFragment StoreEntitySet="SFSRolesXPermissions">
+          <ScalarProperty Name="rp_pk" ColumnName="rp_pk" />
+          <ScalarProperty Name="rp_rl_pk" ColumnName="rp_rl_pk" />
+          <ScalarProperty Name="rp_pm_pk" ColumnName="rp_pm_pk" />
+          <ScalarProperty Name="rp_Action" ColumnName="rp_Action" />
+          <ScalarProperty Name="rp_Restriction" ColumnName="rp_Restriction" />
+          <ScalarProperty Name="rp_AlwaysAuditApp" ColumnName="rp_AlwaysAuditApp" />
+          <ScalarProperty Name="rp_AlwaysAuditData" ColumnName="rp_AlwaysAuditData" />
+          <ScalarProperty Name="rp_CreatedAt" ColumnName="rp_CreatedAt" />
+          <ScalarProperty Name="rp_CreatedBy" ColumnName="rp_CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSUsers">
+      <EntityTypeMapping TypeName="ICMModel.SFSUser">
+        <MappingFragment StoreEntitySet="SFSUsers">
+          <ScalarProperty Name="us_pk" ColumnName="us_pk" />
+          <ScalarProperty Name="us_sproj_pk" ColumnName="us_sproj_pk" />
+          <ScalarProperty Name="us_Username" ColumnName="us_Username" />
+          <ScalarProperty Name="us_Data" ColumnName="us_Data" />
+          <ScalarProperty Name="us_FirstName" ColumnName="us_FirstName" />
+          <ScalarProperty Name="us_MiddleName" ColumnName="us_MiddleName" />
+          <ScalarProperty Name="us_LastName" ColumnName="us_LastName" />
+          <ScalarProperty Name="us_DisplayName" ColumnName="us_DisplayName" />
+          <ScalarProperty Name="us_Version" ColumnName="us_Version" />
+          <ScalarProperty Name="us_CreatedBy" ColumnName="us_CreatedBy" />
+          <ScalarProperty Name="us_CreatedAt" ColumnName="us_CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSUsersXPermissions">
+      <EntityTypeMapping TypeName="ICMModel.SFSUsersXPermission">
+        <MappingFragment StoreEntitySet="SFSUsersXPermissions">
+          <ScalarProperty Name="up_pk" ColumnName="up_pk" />
+          <ScalarProperty Name="up_us_pk" ColumnName="up_us_pk" />
+          <ScalarProperty Name="up_pm_pk" ColumnName="up_pm_pk" />
+          <ScalarProperty Name="up_Action" ColumnName="up_Action" />
+          <ScalarProperty Name="up_Restriction" ColumnName="up_Restriction" />
+          <ScalarProperty Name="up_AlwaysAuditApp" ColumnName="up_AlwaysAuditApp" />
+          <ScalarProperty Name="up_AlwaysAuditData" ColumnName="up_AlwaysAuditData" />
+          <ScalarProperty Name="up_CreatedBy" ColumnName="up_CreatedBy" />
+          <ScalarProperty Name="up_CreatedAt" ColumnName="up_CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSUsersXRoles">
+      <EntityTypeMapping TypeName="ICMModel.SFSUsersXRole">
+        <MappingFragment StoreEntitySet="SFSUsersXRoles">
+          <ScalarProperty Name="ur_pk" ColumnName="ur_pk" />
+          <ScalarProperty Name="ur_us_pk" ColumnName="ur_us_pk" />
+          <ScalarProperty Name="ur_rl_pk" ColumnName="ur_rl_pk" />
+          <ScalarProperty Name="ur_CreatedBy" ColumnName="ur_CreatedBy" />
+          <ScalarProperty Name="ur_CreatedAt" ColumnName="ur_CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkedulexMessages">
+      <EntityTypeMapping TypeName="ICMModel.SkedulexMessage">
+        <MappingFragment StoreEntitySet="SkedulexMessage">
+          <ScalarProperty Name="sm_pk" ColumnName="sm_pk" />
+          <ScalarProperty Name="sm_cust_pk" ColumnName="sm_cust_pk" />
+          <ScalarProperty Name="sm_Subject" ColumnName="sm_Subject" />
+          <ScalarProperty Name="sm_Note" ColumnName="sm_Note" />
+          <ScalarProperty Name="sm_IsActive" ColumnName="sm_IsActive" />
+          <ScalarProperty Name="sm_CreatedorUpdated" ColumnName="sm_CreatedorUpdated" />
+          <ScalarProperty Name="sm_Version" ColumnName="sm_Version" />
+          <ScalarProperty Name="sm_CreatedByorUpdatedBy" ColumnName="sm_CreatedByorUpdatedBy" />
+          <ScalarProperty Name="sm_Remind_us_pk" ColumnName="sm_Remind_us_pk" />
+          <ScalarProperty Name="sm_Created" ColumnName="sm_Created" />
+          <ScalarProperty Name="sm_CreatedBy" ColumnName="sm_CreatedBy" />
+          <ScalarProperty Name="sm_cl_pk" ColumnName="sm_cl_pk" />
+          <ScalarProperty Name="sm_IsPriority" ColumnName="sm_IsPriority" />
+          <ScalarProperty Name="sm_Type" ColumnName="sm_Type" />
+          <ScalarProperty Name="sm_Related_pk" ColumnName="sm_Related_pk" />
+          <ScalarProperty Name="sm_IsRead" ColumnName="sm_IsRead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StandardInvoices">
+      <EntityTypeMapping TypeName="ICMModel.StandardInvoice">
+        <MappingFragment StoreEntitySet="StandardInvoice">
+          <ScalarProperty Name="StandardInvoiceID" ColumnName="StandardInvoiceID" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="GSTHSTVAT" ColumnName="GSTHSTVAT" />
+          <ScalarProperty Name="PSTOther" ColumnName="PSTOther" />
+          <ScalarProperty Name="InterestProposed" ColumnName="InterestProposed" />
+          <ScalarProperty Name="MOH" ColumnName="MOH" />
+          <ScalarProperty Name="OtherInsurer" ColumnName="OtherInsurer" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="AdditionalComments" ColumnName="AdditionalComments" />
+          <ScalarProperty Name="SyncToQB" ColumnName="SyncToQB" />
+          <ScalarProperty Name="Void" ColumnName="Void" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StandardInvoiceLineItems">
+      <EntityTypeMapping TypeName="ICMModel.StandardInvoiceLineItem">
+        <MappingFragment StoreEntitySet="StandardInvoiceLineItem">
+          <ScalarProperty Name="StandardInvoiceLineItemID" ColumnName="StandardInvoiceLineItemID" />
+          <ScalarProperty Name="GoodAndServiceID" ColumnName="GoodAndServiceID" />
+          <ScalarProperty Name="AppointmentResourceID" ColumnName="AppointmentResourceID" />
+          <ScalarProperty Name="Attribute" ColumnName="Attribute" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+          <ScalarProperty Name="DateOfService" ColumnName="DateOfService" />
+          <ScalarProperty Name="GSTHSTVAT" ColumnName="GSTHSTVAT" />
+          <ScalarProperty Name="PSTOther" ColumnName="PSTOther" />
+          <ScalarProperty Name="LineCost" ColumnName="LineCost" />
+          <ScalarProperty Name="Void" ColumnName="Void" />
+          <ScalarProperty Name="StandardInvoiceID" ColumnName="StandardInvoiceID" />
+          <ScalarProperty Name="CaseManagementID" ColumnName="CaseManagementID" />
+          <ScalarProperty Name="ActivityBookingID" ColumnName="ActivityBookingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StandardInvoicePayments">
+      <EntityTypeMapping TypeName="ICMModel.StandardInvoicePayment">
+        <MappingFragment StoreEntitySet="StandardInvoicePayment">
+          <ScalarProperty Name="StandardInvoicePaymentID" ColumnName="StandardInvoicePaymentID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StandardInvoiceID" ColumnName="StandardInvoiceID" />
+          <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="Void" ColumnName="Void" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserExtendedInformations">
+      <EntityTypeMapping TypeName="ICMModel.UserExtendedInformation">
+        <MappingFragment StoreEntitySet="UserExtendedInformation">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Ext" ColumnName="Ext" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="OtherPhone" ColumnName="OtherPhone" />
+          <ScalarProperty Name="PreferredTheme" ColumnName="PreferredTheme" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="By" ColumnName="By" />
+          <ScalarProperty Name="CreatedOrUpdated" ColumnName="CreatedOrUpdated" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SFSAuditActivities">
+      <EntityTypeMapping TypeName="ICMModel.SFSAuditActivity">
+        <MappingFragment StoreEntitySet="SFSAuditActivity">
+          <ScalarProperty Name="sa_pk" ColumnName="sa_pk" />
+          <ScalarProperty Name="sa_us_pk" ColumnName="sa_us_pk" />
+          <ScalarProperty Name="sa_InternalIP" ColumnName="sa_InternalIP" />
+          <ScalarProperty Name="sa_ExternalIP" ColumnName="sa_ExternalIP" />
+          <ScalarProperty Name="sa_FormName" ColumnName="sa_FormName" />
+          <ScalarProperty Name="sa_Action" ColumnName="sa_Action" />
+          <ScalarProperty Name="sa_cust_pk" ColumnName="sa_cust_pk" />
+          <ScalarProperty Name="sa_cl_pk" ColumnName="sa_cl_pk" />
+          <ScalarProperty Name="sa_Created" ColumnName="sa_Created" />
+          <ScalarProperty Name="sa_CreatedBy" ColumnName="sa_CreatedBy" />
+          <ScalarProperty Name="sa_CreatedorUpdated" ColumnName="sa_CreatedorUpdated" />
+          <ScalarProperty Name="sa_Version" ColumnName="sa_Version" />
+          <ScalarProperty Name="sa_CreatedByorUpdatedBy" ColumnName="sa_CreatedByorUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

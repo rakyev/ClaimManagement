@@ -1,0 +1,227 @@
+﻿@model ICM.Web.Models.CaseMVA
+
+<hr />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>Case MVA</b>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <dl class="dl-horizontal">
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+
+                    @Html.DisplayNameFor(model => model.DateofAccident)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.DateofAccident)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.ClaimNumber)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.ClaimNumber)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.PolicyNumber)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.PolicyNumber)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.CAT)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.CAT)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.TransportationRequired)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.TransportationRequired)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.InterpreterRequired)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.InterpreterRequired)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.PolicyHolderSameAsApplicant)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.PolicyHolderSameAsApplicant)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.PolicyHolderFirstName)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.PolicyHolderFirstName)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.PolicyHolderLastName)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.PolicyHolderLastName)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.IsThereOtherInsuranceCoverage)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.IsThereOtherInsuranceCoverage)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.Closed)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.Closed)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.ClosedDate)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.ClosedDate)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.OtherInsurer1Name)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.OtherInsurer1Name)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.OtherInsurer1Plan)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.OtherInsurer1Plan)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.OtherInsurer1PolicyNumber)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.OtherInsurer1PolicyNumber)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.OtherInsurer1NameofThePlanMember)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.OtherInsurer1NameofThePlanMember)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.OtherInsurer1Identifier)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.OtherInsurer1Identifier)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.OtherInsurer2Name)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.OtherInsurer2Name)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.OtherInsurer2Plan)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.OtherInsurer2Plan)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.OtherInsurer2PolicyNumber)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.OtherInsurer2PolicyNumber)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.OtherInsurer2NameofThePlanMember)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.OtherInsurer2NameofThePlanMember)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.OtherInsurer2Identifier)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.OtherInsurer2Identifier)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.By)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.By)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.CreatedOrUpdated)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.CreatedOrUpdated)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.Version)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.Version)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.Active)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.Active)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "ModifyCaseMVA", new { id = Model.CaseMVAID }) |
+    <a href="@Url.Action("Edit","ClientCase", new{id = Model.CaseID})">Back to List</a>
+</p>

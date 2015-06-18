@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Clients View</h2>
+
+<div data-ng-app data-ng-controller="clientController" class="container">
+
+    <strong class="error">{{ error }}</strong>
+
+    <div id="mydiv" data-ng-show="loading">
+
+        <img src="Images/ajax-loader.gif" class="ajax-loader" />
+
+    </div>
+
+    <p data-ng-hide="addMode"><a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a></p>
+
+    <form name="addClient" data-ng-show="addMode" style="width:600px;margin:0px auto;">
+
+        <label>FirstName:</label><input type="text" data-ng-model="newclient.FirstName" required />
+
+        <label>LastName:</label><input type="text" data-ng-model="newclient.LastName" required />
+
+        
+        <br />
+
+        <br />
+
+        <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addClient.$valid" class="btn btn-primary" />
+
+        <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+
+        <br /><br />
+
+    </form>
+
+    <table class="table table-bordered table-hover" style="width:800px">
+
+        <tr>
+
+            <th>#</th>
+
+            <td>FirstName</td>
+
+            <th>LastName</th>
+
+        </tr>
+
+
+
+        <tr data-ng-repeat="client in clients">
+
+            <td><strong data-ng-hide="client.editMode">{{ client.clientid }}</strong></td>
+
+            <td>
+
+                <p data-ng-hide="client.editMode">{{ client.FirstName }}</p>
+
+                <input data-ng-show="client.editMode" type="text" data-ng-model="client.FirstName" />
+
+            </td>
+
+            <td>
+
+                <p data-ng-hide="client.editMode">{{ client.LastName }}</p>
+
+                <input data-ng-show="client.editMode" type="text" data-ng-model="client.LastName" />
+
+            </td>
+
+            <td>
+
+                <p data-ng-hide="client.editMode"><a data-ng-click="toggleEdit(client)" href="javascript:;">Edit</a> | <a data-ng-click="deleteclient(client)" href="javascript:;">Delete</a></p>
+
+                <p data-ng-show="client.editMode"><a data-ng-click="save(client)" href="javascript:;">Save</a> | <a data-ng-click="toggleEdit(client)" href="javascript:;">Cancel</a></p>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <hr />
+
+
+
+</div>
+
+<script src="Scripts/angular.js"></script>
+<script src="Scripts/angular-route.js"></script>
+<script src="Scripts/jquery.min.js"></script>
+
+<!-- UI Libs -->
+<script src="Scripts/bootstrap.js"></script>
+
+
+<!-- App libs -->
+<script src="app/controllers/controllers.js"></script>

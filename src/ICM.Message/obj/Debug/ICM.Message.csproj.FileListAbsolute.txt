@@ -1,0 +1,9 @@
+E:\Insurance Final\src\ICM.Message\bin\Debug\ICM.Message.dll
+E:\Insurance Final\src\ICM.Message\bin\Debug\ICM.Message.pdb
+E:\Insurance Final\src\ICM.Message\obj\Debug\ICM.Message.dll
+E:\Insurance Final\src\ICM.Message\obj\Debug\ICM.Message.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Message\bin\Debug\ICM.Message.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Message\bin\Debug\ICM.Message.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Message\obj\Debug\ICM.Message.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Message\obj\Debug\ICM.Message.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Message\obj\Debug\ICM.Message.csprojResolveAssemblyReference.cache

@@ -1,0 +1,63 @@
+﻿@using ICM.Web.Models
+@model IEnumerable<ICM.Web.Models.CaseContactRelationship>
+
+
+@if (Model.Count() != 0)
+{
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Code)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.First().By)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.First().CreatedOrUpdated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Version)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Active)
+                </th>
+            </tr>
+        </thead>
+
+
+        @foreach (CaseContactRelationship element in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = element.CaseContactRelationshipID }) |
+                        @Html.ActionLink("Details", "Details", new { id = element.CaseContactRelationshipID }) |
+                        @Html.ActionLink("New Case", "CaseCreate", new { id = element.CaseContactRelationshipID })
+                    </td>
+                    <td>@element.Description</td>
+
+                    <td>@element.Code</td>
+
+                    <td>@element.By</td>
+
+                    <td>@element.CreatedOrUpdated</td>
+
+                    <td>@element.Version</td>
+
+                    <td>@element.Active</td>
+                </tr>
+            </tbody>
+
+        }
+    </table>
+}
+

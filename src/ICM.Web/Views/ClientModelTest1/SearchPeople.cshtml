@@ -1,0 +1,77 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<ICM.Web.Models.ClientModels>
+
+
+@if (Model.Count() != 0)
+{
+ 
+    
+    <table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().LastName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().Address1)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().PostalCodeOrZipCode)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().CellPhone)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().PersonalEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Active)
+        </th>
+    </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
+                @Html.ActionLink("New Case", "CaseCreate", new { id = item.ClientID })
+            </td>
+            <td>@item.FirstName</td>
+
+            <td>@item.LastName</td>
+
+            <td>@item.Address1</td>
+
+            <td>@item.City</td>
+
+            <td>@item.PostalCodeOrZipCode</td>
+
+            <td>@item.CellPhone</td>
+
+
+            <td>@item.PersonalEmail</td>
+            <td>@Html.DisplayFor(modelItem => item.Active)</td>
+        </tr></tbody>
+
+    }
+     </table>
+    <p>
+        @Html.PagedListPager(Model, page => Url.Action("Search", new { page = page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+    </p>
+}

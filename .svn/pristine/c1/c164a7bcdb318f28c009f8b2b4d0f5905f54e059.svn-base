@@ -1,0 +1,108 @@
+﻿@model ICM.Web.Models.CaseNote
+
+
+<hr />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>CaseNote</b>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <dl class="dl-horizontal">
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.ClientID)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.ClientID)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.Subject)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.Subject)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.Note)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.Note)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.Active)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.Active)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.CreatedorUpdated)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.CreatedorUpdated)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.Version)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.Version)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.By)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.By)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.CompletedBy)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.CompletedBy)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.RemiderDate)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.RemiderDate)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.Private)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.Private)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.RemindUserID)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.RemindUserID)
+                </dd>
+
+
+            </dl>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "ModifyCaseNote", new { id = Model.CaseNoteID }) |
+    <a href="@Url.Action("Edit","ClientCase", new{id = Model.CaseID})">Back to List</a>
+</p>

@@ -1,0 +1,84 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<ICM.Web.Models.ActivityBookingModels>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Appointment Records</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Html.ActionLink("Create New", "Create")
+    </div>
+    <table class="table">
+        <tr>
+            <th></th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.First().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().EndTime)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.First().OutlookEntryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().RelatedEntryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().By)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.First().CreatedOrUpdated)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ActivityBookingID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ActivityBookingID })
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.ActivityBookingID })*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutlookEntryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RelatedEntryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.By)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOrUpdated)
+
+            </tr>
+        }
+
+    </table>
+    <p>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+    </p>
+</div>

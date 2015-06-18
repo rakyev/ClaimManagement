@@ -1,0 +1,72 @@
+﻿@model ICM.Web.Models.CaseActivityModels
+
+@{
+    ViewBag.Title = "ActivityDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b> Case Activity Details</b>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <dl class="dl-horizontal">
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.Completed)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.Completed)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.By)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.By)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.CreatedOrUpdated)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.CreatedOrUpdated)
+                </dd>
+
+                <dt class="list-group-item" style=" background-color: #f5f5f5;">
+                    @Html.DisplayNameFor(model => model.Version)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;background-color: #f5f5f5;">
+                    @Html.DisplayFor(model => model.Version)
+                </dd>
+
+                <dt class="list-group-item">
+                    @Html.DisplayNameFor(model => model.Active)
+                </dt>
+
+                <dd class="list-group-item" style="height:43px;">
+                    @Html.DisplayFor(model => model.Active)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "ModifyCaseActivity", new { id = Model.CaseActivityID }) |
+    <a href="@Url.Action("Edit","ClientCase", new{id = Model.CaseID})">Back to List</a>
+</p>

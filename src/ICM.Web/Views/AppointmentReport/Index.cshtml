@@ -1,0 +1,36 @@
+﻿@using ReportViewerForMvc;
+@{
+    ViewBag.Title = "AppointmentReport";
+}
+<link href="~/Styles/ReportStyle.css" rel="stylesheet" />
+<div id="wrapper">
+    <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+        <h2>Appointments Report</h2>
+        @using (Html.BeginForm("Index", "AppointmentReport"))
+        {
+            @Html.Label("First Name: ")
+            <input type="text" id="FirstName" name="FirstName" style="margin-left: 60px" placeholder="Fisrt Name" />
+            <br />
+
+            @Html.Label("Last Name: ")
+            <input type="text" id="LastName" name="LastName" style="margin-left: 60px" placeholder="Last Name" />
+            <br />
+
+
+            @Html.Label("HealthCardNumber: ")
+            <input type="text" id="HealthCardNumber" name="HealthCardNumber" placeholder="HealthCard Number" />
+            <br />
+            <br />
+            <p><input type="submit" id="Search" value="Search" /></p>
+        }
+
+        @if (ViewBag.PassedString != null)
+        {
+            <div><h4> @ViewBag.PassedString </h4></div>
+        }
+        @if (ViewBag.ReportViewer != null)
+        {
+            @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+        }
+</div>
+

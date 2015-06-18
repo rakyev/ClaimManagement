@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace ICM.Web.Models
+{
+    public class ActivityType
+    {
+        public ActivityType()
+        {
+            this.CaseActivities = new HashSet<CaseActivityModels>();
+        }
+        [Key]
+        public long ActivityTypeID { get; set; }
+        public long ActivitySubTypeID { get; set; }
+        public string Description { get; set; }
+        public string Code { get; set; }
+        public long GoodAndServiceID { get; set; }
+        public string By { get; set; }
+        public System.DateTime CreatedOrUpdated { get; set; }
+        public int Version { get; set; }
+        public bool Active { get; set; }
+
+        public virtual ActivitySubType ActivitySubType { get; set; }
+        public virtual ICollection<CaseActivityModels> CaseActivities { get; set; }
+    }
+}

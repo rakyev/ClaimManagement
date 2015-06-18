@@ -1,0 +1,101 @@
+﻿@model ICM.Web.Models.CaseNote
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update Details</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @Html.ActionLink("Create New", "Create")
+            </div>
+            <br />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CaseNoteID)
+
+            @*Put all the fields inside the form*@
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.CaseNoteID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CaseNoteID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CompletedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CompletedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CompletedBy, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.RemiderDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RemiderDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.ValidationMessageFor(model => model.RemiderDate, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" id="Edit" class="btn btn-default" />
+                    <input type="button" value="Back" class="btn btn-default" onclick="window.history.back()" />
+                </div>
+            </div>
+
+            @Html.HiddenFor(model => model.CaseID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CaseID, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.ClientID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ClientID, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.Active, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.CreatedorUpdated, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CreatedorUpdated, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.Version, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Version, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.By, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.By, "", new { @class = "text-danger" })
+
+
+        </div>
+
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

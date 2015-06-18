@@ -1,0 +1,30 @@
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using ICM.Data.Business.RepositoryImplementation;
+
+namespace ICM.Data.Business.BusinessObject
+{
+    public class ProvinceOrStateBO : GenericRepository<ProvinceOrState>
+    {
+        //public override IQueryable<ProvinceOrState> GetAll(int skip = 0, int take = 50)
+        //{
+        //    return Context.Set<ProvinceOrState>().OrderBy(item => item.ProvinceOrStateID).Skip(skip).Take(take);
+        //}
+
+        public List<ProvinceOrState> GetByCode(String code)
+        {
+            var result = from c in Context.ProvinceOrStates
+                         where c.Code == code
+                         select c;
+            if (result != null)
+            {
+                return result.ToList();
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace ICM.Web.Models
+{
+    public class MaritalState
+    {
+        public MaritalState()
+        {
+            this.Clients = new HashSet<ClientModels>();
+        }
+        [Key]
+        public long MaritalStatusID { get; set; }
+        public string Description { get; set; }
+        public string Code { get; set; }
+        public string By { get; set; }
+        public System.DateTime CreatedOrUpdated { get; set; }
+        public int Version { get; set; }
+        public bool Active { get; set; }
+
+        public virtual ICollection<ClientModels> Clients { get; set; }
+    }
+}

@@ -1,0 +1,39 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AjaxOptions options = new AjaxOptions
+    {
+        UpdateTargetId = "searchResult",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "divLoading"
+    };
+
+}
+
+
+
+
+<div class="panel panel-default">
+    <br />
+    @using (Ajax.BeginForm("SearchContactRelationship", options))
+    {
+
+        <div class="col-lg-3">
+            <input class="form-clientsearch" name="keyword" id="description" placeholder="Search..." />
+        </div>
+        <div class="col-lg-6">
+            <button type="submit" class="btn btn-warning">Search</button>
+            <button type="button" class="btn btn-primary" onclick=" location.href='@Url.Action("Create", "CaseContactRelationships")' ">New</button>
+        </div>
+        <br />
+        <br />
+    }
+    <br />
+    <div id="searchResult">
+        @Html.Action("SearchContactRelationship", new { keyword = "" })
+
+    </div>
+</div>

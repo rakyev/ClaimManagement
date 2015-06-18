@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ICM.Web.Models.DoctorsAppointment>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-default">
+    <br />
+    @using (Html.BeginForm("Search", "ActivityBooking"))
+    {
+
+        <div class="col-lg-3">
+            <input class="form-clientsearch" name="description" id="description" placeholder="Search..." />
+        </div>
+        <div class="col-lg-6">
+            <input type="submit" id="search" class="btn btn-warning" value="Search" />
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create","ActivityBooking")'">New</button>
+        </div>
+        <br />
+        <br />
+    }
+    <br />
+
+
+    @if (Model != null)
+    {
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().StartTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().EndTime)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.First().OutlookEntryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().RelatedEntryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().By)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Active)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ActivityBookingID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ActivityBookingID })
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.ActivityBookingID })*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndTime)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OutlookEntryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RelatedEntryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.By)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    }
+</div>

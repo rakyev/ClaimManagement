@@ -1,0 +1,15 @@
+E:\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.Business.dll
+E:\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.Business.pdb
+E:\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.dll
+E:\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.pdb
+E:\Insurance Final\src\ICM.Data.Business\bin\Debug\EntityFramework.xml
+E:\Insurance Final\src\ICM.Data.Business\obj\Debug\ICM.Data.Business.csprojResolveAssemblyReference.cache
+E:\Insurance Final\src\ICM.Data.Business\obj\Debug\ICM.Data.Business.dll
+E:\Insurance Final\src\ICM.Data.Business\obj\Debug\ICM.Data.Business.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.Business.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.Business.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Data.Business\bin\Debug\ICM.Data.pdb
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Data.Business\obj\Debug\ICM.Data.Business.csprojResolveAssemblyReference.cache
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Data.Business\obj\Debug\ICM.Data.Business.dll
+C:\Users\Ruslan\Desktop\Projects\Insurance Final\src\ICM.Data.Business\obj\Debug\ICM.Data.Business.pdb

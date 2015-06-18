@@ -1,0 +1,2433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ICMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActivityBooking">
+    <Key>
+      <PropertyRef Name="ActivityBookingID" />
+    </Key>
+    <Property Name="ActivityBookingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseActivityID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" Nullable="false" />
+    <Property Name="ActivityID" Type="bigint" Nullable="false" />
+    <Property Name="OutlookEntryId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RelatedEntryId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GoodAndServiceID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityBookingBookingType">
+    <Key>
+      <PropertyRef Name="ActivityBookingBookingTypeID" />
+    </Key>
+    <Property Name="ActivityBookingBookingTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivityBookingID" Type="bigint" Nullable="false" />
+    <Property Name="ActivityBookingTypeID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityBookingType">
+    <Key>
+      <PropertyRef Name="ActivityBookingTypeID" />
+    </Key>
+    <Property Name="ActivityBookingTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivitySubType">
+    <Key>
+      <PropertyRef Name="ActivitySubTypeID" />
+    </Key>
+    <Property Name="ActivitySubTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityType">
+    <Key>
+      <PropertyRef Name="ActivityTypeID" />
+    </Key>
+    <Property Name="ActivityTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivitySubTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GoodAndServiceID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Adjuster">
+    <Key>
+      <PropertyRef Name="AdjusterID" />
+    </Key>
+    <Property Name="AdjusterID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InsuranceCompanyBranchID" Type="bigint" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PhoneExtension" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResource">
+    <Key>
+      <PropertyRef Name="AppointmentResourceID" />
+    </Key>
+    <Property Name="AppointmentResourceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentResourceBookingTypeID" Type="bigint" Nullable="false" />
+    <Property Name="CompanyBranchID" Type="bigint" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HCAIProviderRegistryID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CollegeRegistrationNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WebAccessCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoubleBookingAllowed" Type="bit" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address3" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="bigint" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="WorkPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="WorkPhoneExtension" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="WorkFax" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OtherPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="WorkEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdditionalEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Credentials" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ResumeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceAvailableTime">
+    <Key>
+      <PropertyRef Name="AppointmentResourceAvailableTimeID" />
+    </Key>
+    <Property Name="AppointmentResourceAvailableTimeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" />
+    <Property Name="DayofWeekID" Type="bigint" Nullable="false" />
+    <Property Name="AvailableFrom" Type="time" Precision="7" Nullable="false" />
+    <Property Name="AvailableTo" Type="time" Precision="7" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceBookingType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceBookingTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceBookingTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceChargeOutRate">
+    <Key>
+      <PropertyRef Name="AppointmentResourceChargeOutRateID" />
+    </Key>
+    <Property Name="AppointmentResourceChargeOutRateID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" Nullable="false" />
+    <Property Name="AppointmentResourceChargeOutTypeID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceChargeOutType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceChargeOutTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceChargeOutTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceDayOff">
+    <Key>
+      <PropertyRef Name="AppointmentResourceDayOffID" />
+    </Key>
+    <Property Name="AppointmentResourceDayOffID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" Nullable="false" />
+    <Property Name="DayOffDate" Type="date" Nullable="false" />
+    <Property Name="DayOffFrom" Type="time" Precision="7" Nullable="false" />
+    <Property Name="DayOffTo" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceNationalHoliday">
+    <Key>
+      <PropertyRef Name="AppointmentResourceNationalHolidayID" />
+    </Key>
+    <Property Name="AppointmentResourceNationalHolidayID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HolidayDate" Type="date" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceResourceType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceResourceTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceResourceTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" Nullable="false" />
+    <Property Name="AppointmentResourceTypeID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppointmentResourceType">
+    <Key>
+      <PropertyRef Name="AppointmentResourceTypeID" />
+    </Key>
+    <Property Name="AppointmentResourceTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OccupationCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BenefitType">
+    <Key>
+      <PropertyRef Name="BenefitTypeID" />
+    </Key>
+    <Property Name="BenefitTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseActivity">
+    <Key>
+      <PropertyRef Name="CaseActivityID" />
+    </Key>
+    <Property Name="CaseActivityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivityTypeID" Type="bigint" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Completed" Type="bit" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseBenefit">
+    <Key>
+      <PropertyRef Name="CaseBenefitID" />
+    </Key>
+    <Property Name="CaseBenefitID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="BenefitTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseContact">
+    <Key>
+      <PropertyRef Name="CaseContactID" />
+    </Key>
+    <Property Name="CaseContactID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseContactTypeID" Type="bigint" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="PrefixID" Type="bigint" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="bigint" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PersonalEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="WorkPhoneExtension" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="WorkFax" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="WorkEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CaseContactRelationshipID" Type="bigint" Nullable="false" />
+    <Property Name="CaseContactSpecialityID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseContactRelationship">
+    <Key>
+      <PropertyRef Name="CaseContactRelationshipID" />
+    </Key>
+    <Property Name="CaseContactRelationshipID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseContactSpeciality">
+    <Key>
+      <PropertyRef Name="CaseContactSpecialityID" />
+    </Key>
+    <Property Name="CaseContactSpecialityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseContactType">
+    <Key>
+      <PropertyRef Name="CaseContactTypeID" />
+    </Key>
+    <Property Name="CaseContactTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseInjury">
+    <Key>
+      <PropertyRef Name="CaseInjuryID" />
+    </Key>
+    <Property Name="CaseInjuryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="InjuryCodeID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseManagement">
+    <Key>
+      <PropertyRef Name="CaseManagementID" />
+    </Key>
+    <Property Name="CaseManagementID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="DocumentTypeID" Type="bigint" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="NewFileName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="CaseActivityID" Type="bigint" />
+    <Property Name="HCAIStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfService" Type="datetime" Nullable="false" />
+    <Property Name="GoodAndServiceID" Type="bigint" Nullable="false" />
+    <Property Name="GoodAndServiceAtt" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GoodAndServiceDesc" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="MeasureID" Type="bigint" Nullable="false" />
+    <Property Name="GSTHSTVAT" Type="bit" Nullable="false" />
+    <Property Name="LineCost" Type="money" Nullable="false" />
+    <Property Name="Billed" Type="bit" Nullable="false" />
+    <Property Name="PSTOther" Type="bit" Nullable="false" />
+    <Property Name="PlanNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PaymentAmount" Type="money" Nullable="false" />
+    <Property Name="BilledAmount" Type="money" Nullable="false" />
+    <Property Name="ApprovedAmount" Type="money" Nullable="false" />
+    <Property Name="Visible" Type="bit" Nullable="false" />
+    <Property Name="WIPAmount" Type="money" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseMVA">
+    <Key>
+      <PropertyRef Name="CaseMVAID" />
+    </Key>
+    <Property Name="CaseMVAID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="DateofAccident" Type="datetime" Nullable="false" />
+    <Property Name="ClaimNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PolicyNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdjusterID" Type="bigint" Nullable="false" />
+    <Property Name="CAT" Type="bit" Nullable="false" />
+    <Property Name="TransportationRequired" Type="bit" Nullable="false" />
+    <Property Name="InterpreterRequired" Type="bit" Nullable="false" />
+    <Property Name="LanguageID" Type="bigint" Nullable="false" />
+    <Property Name="PolicyHolderSameAsApplicant" Type="bit" Nullable="false" />
+    <Property Name="PolicyHolderFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PolicyHolderLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsThereOtherInsuranceCoverage" Type="bit" Nullable="false" />
+    <Property Name="Closed" Type="bit" Nullable="false" />
+    <Property Name="ClosedDate" Type="datetime" Nullable="false" />
+    <Property Name="OtherInsurer1Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer1Plan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer1PolicyNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer1NameofThePlanMember" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer1Identifier" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer2Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer2Plan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer2PolicyNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer2NameofThePlanMember" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OtherInsurer2Identifier" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseNote">
+    <Key>
+      <PropertyRef Name="CaseNoteID" />
+    </Key>
+    <Property Name="CaseNoteID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="Note" Type="varchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedorUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompletedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="RemiderDate" Type="datetime" />
+    <Property Name="Private" Type="bit" />
+    <Property Name="RemindUserID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CaseProvider">
+    <Key>
+      <PropertyRef Name="CaseProviderID" />
+    </Key>
+    <Property Name="CaseProviderID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CaseType">
+    <Key>
+      <PropertyRef Name="CaseTypeID" />
+    </Key>
+    <Property Name="CaseTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrefixID" Type="bigint" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="60" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="20" />
+    <Property Name="GenderID" Type="bigint" Nullable="false" />
+    <Property Name="DateofBirth" Type="date" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="bigint" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="15" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="15" />
+    <Property Name="PersanalFax" Type="nvarchar" MaxLength="15" />
+    <Property Name="PersonalEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaritalStatusID" Type="bigint" Nullable="false" />
+    <Property Name="SocialInsuranceNumber" Type="nvarchar" MaxLength="10" />
+    <Property Name="HealthCardNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="DriversLicenseNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Height" Type="int" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkPhone" Type="nvarchar" MaxLength="15" />
+    <Property Name="WorkPhoneExtension" Type="nvarchar" MaxLength="10" />
+    <Property Name="WorkFax" Type="nvarchar" MaxLength="15" />
+    <Property Name="WorkEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="Picture" Type="image" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientCase">
+    <Key>
+      <PropertyRef Name="CaseID" />
+    </Key>
+    <Property Name="CaseID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CaseTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReferralDate" Type="date" Nullable="false" />
+    <Property Name="CoordinatorUserID" Type="bigint" Nullable="false" />
+    <Property Name="ClosedDate" Type="date" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientContact">
+    <Key>
+      <PropertyRef Name="ClientContactID" />
+    </Key>
+    <Property Name="ClientContactID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientContactTypeID" Type="bigint" Nullable="false" />
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrefixID" Type="bigint" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="bigint" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PersonalEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="WorkPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="WorkPhoneExtension" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="WorkFax" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="WorkEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClientContactRelationshipID" Type="bigint" Nullable="false" />
+    <Property Name="ClientContactSpecialityID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientContactRelationship">
+    <Key>
+      <PropertyRef Name="ClientContactRelationshipID" />
+    </Key>
+    <Property Name="ClientContactRelationshipID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientContactSpeciality">
+    <Key>
+      <PropertyRef Name="ClientContactSpecialityID" />
+    </Key>
+    <Property Name="ClientContactSpecialityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientContactType">
+    <Key>
+      <PropertyRef Name="ClientContactTypeID" />
+    </Key>
+    <Property Name="ClientContactTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrandeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="bigint" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PhoneExtension" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HCAIFacilityRegistryID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TaxRegistrationNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyBranch">
+    <Key>
+      <PropertyRef Name="CompanyBranchID" />
+    </Key>
+    <Property Name="CompanyBranchID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="TrandeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="bigint" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PhoneExtension" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HCAIFacilityRegistryID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TaxRegistrationNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DayofWeek">
+    <Key>
+      <PropertyRef Name="DayofWeekID" />
+    </Key>
+    <Property Name="DayofWeekID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeID" />
+    </Key>
+    <Property Name="DocumentTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CaseTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Editable" Type="bit" Nullable="false" />
+    <Property Name="Uploadable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoodAndService">
+    <Key>
+      <PropertyRef Name="GoodAndServiceID" />
+    </Key>
+    <Property Name="GoodAndServiceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GoodAndServiceTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fixed" Type="bit" Nullable="false" />
+    <Property Name="GSTHSTVAT" Type="bit" Nullable="false" />
+    <Property Name="PSTOther" Type="bit" Nullable="false" />
+    <Property Name="Fee" Type="money" Nullable="false" />
+    <Property Name="MeasureID" Type="bigint" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoodAndServiceType">
+    <Key>
+      <PropertyRef Name="GoodAndServiceTypeID" />
+    </Key>
+    <Property Name="GoodAndServiceTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InjuryCode">
+    <Key>
+      <PropertyRef Name="InjuryCodeID" />
+    </Key>
+    <Property Name="InjuryCodeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InjuryCodeCategoryTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InjuryCodeCategoryType">
+    <Key>
+      <PropertyRef Name="InjuryCodeCategoryTypeID" />
+    </Key>
+    <Property Name="InjuryCodeCategoryTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InjuryCodeSeriesTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InjuryCodeSeriesType">
+    <Key>
+      <PropertyRef Name="InjuryCodeSeriesTypeID" />
+    </Key>
+    <Property Name="InjuryCodeSeriesTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InsuranceCompany">
+    <Key>
+      <PropertyRef Name="InsuranceCompanyID" />
+    </Key>
+    <Property Name="InsuranceCompanyID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IBCInsurerID" Type="nvarchar" MaxLength="50" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InsuranceCompanyBranch">
+    <Key>
+      <PropertyRef Name="InsuranceCompanyBranchID" />
+    </Key>
+    <Property Name="InsuranceCompanyBranchID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InsuranceCompanyID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="IBCBranchID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProvinceOrStateID" Type="bigint" Nullable="false" />
+    <Property Name="PostalCodeOrZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PhoneExtension" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageID" />
+    </Key>
+    <Property Name="LanguageID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaritalState">
+    <Key>
+      <PropertyRef Name="MaritalStatusID" />
+    </Key>
+    <Property Name="MaritalStatusID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Measure">
+    <Key>
+      <PropertyRef Name="MeasureID" />
+    </Key>
+    <Property Name="MeasureID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeID" />
+    </Key>
+    <Property Name="PaymentTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prefix">
+    <Key>
+      <PropertyRef Name="PrefixID" />
+    </Key>
+    <Property Name="PrefixID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProvinceOrState">
+    <Key>
+      <PropertyRef Name="ProvinceOrStateID" />
+    </Key>
+    <Property Name="ProvinceOrStateID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SkeduleXCM.dbo.SFSAuditActivity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SFSAuditActivity">
+    <Key>
+      <PropertyRef Name="sa_pk" />
+      <PropertyRef Name="sa_us_pk" />
+      <PropertyRef Name="sa_InternalIP" />
+      <PropertyRef Name="sa_ExternalIP" />
+      <PropertyRef Name="sa_FormName" />
+      <PropertyRef Name="sa_Action" />
+      <PropertyRef Name="sa_cust_pk" />
+      <PropertyRef Name="sa_cl_pk" />
+      <PropertyRef Name="sa_Created" />
+      <PropertyRef Name="sa_CreatedBy" />
+      <PropertyRef Name="sa_CreatedorUpdated" />
+      <PropertyRef Name="sa_Version" />
+      <PropertyRef Name="sa_CreatedByorUpdatedBy" />
+    </Key>
+    <Property Name="sa_pk" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sa_us_pk" Type="int" Nullable="false" />
+    <Property Name="sa_InternalIP" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="sa_ExternalIP" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="sa_FormName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="sa_Action" Type="tinyint" Nullable="false" />
+    <Property Name="sa_cust_pk" Type="bigint" Nullable="false" />
+    <Property Name="sa_cl_pk" Type="bigint" Nullable="false" />
+    <Property Name="sa_Created" Type="datetime" Nullable="false" />
+    <Property Name="sa_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="sa_CreatedorUpdated" Type="datetime" Nullable="false" />
+    <Property Name="sa_Version" Type="bigint" Nullable="false" />
+    <Property Name="sa_CreatedByorUpdatedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSAuditDataActions">
+    <Key>
+      <PropertyRef Name="ada_pk" />
+    </Key>
+    <Property Name="ada_pk" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ada_us_pk" Type="int" Nullable="false" />
+    <Property Name="ada_TableName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ada_Action" Type="tinyint" Nullable="false" />
+    <Property Name="ada_Timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSAuditDataFields">
+    <Key>
+      <PropertyRef Name="adf_pk" />
+    </Key>
+    <Property Name="adf_pk" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adf_ada_pk" Type="bigint" Nullable="false" />
+    <Property Name="adf_FieldName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="adf_DataType" Type="int" Nullable="false" />
+    <Property Name="adf_OldValue" Type="varbinary(max)" />
+    <Property Name="adf_NewValue" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="SFSAuditEvents">
+    <Key>
+      <PropertyRef Name="ae_pk" />
+    </Key>
+    <Property Name="ae_pk" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ae_us_pk" Type="int" Nullable="false" />
+    <Property Name="ae_EventKey" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ae_Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ae_Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="ae_Data" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSPermissions">
+    <Key>
+      <PropertyRef Name="pm_pk" />
+    </Key>
+    <Property Name="pm_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pm_sproj_pk" Type="int" Nullable="false" />
+    <Property Name="pm_Key" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pm_Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pm_Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pm_DontAllowReadOnly" Type="bit" Nullable="false" />
+    <Property Name="pm_BlockedAction" Type="int" Nullable="false" />
+    <Property Name="pm_BlockedMsgOrKey" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="pm_AlwaysAuditApp" Type="bit" Nullable="false" />
+    <Property Name="pm_AlwaysAuditData" Type="bit" Nullable="false" />
+    <Property Name="pm_Version" Type="int" Nullable="false" />
+    <Property Name="pm_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="pm_CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSPreferences">
+    <Key>
+      <PropertyRef Name="sp_pk" />
+    </Key>
+    <Property Name="sp_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sp_sproj_pk" Type="int" Nullable="false" />
+    <Property Name="sp_WaitTimeAfterLoginFailure" Type="bigint" Nullable="false" />
+    <Property Name="sp_MaxInvalidLoginAttempts" Type="int" Nullable="false" />
+    <Property Name="sp_MaxInvalidLoginAttemptsTime" Type="bigint" Nullable="false" />
+    <Property Name="sp_PwMinAge" Type="bigint" Nullable="false" />
+    <Property Name="sp_PwMaxAge" Type="bigint" Nullable="false" />
+    <Property Name="sp_PwMaxLength" Type="int" Nullable="false" />
+    <Property Name="sp_PwMinLength" Type="int" Nullable="false" />
+    <Property Name="sp_PwAreComplex" Type="bit" Nullable="false" />
+    <Property Name="sp_PwBeforeRepeat" Type="int" Nullable="false" />
+    <Property Name="sp_SessionTimeout" Type="bigint" Nullable="false" />
+    <Property Name="sp_AllowWindowsAuth" Type="bit" Nullable="false" />
+    <Property Name="sp_Version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSProjects">
+    <Key>
+      <PropertyRef Name="sproj_pk" />
+    </Key>
+    <Property Name="sproj_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sproj_Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="sproj_Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sproj_SecurityKey" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="sproj_CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="sproj_Version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSRestrictionItems">
+    <Key>
+      <PropertyRef Name="ri_pk" />
+    </Key>
+    <Property Name="ri_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ri_rs_pk" Type="int" Nullable="false" />
+    <Property Name="ri_Action" Type="int" Nullable="false" />
+    <Property Name="ri_DaysOfWeek" Type="int" Nullable="false" />
+    <Property Name="ri_StartTime" Type="int" Nullable="false" />
+    <Property Name="ri_EndTime" Type="int" Nullable="false" />
+    <Property Name="ri_Workstation" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ri_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ri_CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="ri_Version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSRestrictions">
+    <Key>
+      <PropertyRef Name="rs_pk" />
+    </Key>
+    <Property Name="rs_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rs_sproj_pk" Type="int" Nullable="false" />
+    <Property Name="rs_Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="rs_Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="rs_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="rs_CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="rs_Version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSRoles">
+    <Key>
+      <PropertyRef Name="rl_pk" />
+    </Key>
+    <Property Name="rl_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rl_sproj_pk" Type="int" Nullable="false" />
+    <Property Name="rl_Role" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="rl_Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="rl_Version" Type="int" Nullable="false" />
+    <Property Name="rl_AlwaysAuditApp" Type="bit" Nullable="false" />
+    <Property Name="rl_AlwaysAuditData" Type="bit" Nullable="false" />
+    <Property Name="rl_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="rl_CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSRolesXPermissions">
+    <Key>
+      <PropertyRef Name="rp_pk" />
+    </Key>
+    <Property Name="rp_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rp_rl_pk" Type="int" Nullable="false" />
+    <Property Name="rp_pm_pk" Type="int" Nullable="false" />
+    <Property Name="rp_Action" Type="int" Nullable="false" />
+    <Property Name="rp_Restriction" Type="int" Nullable="false" />
+    <Property Name="rp_AlwaysAuditApp" Type="bit" Nullable="false" />
+    <Property Name="rp_AlwaysAuditData" Type="bit" Nullable="false" />
+    <Property Name="rp_CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="rp_CreatedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSUsers">
+    <Key>
+      <PropertyRef Name="us_pk" />
+    </Key>
+    <Property Name="us_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="us_sproj_pk" Type="int" Nullable="false" />
+    <Property Name="us_Username" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="us_Data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="us_FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="us_MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="us_LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="us_DisplayName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="us_Version" Type="int" Nullable="false" />
+    <Property Name="us_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="us_CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSUsersXPermissions">
+    <Key>
+      <PropertyRef Name="up_pk" />
+    </Key>
+    <Property Name="up_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="up_us_pk" Type="int" Nullable="false" />
+    <Property Name="up_pm_pk" Type="int" Nullable="false" />
+    <Property Name="up_Action" Type="int" Nullable="false" />
+    <Property Name="up_Restriction" Type="int" Nullable="false" />
+    <Property Name="up_AlwaysAuditApp" Type="bit" Nullable="false" />
+    <Property Name="up_AlwaysAuditData" Type="bit" Nullable="false" />
+    <Property Name="up_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="up_CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SFSUsersXRoles">
+    <Key>
+      <PropertyRef Name="ur_pk" />
+    </Key>
+    <Property Name="ur_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ur_us_pk" Type="int" Nullable="false" />
+    <Property Name="ur_rl_pk" Type="int" Nullable="false" />
+    <Property Name="ur_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ur_CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkedulexMessage">
+    <Key>
+      <PropertyRef Name="sm_pk" />
+    </Key>
+    <Property Name="sm_pk" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sm_cust_pk" Type="bigint" Nullable="false" />
+    <Property Name="sm_Subject" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="sm_Note" Type="varchar(max)" Nullable="false" />
+    <Property Name="sm_IsActive" Type="bit" Nullable="false" />
+    <Property Name="sm_CreatedorUpdated" Type="datetime" Nullable="false" />
+    <Property Name="sm_Version" Type="bigint" Nullable="false" />
+    <Property Name="sm_CreatedByorUpdatedBy" Type="int" Nullable="false" />
+    <Property Name="sm_Remind_us_pk" Type="int" Nullable="false" />
+    <Property Name="sm_Created" Type="datetime" Nullable="false" />
+    <Property Name="sm_CreatedBy" Type="int" Nullable="false" />
+    <Property Name="sm_cl_pk" Type="bigint" Nullable="false" />
+    <Property Name="sm_IsPriority" Type="bit" Nullable="false" />
+    <Property Name="sm_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sm_Related_pk" Type="bigint" Nullable="false" />
+    <Property Name="sm_IsRead" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StandardInvoice">
+    <Key>
+      <PropertyRef Name="StandardInvoiceID" />
+    </Key>
+    <Property Name="StandardInvoiceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubTotal" Type="money" Nullable="false" />
+    <Property Name="GSTHSTVAT" Type="money" Nullable="false" />
+    <Property Name="PSTOther" Type="money" Nullable="false" />
+    <Property Name="InterestProposed" Type="money" Nullable="false" />
+    <Property Name="MOH" Type="money" Nullable="false" />
+    <Property Name="OtherInsurer" Type="money" Nullable="false" />
+    <Property Name="Total" Type="money" Nullable="false" />
+    <Property Name="AdditionalComments" Type="nvarchar" MaxLength="3500" Nullable="false" />
+    <Property Name="SyncToQB" Type="bit" Nullable="false" />
+    <Property Name="Void" Type="bit" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StandardInvoiceLineItem">
+    <Key>
+      <PropertyRef Name="StandardInvoiceLineItemID" />
+    </Key>
+    <Property Name="StandardInvoiceLineItemID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GoodAndServiceID" Type="bigint" Nullable="false" />
+    <Property Name="AppointmentResourceID" Type="bigint" Nullable="false" />
+    <Property Name="Attribute" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="MeasureID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfService" Type="datetime" Nullable="false" />
+    <Property Name="GSTHSTVAT" Type="bit" Nullable="false" />
+    <Property Name="PSTOther" Type="bit" Nullable="false" />
+    <Property Name="LineCost" Type="money" Nullable="false" />
+    <Property Name="Void" Type="bit" Nullable="false" />
+    <Property Name="StandardInvoiceID" Type="bigint" Nullable="false" />
+    <Property Name="CaseManagementID" Type="bigint" Nullable="false" />
+    <Property Name="ActivityBookingID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StandardInvoicePayment">
+    <Key>
+      <PropertyRef Name="StandardInvoicePaymentID" />
+    </Key>
+    <Property Name="StandardInvoicePaymentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StandardInvoiceID" Type="bigint" Nullable="false" />
+    <Property Name="PaymentTypeID" Type="bigint" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="PaymentDate" Type="datetime" Nullable="false" />
+    <Property Name="Void" Type="bit" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserExtendedInformation">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="JobTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Ext" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OtherPhone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PreferredTheme" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="By" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOrUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ActivityBooking_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="ActivityBooking" Type="Self.ActivityBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="ActivityBooking">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityBooking_CaseActivity">
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="1" />
+    <End Role="ActivityBooking" Type="Self.ActivityBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseActivity">
+        <PropertyRef Name="CaseActivityID" />
+      </Principal>
+      <Dependent Role="ActivityBooking">
+        <PropertyRef Name="CaseActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityBooking_GoodAndService">
+    <End Role="GoodAndService" Type="Self.GoodAndService" Multiplicity="1" />
+    <End Role="ActivityBooking" Type="Self.ActivityBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodAndService">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Principal>
+      <Dependent Role="ActivityBooking">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityType_ActivitySubType">
+    <End Role="ActivitySubType" Type="Self.ActivitySubType" Multiplicity="1" />
+    <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivitySubType">
+        <PropertyRef Name="ActivitySubTypeID" />
+      </Principal>
+      <Dependent Role="ActivityType">
+        <PropertyRef Name="ActivitySubTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adjuster_InsuranceCompanyBranch">
+    <End Role="InsuranceCompanyBranch" Type="Self.InsuranceCompanyBranch" Multiplicity="1" />
+    <End Role="Adjuster" Type="Self.Adjuster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuranceCompanyBranch">
+        <PropertyRef Name="InsuranceCompanyBranchID" />
+      </Principal>
+      <Dependent Role="Adjuster">
+        <PropertyRef Name="InsuranceCompanyBranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResource_AppointmentResourceBookingType">
+    <End Role="AppointmentResourceBookingType" Type="Self.AppointmentResourceBookingType" Multiplicity="1" />
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResourceBookingType">
+        <PropertyRef Name="AppointmentResourceBookingTypeID" />
+      </Principal>
+      <Dependent Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceBookingTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResource_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="AppointmentResource">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResource_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="AppointmentResource">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResourceAvailableTime_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="0..1" />
+    <End Role="AppointmentResourceAvailableTime" Type="Self.AppointmentResourceAvailableTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="AppointmentResourceAvailableTime">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResourceAvailableTime_DayofWeek">
+    <End Role="DayofWeek" Type="Self.DayofWeek" Multiplicity="1" />
+    <End Role="AppointmentResourceAvailableTime" Type="Self.AppointmentResourceAvailableTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DayofWeek">
+        <PropertyRef Name="DayofWeekID" />
+      </Principal>
+      <Dependent Role="AppointmentResourceAvailableTime">
+        <PropertyRef Name="DayofWeekID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppointmentResourceDayOff_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="AppointmentResourceDayOff" Type="Self.AppointmentResourceDayOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="AppointmentResourceDayOff">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Case_CaseType">
+    <End Role="CaseType" Type="Self.CaseType" Multiplicity="1" />
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseType">
+        <PropertyRef Name="CaseTypeID" />
+      </Principal>
+      <Dependent Role="ClientCase">
+        <PropertyRef Name="CaseTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Case_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="ClientCase">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Case_User">
+    <End Role="UserExtendedInformation" Type="Self.UserExtendedInformation" Multiplicity="1" />
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserExtendedInformation">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ClientCase">
+        <PropertyRef Name="CoordinatorUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseActivity_ActivityType">
+    <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1" />
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityType">
+        <PropertyRef Name="ActivityTypeID" />
+      </Principal>
+      <Dependent Role="CaseActivity">
+        <PropertyRef Name="ActivityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseActivity_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseActivity">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseBenefit_BenefitType">
+    <End Role="BenefitType" Type="Self.BenefitType" Multiplicity="1" />
+    <End Role="CaseBenefit" Type="Self.CaseBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BenefitType">
+        <PropertyRef Name="BenefitTypeID" />
+      </Principal>
+      <Dependent Role="CaseBenefit">
+        <PropertyRef Name="BenefitTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseBenefit_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseBenefit" Type="Self.CaseBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseBenefit">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_CaseContactRelationship">
+    <End Role="CaseContactRelationship" Type="Self.CaseContactRelationship" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseContactRelationship">
+        <PropertyRef Name="CaseContactRelationshipID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseContactRelationshipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_CaseContactSpeciality">
+    <End Role="CaseContactSpeciality" Type="Self.CaseContactSpeciality" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseContactSpeciality">
+        <PropertyRef Name="CaseContactSpecialityID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseContactSpecialityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_CaseContactType">
+    <End Role="CaseContactType" Type="Self.CaseContactType" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseContactType">
+        <PropertyRef Name="CaseContactTypeID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CaseContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_Prefix">
+    <End Role="Prefix" Type="Self.Prefix" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prefix">
+        <PropertyRef Name="PrefixID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="PrefixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseContact_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="CaseContact" Type="Self.CaseContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="CaseContact">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseInjury_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseInjury" Type="Self.CaseInjury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseInjury">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseInjury_InjuryCode">
+    <End Role="InjuryCode" Type="Self.InjuryCode" Multiplicity="1" />
+    <End Role="CaseInjury" Type="Self.CaseInjury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InjuryCode">
+        <PropertyRef Name="InjuryCodeID" />
+      </Principal>
+      <Dependent Role="CaseInjury">
+        <PropertyRef Name="InjuryCodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_CaseActivity">
+    <End Role="CaseActivity" Type="Self.CaseActivity" Multiplicity="0..1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseActivity">
+        <PropertyRef Name="CaseActivityID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="CaseActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="DocumentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_GoodAndService">
+    <End Role="GoodAndService" Type="Self.GoodAndService" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodAndService">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="GoodAndServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagement_Measure">
+    <End Role="Measure" Type="Self.Measure" Multiplicity="1" />
+    <End Role="CaseManagement" Type="Self.CaseManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Measure">
+        <PropertyRef Name="MeasureID" />
+      </Principal>
+      <Dependent Role="CaseManagement">
+        <PropertyRef Name="MeasureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseMVA_Adjuster">
+    <End Role="Adjuster" Type="Self.Adjuster" Multiplicity="1" />
+    <End Role="CaseMVA" Type="Self.CaseMVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adjuster">
+        <PropertyRef Name="AdjusterID" />
+      </Principal>
+      <Dependent Role="CaseMVA">
+        <PropertyRef Name="AdjusterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseMVA_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseMVA" Type="Self.CaseMVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseMVA">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseMVA_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="CaseMVA" Type="Self.CaseMVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="CaseMVA">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseNote_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseNote" Type="Self.CaseNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseNote">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseProvider_AppointmentResource">
+    <End Role="AppointmentResource" Type="Self.AppointmentResource" Multiplicity="1" />
+    <End Role="CaseProvider" Type="Self.CaseProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppointmentResource">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Principal>
+      <Dependent Role="CaseProvider">
+        <PropertyRef Name="AppointmentResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseProvider_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="CaseProvider" Type="Self.CaseProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="CaseProvider">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_MaritalStatus">
+    <End Role="MaritalState" Type="Self.MaritalState" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalState">
+        <PropertyRef Name="MaritalStatusID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Prefix">
+    <End Role="Prefix" Type="Self.Prefix" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prefix">
+        <PropertyRef Name="PrefixID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="PrefixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ClientContactRelationship">
+    <End Role="ClientContactRelationship" Type="Self.ClientContactRelationship" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientContactRelationship">
+        <PropertyRef Name="ClientContactRelationshipID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientContactRelationshipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ClientContactSpeciality">
+    <End Role="ClientContactSpeciality" Type="Self.ClientContactSpeciality" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientContactSpeciality">
+        <PropertyRef Name="ClientContactSpecialityID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientContactSpecialityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ClientContactType">
+    <End Role="ClientContactType" Type="Self.ClientContactType" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientContactType">
+        <PropertyRef Name="ClientContactTypeID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ClientContactTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_Prefix">
+    <End Role="Prefix" Type="Self.Prefix" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prefix">
+        <PropertyRef Name="PrefixID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="PrefixID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientContact_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="ClientContact" Type="Self.ClientContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="ClientContact">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBranch_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="CompanyBranch" Type="Self.CompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="CompanyBranch">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBranch_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="CompanyBranch" Type="Self.CompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="CompanyBranch">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBranch_ProvinceOrState">
+    <End Role="ProvinceOrState" Type="Self.ProvinceOrState" Multiplicity="1" />
+    <End Role="CompanyBranch" Type="Self.CompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinceOrState">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Principal>
+      <Dependent Role="CompanyBranch">
+        <PropertyRef Name="ProvinceOrStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentType_CaseType">
+    <End Role="CaseType" Type="Self.CaseType" Multiplicity="1" />
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaseType">
+        <PropertyRef Name="CaseTypeID" />
+      </Principal>
+      <Dependent Role="DocumentType">
+        <PropertyRef Name="CaseTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GoodAndService_GoodAndServiceType">
+    <End Role="GoodAndServiceType" Type="Self.GoodAndServiceType" Multiplicity="1" />
+    <End Role="GoodAndService" Type="Self.GoodAndService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodAndServiceType">
+        <PropertyRef Name="GoodAndServiceTypeID" />
+      </Principal>
+      <Dependent Role="GoodAndService">
+        <PropertyRef Name="GoodAndServiceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InjuryCode_InjuryCodeCategoryType">
+    <End Role="InjuryCodeCategoryType" Type="Self.InjuryCodeCategoryType" Multiplicity="1" />
+    <End Role="InjuryCode" Type="Self.InjuryCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InjuryCodeCategoryType">
+        <PropertyRef Name="InjuryCodeCategoryTypeID" />
+      </Principal>
+      <Dependent Role="InjuryCode">
+        <PropertyRef Name="InjuryCodeCategoryTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InjuryCodeCategoryType_InjuryCodeSeriesType">
+    <End Role="InjuryCodeSeriesType" Type="Self.InjuryCodeSeriesType" Multiplicity="1" />
+    <End Role="InjuryCodeCategoryType" Type="Self.InjuryCodeCategoryType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InjuryCodeSeriesType">
+        <PropertyRef Name="InjuryCodeSeriesTypeID" />
+      </Principal>
+      <Dependent Role="InjuryCodeCategoryType">
+        <PropertyRef Name="InjuryCodeSeriesTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InsuranceCompanyBranch_InsuranceCompany">
+    <End Role="InsuranceCompany" Type="Self.InsuranceCompany" Multiplicity="1" />
+    <End Role="InsuranceCompanyBranch" Type="Self.InsuranceCompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuranceCompany">
+        <PropertyRef Name="InsuranceCompanyID" />
+      </Principal>
+      <Dependent Role="InsuranceCompanyBranch">
+        <PropertyRef Name="InsuranceCompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSAuditDataActions_SFSAuditDataFields">
+    <End Role="SFSAuditDataActions" Type="Self.SFSAuditDataActions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSAuditDataFields" Type="Self.SFSAuditDataFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSAuditDataActions">
+        <PropertyRef Name="ada_pk" />
+      </Principal>
+      <Dependent Role="SFSAuditDataFields">
+        <PropertyRef Name="adf_ada_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSPermissions_SFSRolesXPermissions">
+    <End Role="SFSPermissions" Type="Self.SFSPermissions" Multiplicity="1" />
+    <End Role="SFSRolesXPermissions" Type="Self.SFSRolesXPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSPermissions">
+        <PropertyRef Name="pm_pk" />
+      </Principal>
+      <Dependent Role="SFSRolesXPermissions">
+        <PropertyRef Name="rp_pm_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSPermissions_SFSUsersXPermissions">
+    <End Role="SFSPermissions" Type="Self.SFSPermissions" Multiplicity="1" />
+    <End Role="SFSUsersXPermissions" Type="Self.SFSUsersXPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSPermissions">
+        <PropertyRef Name="pm_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXPermissions">
+        <PropertyRef Name="up_pm_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSRestrictions_SFSRestrictionItems">
+    <End Role="SFSRestrictions" Type="Self.SFSRestrictions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSRestrictionItems" Type="Self.SFSRestrictionItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSRestrictions">
+        <PropertyRef Name="rs_pk" />
+      </Principal>
+      <Dependent Role="SFSRestrictionItems">
+        <PropertyRef Name="ri_rs_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSRoles_SFSRolesXPermissions">
+    <End Role="SFSRoles" Type="Self.SFSRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSRolesXPermissions" Type="Self.SFSRolesXPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSRoles">
+        <PropertyRef Name="rl_pk" />
+      </Principal>
+      <Dependent Role="SFSRolesXPermissions">
+        <PropertyRef Name="rp_rl_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSRoles_SFSUsersXRoles">
+    <End Role="SFSRoles" Type="Self.SFSRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSUsersXRoles" Type="Self.SFSUsersXRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSRoles">
+        <PropertyRef Name="rl_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXRoles">
+        <PropertyRef Name="ur_rl_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSUsers_SFSUsersXPermissions">
+    <End Role="SFSUsers" Type="Self.SFSUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SFSUsersXPermissions" Type="Self.SFSUsersXPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSUsers">
+        <PropertyRef Name="us_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXPermissions">
+        <PropertyRef Name="up_us_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SFSUsers_SFSUsersXRoles">
+    <End Role="SFSUsers" Type="Self.SFSUsers" Multiplicity="1" />
+    <End Role="SFSUsersXRoles" Type="Self.SFSUsersXRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SFSUsers">
+        <PropertyRef Name="us_pk" />
+      </Principal>
+      <Dependent Role="SFSUsersXRoles">
+        <PropertyRef Name="ur_us_pk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoice_Case">
+    <End Role="ClientCase" Type="Self.ClientCase" Multiplicity="1" />
+    <End Role="StandardInvoice" Type="Self.StandardInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientCase">
+        <PropertyRef Name="CaseID" />
+      </Principal>
+      <Dependent Role="StandardInvoice">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoiceLineItem_StandardInvoice">
+    <End Role="StandardInvoice" Type="Self.StandardInvoice" Multiplicity="1" />
+    <End Role="StandardInvoiceLineItem" Type="Self.StandardInvoiceLineItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardInvoice">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Principal>
+      <Dependent Role="StandardInvoiceLineItem">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoicePayment_PaymentType">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+    <End Role="StandardInvoicePayment" Type="Self.StandardInvoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="StandardInvoicePayment">
+        <PropertyRef Name="PaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardInvoicePayment_StandardInvoice">
+    <End Role="StandardInvoice" Type="Self.StandardInvoice" Multiplicity="1" />
+    <End Role="StandardInvoicePayment" Type="Self.StandardInvoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardInvoice">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Principal>
+      <Dependent Role="StandardInvoicePayment">
+        <PropertyRef Name="StandardInvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ICMModelStoreContainer">
+    <EntitySet Name="ActivityBooking" EntityType="Self.ActivityBooking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivityBookingBookingType" EntityType="Self.ActivityBookingBookingType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivityBookingType" EntityType="Self.ActivityBookingType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivitySubType" EntityType="Self.ActivitySubType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivityType" EntityType="Self.ActivityType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Adjuster" EntityType="Self.Adjuster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResource" EntityType="Self.AppointmentResource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceAvailableTime" EntityType="Self.AppointmentResourceAvailableTime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceBookingType" EntityType="Self.AppointmentResourceBookingType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceChargeOutRate" EntityType="Self.AppointmentResourceChargeOutRate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceChargeOutType" EntityType="Self.AppointmentResourceChargeOutType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceDayOff" EntityType="Self.AppointmentResourceDayOff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceNationalHoliday" EntityType="Self.AppointmentResourceNationalHoliday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceResourceType" EntityType="Self.AppointmentResourceResourceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentResourceType" EntityType="Self.AppointmentResourceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BenefitType" EntityType="Self.BenefitType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseActivity" EntityType="Self.CaseActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseBenefit" EntityType="Self.CaseBenefit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseContact" EntityType="Self.CaseContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseContactRelationship" EntityType="Self.CaseContactRelationship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseContactSpeciality" EntityType="Self.CaseContactSpeciality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseContactType" EntityType="Self.CaseContactType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseInjury" EntityType="Self.CaseInjury" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseManagement" EntityType="Self.CaseManagement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseMVA" EntityType="Self.CaseMVA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseNote" EntityType="Self.CaseNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseProvider" EntityType="Self.CaseProvider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaseType" EntityType="Self.CaseType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientCase" EntityType="Self.ClientCase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientContact" EntityType="Self.ClientContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientContactRelationship" EntityType="Self.ClientContactRelationship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientContactSpeciality" EntityType="Self.ClientContactSpeciality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientContactType" EntityType="Self.ClientContactType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyBranch" EntityType="Self.CompanyBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DayofWeek" EntityType="Self.DayofWeek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoodAndService" EntityType="Self.GoodAndService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoodAndServiceType" EntityType="Self.GoodAndServiceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InjuryCode" EntityType="Self.InjuryCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InjuryCodeCategoryType" EntityType="Self.InjuryCodeCategoryType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InjuryCodeSeriesType" EntityType="Self.InjuryCodeSeriesType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuranceCompany" EntityType="Self.InsuranceCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuranceCompanyBranch" EntityType="Self.InsuranceCompanyBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaritalState" EntityType="Self.MaritalState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Measure" EntityType="Self.Measure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prefix" EntityType="Self.Prefix" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProvinceOrState" EntityType="Self.ProvinceOrState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSAuditDataActions" EntityType="Self.SFSAuditDataActions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSAuditDataFields" EntityType="Self.SFSAuditDataFields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSAuditEvents" EntityType="Self.SFSAuditEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSPermissions" EntityType="Self.SFSPermissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSPreferences" EntityType="Self.SFSPreferences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSProjects" EntityType="Self.SFSProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSRestrictionItems" EntityType="Self.SFSRestrictionItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSRestrictions" EntityType="Self.SFSRestrictions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSRoles" EntityType="Self.SFSRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSRolesXPermissions" EntityType="Self.SFSRolesXPermissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSUsers" EntityType="Self.SFSUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSUsersXPermissions" EntityType="Self.SFSUsersXPermissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSUsersXRoles" EntityType="Self.SFSUsersXRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkedulexMessage" EntityType="Self.SkedulexMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StandardInvoice" EntityType="Self.StandardInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StandardInvoiceLineItem" EntityType="Self.StandardInvoiceLineItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StandardInvoicePayment" EntityType="Self.StandardInvoicePayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserExtendedInformation" EntityType="Self.UserExtendedInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SFSAuditActivity" EntityType="Self.SFSAuditActivity" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SFSAuditActivity].[sa_pk] AS [sa_pk], 
+    [SFSAuditActivity].[sa_us_pk] AS [sa_us_pk], 
+    [SFSAuditActivity].[sa_InternalIP] AS [sa_InternalIP], 
+    [SFSAuditActivity].[sa_ExternalIP] AS [sa_ExternalIP], 
+    [SFSAuditActivity].[sa_FormName] AS [sa_FormName], 
+    [SFSAuditActivity].[sa_Action] AS [sa_Action], 
+    [SFSAuditActivity].[sa_cust_pk] AS [sa_cust_pk], 
+    [SFSAuditActivity].[sa_cl_pk] AS [sa_cl_pk], 
+    [SFSAuditActivity].[sa_Created] AS [sa_Created], 
+    [SFSAuditActivity].[sa_CreatedBy] AS [sa_CreatedBy], 
+    [SFSAuditActivity].[sa_CreatedorUpdated] AS [sa_CreatedorUpdated], 
+    [SFSAuditActivity].[sa_Version] AS [sa_Version], 
+    [SFSAuditActivity].[sa_CreatedByorUpdatedBy] AS [sa_CreatedByorUpdatedBy]
+    FROM [dbo].[SFSAuditActivity] AS [SFSAuditActivity]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ActivityBooking_AppointmentResource" Association="Self.FK_ActivityBooking_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+      <End Role="ActivityBooking" EntitySet="ActivityBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityBooking_CaseActivity" Association="Self.FK_ActivityBooking_CaseActivity">
+      <End Role="CaseActivity" EntitySet="CaseActivity" />
+      <End Role="ActivityBooking" EntitySet="ActivityBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityBooking_GoodAndService" Association="Self.FK_ActivityBooking_GoodAndService">
+      <End Role="GoodAndService" EntitySet="GoodAndService" />
+      <End Role="ActivityBooking" EntitySet="ActivityBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityType_ActivitySubType" Association="Self.FK_ActivityType_ActivitySubType">
+      <End Role="ActivitySubType" EntitySet="ActivitySubType" />
+      <End Role="ActivityType" EntitySet="ActivityType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adjuster_InsuranceCompanyBranch" Association="Self.FK_Adjuster_InsuranceCompanyBranch">
+      <End Role="InsuranceCompanyBranch" EntitySet="InsuranceCompanyBranch" />
+      <End Role="Adjuster" EntitySet="Adjuster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResource_AppointmentResourceBookingType" Association="Self.FK_AppointmentResource_AppointmentResourceBookingType">
+      <End Role="AppointmentResourceBookingType" EntitySet="AppointmentResourceBookingType" />
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResource_Country" Association="Self.FK_AppointmentResource_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResource_ProvinceOrState" Association="Self.FK_AppointmentResource_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrState" />
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResourceAvailableTime_AppointmentResource" Association="Self.FK_AppointmentResourceAvailableTime_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+      <End Role="AppointmentResourceAvailableTime" EntitySet="AppointmentResourceAvailableTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResourceAvailableTime_DayofWeek" Association="Self.FK_AppointmentResourceAvailableTime_DayofWeek">
+      <End Role="DayofWeek" EntitySet="DayofWeek" />
+      <End Role="AppointmentResourceAvailableTime" EntitySet="AppointmentResourceAvailableTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppointmentResourceDayOff_AppointmentResource" Association="Self.FK_AppointmentResourceDayOff_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+      <End Role="AppointmentResourceDayOff" EntitySet="AppointmentResourceDayOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Case_CaseType" Association="Self.FK_Case_CaseType">
+      <End Role="CaseType" EntitySet="CaseType" />
+      <End Role="ClientCase" EntitySet="ClientCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Case_Client" Association="Self.FK_Case_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ClientCase" EntitySet="ClientCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Case_User" Association="Self.FK_Case_User">
+      <End Role="UserExtendedInformation" EntitySet="UserExtendedInformation" />
+      <End Role="ClientCase" EntitySet="ClientCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseActivity_ActivityType" Association="Self.FK_CaseActivity_ActivityType">
+      <End Role="ActivityType" EntitySet="ActivityType" />
+      <End Role="CaseActivity" EntitySet="CaseActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseActivity_Case" Association="Self.FK_CaseActivity_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseActivity" EntitySet="CaseActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseBenefit_BenefitType" Association="Self.FK_CaseBenefit_BenefitType">
+      <End Role="BenefitType" EntitySet="BenefitType" />
+      <End Role="CaseBenefit" EntitySet="CaseBenefit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseBenefit_Case" Association="Self.FK_CaseBenefit_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseBenefit" EntitySet="CaseBenefit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_Case" Association="Self.FK_CaseContact_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseContact" EntitySet="CaseContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_CaseContactRelationship" Association="Self.FK_CaseContact_CaseContactRelationship">
+      <End Role="CaseContactRelationship" EntitySet="CaseContactRelationship" />
+      <End Role="CaseContact" EntitySet="CaseContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_CaseContactSpeciality" Association="Self.FK_CaseContact_CaseContactSpeciality">
+      <End Role="CaseContactSpeciality" EntitySet="CaseContactSpeciality" />
+      <End Role="CaseContact" EntitySet="CaseContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_CaseContactType" Association="Self.FK_CaseContact_CaseContactType">
+      <End Role="CaseContactType" EntitySet="CaseContactType" />
+      <End Role="CaseContact" EntitySet="CaseContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_Country" Association="Self.FK_CaseContact_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="CaseContact" EntitySet="CaseContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_Prefix" Association="Self.FK_CaseContact_Prefix">
+      <End Role="Prefix" EntitySet="Prefix" />
+      <End Role="CaseContact" EntitySet="CaseContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseContact_ProvinceOrState" Association="Self.FK_CaseContact_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrState" />
+      <End Role="CaseContact" EntitySet="CaseContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseInjury_Case" Association="Self.FK_CaseInjury_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseInjury" EntitySet="CaseInjury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseInjury_InjuryCode" Association="Self.FK_CaseInjury_InjuryCode">
+      <End Role="InjuryCode" EntitySet="InjuryCode" />
+      <End Role="CaseInjury" EntitySet="CaseInjury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_AppointmentResource" Association="Self.FK_CaseManagement_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+      <End Role="CaseManagement" EntitySet="CaseManagement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_Case" Association="Self.FK_CaseManagement_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseManagement" EntitySet="CaseManagement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_CaseActivity" Association="Self.FK_CaseManagement_CaseActivity">
+      <End Role="CaseActivity" EntitySet="CaseActivity" />
+      <End Role="CaseManagement" EntitySet="CaseManagement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_DocumentType" Association="Self.FK_CaseManagement_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="CaseManagement" EntitySet="CaseManagement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_GoodAndService" Association="Self.FK_CaseManagement_GoodAndService">
+      <End Role="GoodAndService" EntitySet="GoodAndService" />
+      <End Role="CaseManagement" EntitySet="CaseManagement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagement_Measure" Association="Self.FK_CaseManagement_Measure">
+      <End Role="Measure" EntitySet="Measure" />
+      <End Role="CaseManagement" EntitySet="CaseManagement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseMVA_Adjuster" Association="Self.FK_CaseMVA_Adjuster">
+      <End Role="Adjuster" EntitySet="Adjuster" />
+      <End Role="CaseMVA" EntitySet="CaseMVA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseMVA_Case" Association="Self.FK_CaseMVA_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseMVA" EntitySet="CaseMVA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseMVA_Language" Association="Self.FK_CaseMVA_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="CaseMVA" EntitySet="CaseMVA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseNote_Case" Association="Self.FK_CaseNote_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseNote" EntitySet="CaseNote" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseProvider_AppointmentResource" Association="Self.FK_CaseProvider_AppointmentResource">
+      <End Role="AppointmentResource" EntitySet="AppointmentResource" />
+      <End Role="CaseProvider" EntitySet="CaseProvider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseProvider_Case" Association="Self.FK_CaseProvider_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="CaseProvider" EntitySet="CaseProvider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Country" Association="Self.FK_Client_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_MaritalStatus" Association="Self.FK_Client_MaritalStatus">
+      <End Role="MaritalState" EntitySet="MaritalState" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Prefix" Association="Self.FK_Client_Prefix">
+      <End Role="Prefix" EntitySet="Prefix" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_ProvinceOrState" Association="Self.FK_Client_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrState" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_Client" Association="Self.FK_ClientContact_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ClientContactRelationship" Association="Self.FK_ClientContact_ClientContactRelationship">
+      <End Role="ClientContactRelationship" EntitySet="ClientContactRelationship" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ClientContactSpeciality" Association="Self.FK_ClientContact_ClientContactSpeciality">
+      <End Role="ClientContactSpeciality" EntitySet="ClientContactSpeciality" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ClientContactType" Association="Self.FK_ClientContact_ClientContactType">
+      <End Role="ClientContactType" EntitySet="ClientContactType" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_Country" Association="Self.FK_ClientContact_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_Prefix" Association="Self.FK_ClientContact_Prefix">
+      <End Role="Prefix" EntitySet="Prefix" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientContact_ProvinceOrState" Association="Self.FK_ClientContact_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrState" />
+      <End Role="ClientContact" EntitySet="ClientContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_Country" Association="Self.FK_Company_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_ProvinceOrState" Association="Self.FK_Company_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrState" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBranch_Company" Association="Self.FK_CompanyBranch_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="CompanyBranch" EntitySet="CompanyBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBranch_Country" Association="Self.FK_CompanyBranch_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="CompanyBranch" EntitySet="CompanyBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBranch_ProvinceOrState" Association="Self.FK_CompanyBranch_ProvinceOrState">
+      <End Role="ProvinceOrState" EntitySet="ProvinceOrState" />
+      <End Role="CompanyBranch" EntitySet="CompanyBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentType_CaseType" Association="Self.FK_DocumentType_CaseType">
+      <End Role="CaseType" EntitySet="CaseType" />
+      <End Role="DocumentType" EntitySet="DocumentType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GoodAndService_GoodAndServiceType" Association="Self.FK_GoodAndService_GoodAndServiceType">
+      <End Role="GoodAndServiceType" EntitySet="GoodAndServiceType" />
+      <End Role="GoodAndService" EntitySet="GoodAndService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InjuryCode_InjuryCodeCategoryType" Association="Self.FK_InjuryCode_InjuryCodeCategoryType">
+      <End Role="InjuryCodeCategoryType" EntitySet="InjuryCodeCategoryType" />
+      <End Role="InjuryCode" EntitySet="InjuryCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InjuryCodeCategoryType_InjuryCodeSeriesType" Association="Self.FK_InjuryCodeCategoryType_InjuryCodeSeriesType">
+      <End Role="InjuryCodeSeriesType" EntitySet="InjuryCodeSeriesType" />
+      <End Role="InjuryCodeCategoryType" EntitySet="InjuryCodeCategoryType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InsuranceCompanyBranch_InsuranceCompany" Association="Self.FK_InsuranceCompanyBranch_InsuranceCompany">
+      <End Role="InsuranceCompany" EntitySet="InsuranceCompany" />
+      <End Role="InsuranceCompanyBranch" EntitySet="InsuranceCompanyBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSAuditDataActions_SFSAuditDataFields" Association="Self.FK_SFSAuditDataActions_SFSAuditDataFields">
+      <End Role="SFSAuditDataActions" EntitySet="SFSAuditDataActions" />
+      <End Role="SFSAuditDataFields" EntitySet="SFSAuditDataFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSPermissions_SFSRolesXPermissions" Association="Self.FK_SFSPermissions_SFSRolesXPermissions">
+      <End Role="SFSPermissions" EntitySet="SFSPermissions" />
+      <End Role="SFSRolesXPermissions" EntitySet="SFSRolesXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSPermissions_SFSUsersXPermissions" Association="Self.FK_SFSPermissions_SFSUsersXPermissions">
+      <End Role="SFSPermissions" EntitySet="SFSPermissions" />
+      <End Role="SFSUsersXPermissions" EntitySet="SFSUsersXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSRestrictions_SFSRestrictionItems" Association="Self.FK_SFSRestrictions_SFSRestrictionItems">
+      <End Role="SFSRestrictions" EntitySet="SFSRestrictions" />
+      <End Role="SFSRestrictionItems" EntitySet="SFSRestrictionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSRoles_SFSRolesXPermissions" Association="Self.FK_SFSRoles_SFSRolesXPermissions">
+      <End Role="SFSRoles" EntitySet="SFSRoles" />
+      <End Role="SFSRolesXPermissions" EntitySet="SFSRolesXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSRoles_SFSUsersXRoles" Association="Self.FK_SFSRoles_SFSUsersXRoles">
+      <End Role="SFSRoles" EntitySet="SFSRoles" />
+      <End Role="SFSUsersXRoles" EntitySet="SFSUsersXRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSUsers_SFSUsersXPermissions" Association="Self.FK_SFSUsers_SFSUsersXPermissions">
+      <End Role="SFSUsers" EntitySet="SFSUsers" />
+      <End Role="SFSUsersXPermissions" EntitySet="SFSUsersXPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SFSUsers_SFSUsersXRoles" Association="Self.FK_SFSUsers_SFSUsersXRoles">
+      <End Role="SFSUsers" EntitySet="SFSUsers" />
+      <End Role="SFSUsersXRoles" EntitySet="SFSUsersXRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoice_Case" Association="Self.FK_StandardInvoice_Case">
+      <End Role="ClientCase" EntitySet="ClientCase" />
+      <End Role="StandardInvoice" EntitySet="StandardInvoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoiceLineItem_StandardInvoice" Association="Self.FK_StandardInvoiceLineItem_StandardInvoice">
+      <End Role="StandardInvoice" EntitySet="StandardInvoice" />
+      <End Role="StandardInvoiceLineItem" EntitySet="StandardInvoiceLineItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoicePayment_PaymentType" Association="Self.FK_StandardInvoicePayment_PaymentType">
+      <End Role="PaymentType" EntitySet="PaymentType" />
+      <End Role="StandardInvoicePayment" EntitySet="StandardInvoicePayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardInvoicePayment_StandardInvoice" Association="Self.FK_StandardInvoicePayment_StandardInvoice">
+      <End Role="StandardInvoice" EntitySet="StandardInvoice" />
+      <End Role="StandardInvoicePayment" EntitySet="StandardInvoicePayment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
